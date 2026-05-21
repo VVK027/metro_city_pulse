@@ -42,8 +42,19 @@ class BottomNavigationWidget extends ConsumerWidget {
         ),
         BottomNavigationBarItem(
           icon: AppImage(
-            theme.assets.alertsIcon,
+            theme.assets.statsIcon,
             color: currentIndex == 1
+                ? theme.colors.selectedColor
+                : theme.colors.unSelectedColor,
+            width: iconSize,
+            height: iconSize,
+          ),
+          label: 'stats'.tr(ref).toAllCapitalize(),
+        ),
+        BottomNavigationBarItem(
+          icon: AppImage(
+            theme.assets.alertsIcon,
+            color: currentIndex == 2
                 ? theme.colors.selectedColor
                 : theme.colors.unSelectedColor,
             width: iconSize,
@@ -54,7 +65,7 @@ class BottomNavigationWidget extends ConsumerWidget {
         BottomNavigationBarItem(
           icon: AppImage(
             theme.assets.chatbotIcon,
-            color: currentIndex == 2
+            color: currentIndex == 3
                 ? theme.colors.selectedColor
                 : theme.colors.unSelectedColor,
             width: iconSize,

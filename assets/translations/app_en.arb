@@ -31,12 +31,15 @@
   "yesterday": "Yesterday",
   "last_week": "Last Week",
   "last_month": "Last Month",
+  "vs_last_month": "vs last month",
   "last_quarter": "Last Quarter",
   "reset": "Reset",
   "cancel": "Cancel",
   "apply": "Apply",
   "details": "Details"
   ,"stats": "Stats"
+  ,"notifications": "Notifications"
+  ,"no_new_notifications": "No new notifications"
   ,"chat_ai": "Chat AI"
   ,"live": "Live"
   ,"minutes_short": "Min"
@@ -96,4 +99,9 @@
   ,"id_required": "ID*"
   ,"phone_number_required": "Phone Number*"
   ,"official_email_required": "Official Email*"
+  ,"all": "All"
+  ,"traffic": "Traffic"
+  ,"public_works": "Public Works"
+  ,"airport": "Airport"
+  ,"park": "Park"
 }

@@ -3,6 +3,7 @@ import 'package:metro_city_pulse/core/provider/repository/repository_provider.da
 import 'package:metro_city_pulse/core/provider/theme/app_theme_provider.dart';
 import 'package:metro_city_pulse/domain/entities/map_data_entity.dart';
 import 'package:metro_city_pulse/domain/entities/map_marker_data.dart';
+import 'package:metro_city_pulse/presentation/screens/home/provider/menu_state_provider.dart';
 import 'package:metro_city_pulse/presentation/utils/map_utils.dart';
 import 'package:flutter/material.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
@@ -28,7 +29,21 @@ final StateProvider<int?> selectedSeverityProvider = StateProvider<int?>(
   (ref) => null,
 );
 
+final mapLiveResetTriggerProvider = StateProvider<int>((ref) => 0);
+
+void resetDashboardToLive(WidgetRef ref) {
+  ref.read(selectedFilterProvider.notifier).setFilter(FilterType.all);
+  ref.read(selectedSeverityProvider.notifier).state = null;
+  ref.read(tabBarProvider.notifier).state = TabBarType.newTab;
+  ref.read(remoteMarkersProvider.notifier).refresh();
+  ref.read(mapLiveResetTriggerProvider.notifier).state++;
+}
+
 // Persisted selected filter
+final markerIconSizeProvider = StateProvider<double>(
+  (ref) => markerWidthMobile,
+);
+
 final StateNotifierProvider<SelectedFilterNotifier, FilterType>
 selectedFilterProvider =
     StateNotifierProvider<SelectedFilterNotifier, FilterType>((ref) {
@@ -73,6 +88,11 @@ class RemoteMarkersNotifier extends AsyncNotifier<RemoteMarkersResult> {
     ref.onDispose(() {
       _pollingTimer?.cancel();
     });
+    ref.listen(markerIconSizeProvider, (previous, next) {
+      if (previous != next) {
+        refresh();
+      }
+    });
     // initial load
     _startPolling();
     return await _loadMarkers();
@@ -94,8 +114,10 @@ class RemoteMarkersNotifier extends AsyncNotifier<RemoteMarkersResult> {
   Future<RemoteMarkersResult> _loadMarkers() async {
     try {
       final theme = ref.read(appThemeStateProvider);
+      final markerSize = ref.read(markerIconSizeProvider);
       final Map<FilterType, BitmapDescriptor> icons = await MapUtils.loadIcons(
         theme.assets,
+        markerSize: Size(markerSize, markerSize),
       );
 
       casesCounts = {};
@@ -113,9 +135,9 @@ class RemoteMarkersNotifier extends AsyncNotifier<RemoteMarkersResult> {
         final BitmapDescriptor bm =
             icons[filterType] ?? BitmapDescriptor.defaultMarker;
 
-        final String caseStatus =
-            data.caseStatus?.toString().toLowerCase() ?? 'unknown';
-        casesCounts[caseStatus] = (casesCounts[caseStatus] ?? 0) + 1;
+        final String status =
+            data.status?.toString().toLowerCase() ?? 'unknown';
+        casesCounts[status] = (casesCounts[status] ?? 0) + 1;
 
         final String severity =
             data.severity?.toString().toUpperCase() ?? 'unknown';
@@ -124,15 +146,15 @@ class RemoteMarkersNotifier extends AsyncNotifier<RemoteMarkersResult> {
         markers.add(
           MapMarkerData(
             position: LatLng(
-              data.position?.lat ?? 0.0,
-              data.position?.lng ?? 0.0,
+              data.coordinates?.latitude ?? 0.0,
+              data.coordinates?.longitude ?? 0.0,
             ),
             filterType: filterType,
             id: data.id.toString(),
-            title: data.label.toString(),
+            title: data.type.toString(),
             severity: data.severity.toString().toUpperCase(),
             icon: bm,
-            tabType: MapUtils.getCaseType(caseStatus),
+            tabType: MapUtils.getCaseType(status),
           ),
         );
       }

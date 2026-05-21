@@ -63,6 +63,12 @@ class _NewCustomMapScreenState extends ConsumerState<CustomMapScreen> {
         (Responsive.isMobile(context) || Responsive.isSmallerTablet(context));
     final bool isTablet = Responsive.isTablet(context);
 
+    ref.listen<int>(mapLiveResetTriggerProvider, (previous, next) {
+      if (previous != next) {
+        MapUtils.resetCameraPosition(_mapController);
+      }
+    });
+
     return Scaffold(
       backgroundColor: theme.colors.surface,
       appBar: !Responsive.isMobile(context)
@@ -142,9 +148,7 @@ class _NewCustomMapScreenState extends ConsumerState<CustomMapScreen> {
       _showCustomInfo = false;
       _showFilterOptions = false;
     });
-    ref.read(selectedFilterProvider.notifier).setFilter(FilterType.all);
-    ref.read(selectedSeverityProvider.notifier).state = -1;
-    ref.read(remoteMarkersProvider.notifier).refresh();
+    resetDashboardToLive(ref);
   }
 
   Widget _buildTopBar(
@@ -166,6 +170,7 @@ class _NewCustomMapScreenState extends ConsumerState<CustomMapScreen> {
         children: [
           Flexible(
             child: buildTabBar(
+              ref,
               tabBarProviderNotifier,
               selectedTabItem,
               isMobileSmallerTablet,
@@ -284,7 +289,7 @@ class _NewCustomMapScreenState extends ConsumerState<CustomMapScreen> {
           final matchesFilter =
               filterSelected == FilterType.all ||
               m.filterType == filterSelected;
-          final matchesTab = tab == TabBarType.newTab || m.tabType == tab;
+          final matchesTab = m.tabType == tab;
           final matchesSeverity =
               severityIndex == null ||
               severityIndex == -1 ||
@@ -308,11 +313,13 @@ class _NewCustomMapScreenState extends ConsumerState<CustomMapScreen> {
   }
 
   Widget _buildInfoWindow(BuildContext context) {
+    final markerSize = ref.watch(markerIconSizeProvider);
     final Offset? offset = MapUtils.getOffsetForLatLng(
       _mapController,
       mapBounds,
       mapSize,
       _selectedMarkerLatLng,
+      markerSize: markerSize,
     );
     if (offset == null) return const SizedBox.shrink();
     return Positioned(

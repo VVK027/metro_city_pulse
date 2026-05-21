@@ -1,5 +1,6 @@
 import 'package:metro_city_pulse/core/provider/theme/app_theme_provider.dart';
 import 'package:metro_city_pulse/core/themes/app_theme.dart';
+import 'package:metro_city_pulse/domain/entities/map_data_entity.dart';
 import 'package:metro_city_pulse/domain/entities/map_marker_data.dart';
 import 'package:metro_city_pulse/presentation/screens/alerts/provider/alerts_state_provider.dart';
 import 'package:metro_city_pulse/presentation/screens/dashboard/component/responsive_date_range_selector.dart';
@@ -138,10 +139,11 @@ class _LeftPanel extends ConsumerWidget {
                     const ResponsiveDateRangeSelector(),
                   ],
                 )
-              : AppTabBarWidget(
-                  theme: theme,
-                  isWide: !isMobileLayout,
-                  listTabs: [
+              : Center(
+                  child: AppTabBarWidget(
+                    theme: theme,
+                    isWide: true,
+                    listTabs: [
                     {
                       'label': "new".tr(ref).toAllCapitalize(),
                       'value': tabCounts['new'] ?? 0,
@@ -172,6 +174,7 @@ class _LeftPanel extends ConsumerWidget {
                     }
                   },
                 ),
+              ),
         ),
 
         const Divider(),
@@ -293,22 +296,21 @@ class _LeftPanel extends ConsumerWidget {
                 itemBuilder: (context, index) {
                   final alert = alerts[index];
                   final isSelected = selectedAlert?.id == alert.id;
-                  final title = alert.label?.trim().isNotEmpty == true
-                      ? alert.label!.trim()
+                  final title = alert.type?.trim().isNotEmpty == true
+                      ? alert.type!.trim()
                       : "Alert";
-                  final camera = alert.reportedBy?.trim().isNotEmpty == true
-                      ? alert.reportedBy!.trim()
+                  final camera = alert.cameraName?.trim().isNotEmpty == true
+                      ? alert.cameraName!.trim()
                       : (alert.vehicleNo?.trim().isNotEmpty == true
                             ? alert.vehicleNo!.trim()
                             : "--");
                   final location =
-                      alert.location?.locationName?.trim().isNotEmpty == true
-                      ? alert.location!.locationName!.trim()
-                      : (alert.location?.locationAddress?.trim().isNotEmpty ==
-                                true
-                            ? alert.location!.locationAddress!.trim()
+                      alert.locationName?.trim().isNotEmpty == true
+                      ? alert.locationName!.trim()
+                      : (alert.locationAddress?.trim().isNotEmpty == true
+                            ? alert.locationAddress!.trim()
                             : "--");
-                  final reportedAt = _parseReportedTime(alert.reportedTime);
+                  final reportedAt = _parseReportedTime(alert.isoTimestamp);
                   return ListTile(
                     leading: const CircleAvatar(child: Icon(Icons.camera_alt)),
                     title: AppText(title, fontWeight: FontWeight.bold),
@@ -414,7 +416,6 @@ class _RightPanelState extends ConsumerState<_RightPanel> {
   @override
   Widget build(BuildContext context) {
     final selectedAlert = ref.watch(selectedAlertProvider);
-    final confidence = ref.watch(confidenceProvider);
     final videoUrl = _normalizedUrl(selectedAlert?.cameraUrl);
     final imageUrl = _normalizedUrl(selectedAlert?.imageUrl);
     _syncVideoController(videoUrl);
@@ -492,7 +493,7 @@ class _RightPanelState extends ConsumerState<_RightPanel> {
           const SizedBox(height: 12),
 
           // Alert Info Card
-          if (selectedAlert != null)
+          if (selectedAlert != null) ...[
             Card(
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(12),
@@ -500,14 +501,15 @@ class _RightPanelState extends ConsumerState<_RightPanel> {
               child: ListTile(
                 leading: const Icon(Icons.security, size: 36),
                 title: Text(
-                  selectedAlert.label?.trim().isNotEmpty == true
-                      ? selectedAlert.label!.trim()
+                  selectedAlert.type?.trim().isNotEmpty == true
+                      ? selectedAlert.type!.trim()
                       : "Alert",
                 ),
                 subtitle: Text(
-                  _parseReportedTime(
-                    selectedAlert.reportedTime,
-                  ).toIso8601String(),
+                  selectedAlert.isoTimestamp ??
+                      _parseReportedTime(
+                        selectedAlert.isoTimestamp,
+                      ).toIso8601String(),
                 ),
                 trailing: Container(
                   padding: const EdgeInsets.symmetric(
@@ -521,17 +523,105 @@ class _RightPanelState extends ConsumerState<_RightPanel> {
                     borderRadius: BorderRadius.circular(12),
                   ),
                   child: Text(
-                    "${"confidence".tr(ref).toAllCapitalize()} ${confidence.toInt()}%",
+                    "${"confidence".tr(ref).toAllCapitalize()} ${selectedAlert.confidenceScore ?? 0}%",
                   ),
                 ),
               ),
-            )
-          else
+            ),
+            const SizedBox(height: 12),
+            Expanded(
+              child: _AlertDetailsPanel(alert: selectedAlert, ref: ref),
+            ),
+          ] else
             Text(
               "select_alert_to_view_details".tr(ref).toAllCapitalize(),
               style: const TextStyle(color: Colors.grey),
             ),
         ],
+      ),
+    );
+  }
+}
+
+class _AlertDetailsPanel extends StatelessWidget {
+  final MapDataEntity alert;
+  final WidgetRef ref;
+
+  const _AlertDetailsPanel({required this.alert, required this.ref});
+
+  String _value(String? value) {
+    final trimmed = value?.trim() ?? '';
+    return trimmed.isEmpty ? '--' : trimmed;
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    final theme = Theme.of(context);
+    final details = <MapEntry<String, String>>[
+      MapEntry('ID', _value(alert.id)),
+      MapEntry('type'.tr(ref).toAllCapitalize(), _value(alert.type)),
+      MapEntry('camera'.tr(ref).toAllCapitalize(), _value(alert.cameraName)),
+      MapEntry('location'.tr(ref).toAllCapitalize(), _value(alert.locationName)),
+      MapEntry('Address', _value(alert.locationAddress)),
+      MapEntry('Location Type', _value(alert.locationType)),
+      MapEntry(
+        'Latitude',
+        alert.coordinates?.latitude?.toStringAsFixed(6) ?? '--',
+      ),
+      MapEntry(
+        'Longitude',
+        alert.coordinates?.longitude?.toStringAsFixed(6) ?? '--',
+      ),
+      MapEntry('Date', _value(alert.date)),
+      MapEntry('Time', _value(alert.time)),
+      MapEntry('Timestamp', _value(alert.isoTimestamp)),
+      MapEntry(
+        'confidence'.tr(ref).toAllCapitalize(),
+        '${alert.confidenceScore ?? 0}%',
+      ),
+      MapEntry('Status', _value(alert.status).toAllCapitalize()),
+      MapEntry('Severity', _value(alert.severity)),
+      MapEntry('Live', alert.isLive == true ? 'Yes' : 'No'),
+      MapEntry('Vehicle No', _value(alert.vehicleNo)),
+    ];
+
+    return Container(
+      width: double.infinity,
+      decoration: BoxDecoration(
+        color: theme.colorScheme.primary.withValues(alpha: 0.06),
+        borderRadius: BorderRadius.circular(12),
+        border: Border.all(
+          color: theme.colorScheme.primary.withValues(alpha: 0.12),
+        ),
+      ),
+      child: ListView.separated(
+        padding: const EdgeInsets.all(16),
+        itemCount: details.length,
+        separatorBuilder: (context, index) => const Divider(height: 20),
+        itemBuilder: (context, index) {
+          final entry = details[index];
+          return Row(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              SizedBox(
+                width: 130,
+                child: Text(
+                  entry.key,
+                  style: TextStyle(
+                    fontWeight: FontWeight.w600,
+                    color: theme.colorScheme.onSurface.withValues(alpha: 0.7),
+                  ),
+                ),
+              ),
+              Expanded(
+                child: Text(
+                  entry.value,
+                  style: TextStyle(color: theme.colorScheme.onSurface),
+                ),
+              ),
+            ],
+          );
+        },
       ),
     );
   }

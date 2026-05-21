@@ -6,16 +6,35 @@ import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 class MapSection extends ConsumerWidget {
-  const MapSection({super.key});
+  final bool fillAvailableHeight;
+
+  const MapSection({super.key, this.fillAvailableHeight = false});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final theme = ref.watch(appThemeStateProvider);
+    final placeholder = Column(
+      mainAxisSize: MainAxisSize.min,
+      children: [
+        Icon(Icons.map_outlined, size: 64, color: Colors.grey),
+        const SizedBox(height: 10),
+        Text(
+          'mapFeatureComingSoon'.tr(ref),
+          style: const TextStyle(
+            fontSize: 20,
+            color: Colors.grey,
+            fontWeight: FontWeight.w500,
+          ),
+        ),
+      ],
+    );
+
     return Card(
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
       elevation: defaultCardElevation,
+      clipBehavior: Clip.antiAlias,
       child: Column(
-        mainAxisSize: MainAxisSize.min,
+        crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
           CardTopContainerWidget(
             title: 'map_overview'.tr(ref).toAllCapitalize(),
@@ -23,24 +42,16 @@ class MapSection extends ConsumerWidget {
             color: theme.colors.primaryColor,
             iconData: Icons.location_on_outlined,
           ),
-          Container(
-            alignment: Alignment.center,
-            padding: const EdgeInsets.all(16),
-            child: Column(
-              children: [
-                Icon(Icons.map_outlined, size: 64, color: Colors.grey),
-                SizedBox(height: 10),
-                Text(
-                  'mapFeatureComingSoon'.tr(ref),
-                  style: TextStyle(
-                    fontSize: 20,
-                    color: Colors.grey,
-                    fontWeight: FontWeight.w500,
-                  ),
-                ),
-              ],
+          if (fillAvailableHeight)
+            Expanded(
+              child: Center(child: placeholder),
+            )
+          else
+            Container(
+              alignment: Alignment.center,
+              padding: const EdgeInsets.symmetric(vertical: 48, horizontal: 16),
+              child: placeholder,
             ),
-          ),
         ],
       ),
     );

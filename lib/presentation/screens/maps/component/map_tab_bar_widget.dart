@@ -1,10 +1,12 @@
 import 'package:metro_city_pulse/core/themes/app_theme.dart';
 import 'package:metro_city_pulse/domain/entities/map_marker_data.dart';
+import 'package:metro_city_pulse/presentation/utils/localization_util.dart';
 import 'package:metro_city_pulse/presentation/widgets/common/app_image_widget.dart';
 import 'package:metro_city_pulse/presentation/widgets/common/app_text_widget.dart';
 import 'package:flutter/material.dart';
+import 'package:hooks_riverpod/hooks_riverpod.dart';
 
-class MapTabBarWidget extends StatelessWidget {
+class MapTabBarWidget extends ConsumerWidget {
   final Function(FilterType) onPressed;
   final Function(FilterType) onFilterSelected;
   final FilterType selectedFilter;
@@ -19,7 +21,7 @@ class MapTabBarWidget extends StatelessWidget {
   });
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     return Row(
       children: [
         Container(
@@ -48,9 +50,7 @@ class MapTabBarWidget extends StatelessWidget {
                 padding: const EdgeInsets.symmetric(horizontal: 6),
                 child: GestureDetector(
                   onTap: () => onPressed(f),
-                  //borderRadius: BorderRadius.circular(8),
                   behavior: HitTestBehavior.opaque,
-
                   child: AnimatedContainer(
                     duration: Duration(milliseconds: 200),
                     padding: const EdgeInsets.symmetric(
@@ -63,18 +63,9 @@ class MapTabBarWidget extends StatelessWidget {
                             borderRadius: BorderRadius.circular(12),
                           )
                         : BoxDecoration(),
-                    // decoration: BoxDecoration(
-                    //   color: selected ? Color(0xFF0A3ABB) : Colors.white,
-                    //   borderRadius: BorderRadius.circular(8),
-                    // border: Border.all(
-                    //   color: selected
-                    //       ? Colors.blue
-                    //       : Colors.grey.shade300,
-                    // ),
-                    // ),
                     child: Center(
                       child: AppText(
-                        _labelFor(f),
+                        f.translationKey.tr(ref).toAllCapitalize(),
                         textAlign: TextAlign.center,
                         color: selected ? Colors.white : theme.colors.text,
                         size: 14,
@@ -109,20 +100,5 @@ class MapTabBarWidget extends StatelessWidget {
         ),
       ],
     );
-  }
-
-  String _labelFor(FilterType f) {
-    switch (f) {
-      case FilterType.all:
-        return 'All';
-      case FilterType.traffic:
-        return 'Traffic';
-      case FilterType.publicWorks:
-        return 'Public Works';
-      case FilterType.airport:
-        return 'Airport';
-      case FilterType.park:
-        return 'Park';
-    }
   }
 }

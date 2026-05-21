@@ -7,13 +7,30 @@ enum FilterType { all, traffic, publicWorks, airport, park }
 String filterTypeToKey(FilterType t) => t.toString().split('.').last;
 
 enum TabBarType {
-  newTab(title: "New"),
-  dispatch(title: "Dispatch"),
-  cases(title: "Cases");
+  newTab(statusKey: 'new'),
+  dispatch(statusKey: 'dispatch'),
+  cases(statusKey: 'cases');
 
-  final String title;
+  final String statusKey;
 
-  const TabBarType({required this.title});
+  const TabBarType({required this.statusKey});
+}
+
+extension FilterTypeLocalization on FilterType {
+  String get translationKey {
+    switch (this) {
+      case FilterType.all:
+        return 'all';
+      case FilterType.traffic:
+        return 'traffic';
+      case FilterType.publicWorks:
+        return 'public_works';
+      case FilterType.airport:
+        return 'airport';
+      case FilterType.park:
+        return 'park';
+    }
+  }
 }
 
 class MapMarkerData {

@@ -7,6 +7,9 @@ import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 class AppBarActionButtons extends ConsumerWidget {
+  static const double _kControlHeight = 36;
+  static const double _kControlGap = 8;
+
   final AppTheme theme;
 
   const AppBarActionButtons({super.key, required this.theme});
@@ -25,26 +28,19 @@ class AppBarActionButtons extends ConsumerWidget {
           theme: theme,
           langCode: langCode,
           isMobile: isMobile,
+          height: _kControlHeight,
           onLanguageChanged: (code) {
             ref.read(languageProvider.notifier).changeLocale(code);
           },
         ),
-        const SizedBox(width: 6),
-        _ActionIconButton(
-          theme: theme,
-          icon: Icons.notifications_none_rounded,
-          tooltip: 'Notifications',
-          onPressed: () {
-            _showNotificationsSnackBar(context);
-          },
-        ),
-        const SizedBox(width: 6),
+        const SizedBox(width: _kControlGap),
         _ActionIconButton(
           theme: theme,
           icon: isDark
               ? Icons.light_mode_rounded
               : Icons.dark_mode_rounded,
           tooltip: isDark ? 'Light Mode' : 'Dark Mode',
+          size: _kControlHeight,
           onPressed: () {
             ref.read(appThemeStateProvider.notifier).toggle(!isDark);
           },
@@ -53,26 +49,20 @@ class AppBarActionButtons extends ConsumerWidget {
     );
   }
 
-  void _showNotificationsSnackBar(BuildContext context) {
-    ScaffoldMessenger.of(context).showSnackBar(
-      const SnackBar(
-        content: Text('No new notifications'),
-        duration: Duration(seconds: 2),
-      ),
-    );
-  }
 }
 
 class _LanguageSelectorButton extends StatelessWidget {
   final AppTheme theme;
   final String langCode;
   final bool isMobile;
+  final double height;
   final ValueChanged<String> onLanguageChanged;
 
   const _LanguageSelectorButton({
     required this.theme,
     required this.langCode,
     required this.isMobile,
+    required this.height,
     required this.onLanguageChanged,
   });
 
@@ -90,10 +80,12 @@ class _LanguageSelectorButton extends StatelessWidget {
         _buildLanguageItem('es', 'Español'),
       ],
       child: Container(
-        padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 6),
+        height: height,
+        alignment: Alignment.center,
+        padding: const EdgeInsets.symmetric(horizontal: 10),
         decoration: BoxDecoration(
           color: theme.colors.background,
-          borderRadius: BorderRadius.circular(20),
+          borderRadius: BorderRadius.circular(height / 2),
           border: Border.all(color: theme.colors.lightGray.withValues(alpha: 0.4)),
         ),
         child: Row(
@@ -150,12 +142,14 @@ class _ActionIconButton extends StatelessWidget {
   final AppTheme theme;
   final IconData icon;
   final String tooltip;
+  final double size;
   final VoidCallback onPressed;
 
   const _ActionIconButton({
     required this.theme,
     required this.icon,
     required this.tooltip,
+    required this.size,
     required this.onPressed,
   });
 
@@ -165,9 +159,11 @@ class _ActionIconButton extends StatelessWidget {
       message: tooltip,
       child: InkWell(
         onTap: onPressed,
-        borderRadius: BorderRadius.circular(20),
+        borderRadius: BorderRadius.circular(size / 2),
         child: Container(
-          padding: const EdgeInsets.all(8),
+          width: size,
+          height: size,
+          alignment: Alignment.center,
           decoration: BoxDecoration(
             color: theme.colors.background,
             shape: BoxShape.circle,

@@ -6,37 +6,41 @@ part 'map_data_entity.g.dart';
 @JsonSerializable()
 class MapDataEntity {
   String? id;
-  PositionEntity? position;
-  String? label;
   String? type;
-  String? caseStatus;
-  String? reportedBy;
-  String? vehicleNo;
-  String? reportedTime;
-  String? severity;
-  @JsonKey(name: 'confidence_score')
+  String? cameraName;
+  String? locationName;
+  String? locationAddress;
+  String? locationType;
+  CoordinatesEntity? coordinates;
+  String? date;
+  String? time;
+  String? isoTimestamp;
   int? confidenceScore;
-  LocationEntity? location;
+  String? status;
+  String? severity;
   bool? isLive;
   String? imageUrl;
-  @JsonKey(name: 'camera_url')
   String? cameraUrl;
+  String? vehicleNo;
 
   MapDataEntity({
     this.id,
-    this.position,
-    this.label,
     this.type,
-    this.caseStatus,
-    this.reportedBy,
-    this.vehicleNo,
-    this.reportedTime,
-    this.severity,
+    this.cameraName,
+    this.locationName,
+    this.locationAddress,
+    this.locationType,
+    this.coordinates,
+    this.date,
+    this.time,
+    this.isoTimestamp,
     this.confidenceScore,
-    this.location,
+    this.status,
+    this.severity,
     this.isLive,
     this.imageUrl,
     this.cameraUrl,
+    this.vehicleNo,
   });
 
   factory MapDataEntity.fromJson(Map<String, dynamic> json) =>
@@ -46,38 +50,15 @@ class MapDataEntity {
 }
 
 @JsonSerializable()
-class PositionEntity implements JsonHelper {
-  double? lat;
-  double? lng;
+class CoordinatesEntity implements JsonHelper {
+  double? latitude;
+  double? longitude;
 
-  PositionEntity({this.lat, this.lng});
+  CoordinatesEntity({this.latitude, this.longitude});
 
-  factory PositionEntity.fromJson(Map<String, dynamic> json) =>
-      _$PositionEntityFromJson(json);
-
-  @override
-  Map<String, dynamic> toJson() => _$PositionEntityToJson(this);
-}
-
-@JsonSerializable()
-class LocationEntity implements JsonHelper {
-  String? locationType;
-  String? locationName;
-  String? locationAddress;
-  int? currentCrowdCount;
-  int? crowdLimit;
-
-  LocationEntity({
-    this.locationType,
-    this.locationName,
-    this.locationAddress,
-    this.currentCrowdCount,
-    this.crowdLimit,
-  });
-
-  factory LocationEntity.fromJson(Map<String, dynamic> json) =>
-      _$LocationEntityFromJson(json);
+  factory CoordinatesEntity.fromJson(Map<String, dynamic> json) =>
+      _$CoordinatesEntityFromJson(json);
 
   @override
-  Map<String, dynamic> toJson() => _$LocationEntityToJson(this);
+  Map<String, dynamic> toJson() => _$CoordinatesEntityToJson(this);
 }

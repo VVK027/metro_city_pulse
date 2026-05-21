@@ -61,7 +61,7 @@ class SideMenu extends StatelessWidget {
             },
           ),
           SideMenuItem(
-            icon: assets.dashboardIcon,
+            icon: assets.statsIcon,
             color: colors.white,
             label: "stats".tr(ref).toAllCapitalize(),
             isSelected: selectedItem == MenuItemType.stats,
@@ -79,6 +79,18 @@ class SideMenu extends StatelessWidget {
             isSelected: selectedItem == MenuItemType.alerts,
             onTap: () {
               onMenuSelected?.call(MenuItemType.alerts);
+              if (Responsive.isMobile(context)) {
+                Navigator.pop(context);
+              }
+            },
+          ),
+          SideMenuItem(
+            iconData: Icons.notifications_none_rounded,
+            color: colors.white,
+            label: "notifications".tr(ref).toAllCapitalize(),
+            isSelected: false,
+            onTap: () {
+              _showNotificationsSnackBar(context);
               if (Responsive.isMobile(context)) {
                 Navigator.pop(context);
               }
@@ -195,10 +207,23 @@ class SideMenu extends StatelessWidget {
       ),
     );
   }
+
+  void _showNotificationsSnackBar(BuildContext context) {
+    ScaffoldMessenger.of(context).showSnackBar(
+      SnackBar(
+        content: Text('no_new_notifications'.tr(ref)),
+        duration: const Duration(seconds: 2),
+      ),
+    );
+  }
 }
 
 class SideMenuItem extends StatelessWidget {
-  final String icon;
+  static const double _kIconSize = 20;
+  static const double _kIconBoxSize = 24;
+
+  final String? icon;
+  final IconData? iconData;
   final String label;
   final Color? color;
   final bool isSelected;
@@ -206,7 +231,8 @@ class SideMenuItem extends StatelessWidget {
 
   const SideMenuItem({
     super.key,
-    required this.icon,
+    this.icon,
+    this.iconData,
     required this.label,
     required this.color,
     required this.isSelected,
@@ -215,43 +241,41 @@ class SideMenuItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final isMobile = Responsive.isMobile(context);
+
     return GestureDetector(
       onTap: onTap,
       child: Container(
-        margin: EdgeInsets.symmetric(
-          vertical: Responsive.isMobile(context) ? 2.0 : 10.0,
+        margin: EdgeInsets.symmetric(vertical: isMobile ? 2 : 4),
+        padding: EdgeInsets.symmetric(
+          vertical: isMobile ? 8 : 10,
+          horizontal: isMobile ? 12 : 0,
         ),
-        padding: const EdgeInsets.symmetric(vertical: 6),
         width: double.infinity,
         decoration: BoxDecoration(
           color: isSelected ? Colors.white24 : Colors.transparent,
           borderRadius: BorderRadius.circular(8.0),
         ),
-        child: Responsive.isMobile(context)
-            ? Padding(
-                padding: const EdgeInsets.symmetric(
-                  vertical: 8.0,
-                  horizontal: 12.0,
-                ),
-                child: Row(
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  mainAxisSize: MainAxisSize.min,
-                  children: [
-                    const SizedBox(width: 10),
-                    _getIconWidget(color),
-                    const SizedBox(width: 10),
-                    AppText(
-                      label,
-                      textAlign: TextAlign.center,
-                      color: color,
-                      size: 16,
-                    ),
-                  ],
-                ),
+        child: isMobile
+            ? Row(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  const SizedBox(width: 10),
+                  _buildIcon(color),
+                  const SizedBox(width: 10),
+                  AppText(
+                    label,
+                    textAlign: TextAlign.center,
+                    color: color,
+                    size: 16,
+                  ),
+                ],
               )
             : Column(
+                mainAxisSize: MainAxisSize.min,
+                crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  _getIconWidget(color),
+                  _buildIcon(color),
                   const SizedBox(height: 6),
                   AppText(
                     label,
@@ -265,7 +289,21 @@ class SideMenuItem extends StatelessWidget {
     );
   }
 
-  Widget _getIconWidget(dynamic color) {
-    return AppImage(icon, width: 18, height: 18, color: color);
+  Widget _buildIcon(Color? color) {
+    return SizedBox(
+      width: _kIconBoxSize,
+      height: _kIconBoxSize,
+      child: Center(
+        child: iconData != null
+            ? Icon(iconData, size: _kIconSize, color: color)
+            : AppImage(
+                icon!,
+                width: _kIconSize,
+                height: _kIconSize,
+                color: color,
+                fit: BoxFit.contain,
+              ),
+      ),
+    );
   }
 }

@@ -136,8 +136,8 @@ final filteredAlertsProvider = Provider<List<MapDataEntity>>((ref) {
   return mapDataList
       .where(
         (alert) =>
-            (alert.caseStatus?.trim().toLowerCase() ?? "") ==
-            selectedTab.title.toLowerCase(),
+            (alert.status?.trim().toLowerCase() ?? "") ==
+            selectedTab.statusKey,
       )
       .where((alert) => (alert.confidenceScore ?? 0) >= minConfidence)
       .toList();

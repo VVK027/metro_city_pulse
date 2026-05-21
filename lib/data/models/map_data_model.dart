@@ -8,34 +8,41 @@ part 'map_data_model.g.dart';
 @JsonSerializable()
 class MapDataModel implements Mapper<MapDataEntity> {
   String id;
-  PositionModel position;
-  String label;
   String type;
-  String caseStatus;
-  String reportedBy;
-  String vehicleNo;
-  String reportedTime;
+  String cameraName;
+  String locationName;
+  String locationAddress;
+  String locationType;
+  CoordinatesModel coordinates;
+  String date;
+  String time;
+  String isoTimestamp;
+  int confidenceScore;
+  String status;
   String severity;
-  LocationModel location;
   bool isLive;
   String imageUrl;
-  @JsonKey(name: 'camera_url')
   String cameraUrl;
+  String? vehicleNo;
 
   MapDataModel({
     required this.id,
-    required this.position,
-    required this.label,
     required this.type,
-    required this.caseStatus,
-    required this.reportedBy,
-    required this.vehicleNo,
-    required this.reportedTime,
+    required this.cameraName,
+    required this.locationName,
+    required this.locationAddress,
+    required this.locationType,
+    required this.coordinates,
+    required this.date,
+    required this.time,
+    required this.isoTimestamp,
+    required this.confidenceScore,
+    required this.status,
     required this.severity,
-    required this.location,
     required this.isLive,
     required this.imageUrl,
     required this.cameraUrl,
+    this.vehicleNo,
   });
 
   factory MapDataModel.fromJson(Map<String, dynamic> json) =>
@@ -51,38 +58,15 @@ class MapDataModel implements Mapper<MapDataEntity> {
 }
 
 @JsonSerializable()
-class PositionModel implements JsonHelper {
-  double lat;
-  double lng;
+class CoordinatesModel implements JsonHelper {
+  double latitude;
+  double longitude;
 
-  PositionModel({required this.lat, required this.lng});
+  CoordinatesModel({required this.latitude, required this.longitude});
 
-  factory PositionModel.fromJson(Map<String, dynamic> json) =>
-      _$PositionModelFromJson(json);
-
-  @override
-  Map<String, dynamic> toJson() => _$PositionModelToJson(this);
-}
-
-@JsonSerializable()
-class LocationModel implements JsonHelper {
-  String locationType;
-  String locationName;
-  String locationAddress;
-  int currentCrowdCount;
-  int crowdLimit;
-
-  LocationModel({
-    required this.locationType,
-    required this.locationName,
-    required this.locationAddress,
-    required this.currentCrowdCount,
-    required this.crowdLimit,
-  });
-
-  factory LocationModel.fromJson(Map<String, dynamic> json) =>
-      _$LocationModelFromJson(json);
+  factory CoordinatesModel.fromJson(Map<String, dynamic> json) =>
+      _$CoordinatesModelFromJson(json);
 
   @override
-  Map<String, dynamic> toJson() => _$LocationModelToJson(this);
+  Map<String, dynamic> toJson() => _$CoordinatesModelToJson(this);
 }

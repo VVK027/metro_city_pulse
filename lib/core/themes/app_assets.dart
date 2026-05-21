@@ -12,6 +12,7 @@ class AppAssets {
 
   // dashboard
   String dashboardIcon = "$_baseFilePath/dashboard_icon.svg";
+  String statsIcon = "$_baseFilePath/stats_icon.svg";
   String policeDepartmentLogo = "$_baseFilePath/police_department.png";
   String alertsIcon = "$_baseFilePath/alerts_icon.svg";
   String chatbotIcon = "$_baseFilePath/chat_bot.svg";

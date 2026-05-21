@@ -11,6 +11,7 @@ import 'package:metro_city_pulse/presentation/screens/maps/provider/map_state_pr
 import 'package:metro_city_pulse/presentation/screens/profile/page/profile_screen.dart';
 import 'package:metro_city_pulse/presentation/screens/settings/page/settings_screen.dart';
 import 'package:metro_city_pulse/presentation/utils/localization_util.dart';
+import 'package:metro_city_pulse/presentation/utils/map_utils.dart';
 import 'package:metro_city_pulse/presentation/utils/navigation_util.dart';
 import 'package:metro_city_pulse/presentation/widgets/common/app_text_widget.dart';
 import 'package:metro_city_pulse/presentation/widgets/responsive.dart';
@@ -31,6 +32,8 @@ class HomeScreen extends ConsumerWidget {
 
     final selectedMenuItem = ref.watch(menuProvider);
     final menuNotifier = ref.read(menuProvider.notifier);
+
+    syncMarkerIconSize(context, ref);
 
     return Scaffold(
       drawer: isMobile
@@ -136,14 +139,25 @@ class HomeScreen extends ConsumerWidget {
     AppThemeState themeNotifier,
     WidgetRef ref,
   ) {
+    final selectedMenu = ref.watch(menuProvider);
+    final showMapControls = selectedMenu == MenuItemType.dashboard;
+
     return DashboardAppBar(
-      title: 'dashboard'.tr(ref),
+      title: _appBarTitleForMenu(ref, selectedMenu),
       theme: theme,
       onMenuPressed: () => Scaffold.of(context).openDrawer(),
       userName: 'Viivek Kumar',
       onLogoutPressed: () {
         _logoutFunction(context, ref);
       },
+      onFilterSelect: showMapControls ? () {} : null,
+      onLivePressed: showMapControls
+          ? () => resetDashboardToLive(ref)
+          : () {
+              ref.read(remoteMarkersProvider.notifier).refresh();
+            },
+      onClockPressed: () {},
+      onDateRangePressed: () {},
     );
   }
 
@@ -173,8 +187,9 @@ class HomeScreen extends ConsumerWidget {
   void _updateMenuViaIndex(int index, final menuNotifier) {
     final menuMapping = {
       0: MenuItemType.dashboard,
-      1: MenuItemType.alerts,
-      2: MenuItemType.chat,
+      1: MenuItemType.stats,
+      2: MenuItemType.alerts,
+      3: MenuItemType.chat,
     };
     menuNotifier.state = menuMapping[index] ?? MenuItemType.dashboard;
   }
@@ -194,14 +209,15 @@ class HomeScreen extends ConsumerWidget {
         break;
       case MenuItemType.stats:
         menuNotifier.state = MenuItemType.stats;
+        bottomNavProvider.state = 1;
         break;
       case MenuItemType.alerts:
         menuNotifier.state = MenuItemType.alerts;
-        bottomNavProvider.state = 1;
+        bottomNavProvider.state = 2;
         break;
       case MenuItemType.chat:
         menuNotifier.state = MenuItemType.chat;
-        bottomNavProvider.state = 2;
+        bottomNavProvider.state = 3;
         break;
       case MenuItemType.profile:
         _navFunction(context, ref, '/profile');
@@ -219,6 +235,19 @@ class HomeScreen extends ConsumerWidget {
     NavigationUtil.push(context, route);
   }
 
+  String _appBarTitleForMenu(WidgetRef ref, MenuItemType menu) {
+    switch (menu) {
+      case MenuItemType.stats:
+        return 'stats'.tr(ref);
+      case MenuItemType.alerts:
+        return 'alerts'.tr(ref);
+      case MenuItemType.chat:
+        return 'chat_ai'.tr(ref);
+      default:
+        return 'dashboard'.tr(ref);
+    }
+  }
+
   // ------------------------------
   // Logout function
   // ------------------------------
@@ -227,5 +256,16 @@ class HomeScreen extends ConsumerWidget {
       SnackBar(content: AppText("logging_out".tr(ref).toAllCapitalize())),
     );
     NavigationUtil.clearDataAndMoveToLogin(context, ref, 'side_menu');
+  }
+}
+
+void syncMarkerIconSize(BuildContext context, WidgetRef ref) {
+  final markerSize = MapUtils.markerSizeForScreenWidth(
+    MediaQuery.sizeOf(context).width,
+  );
+  if (ref.read(markerIconSizeProvider) != markerSize) {
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      ref.read(markerIconSizeProvider.notifier).state = markerSize;
+    });
   }
 }

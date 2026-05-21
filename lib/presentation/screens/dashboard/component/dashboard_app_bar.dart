@@ -17,6 +17,9 @@ import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 class DashboardAppBar extends ConsumerWidget implements PreferredSizeWidget {
+  static const double _kAppBarControlGap = 8;
+  static const double _kDefaultIconSize = 32;
+
   final String title, userName;
   final String? userProfilePic;
   final AppTheme theme;
@@ -49,7 +52,6 @@ class DashboardAppBar extends ConsumerWidget implements PreferredSizeWidget {
     final bool isMobile =
         Responsive.isMobile(context) || Responsive.isSmallerTablet(context);
     final bool isTablet = Responsive.isTablet(context);
-    const double kDefaultIconSize = 32;
 
     final tabBarProviderNotifier = ref.read(tabBarProvider.notifier);
     final TabBarType selectedTabItem = ref.watch(tabBarProvider);
@@ -74,60 +76,88 @@ class DashboardAppBar extends ConsumerWidget implements PreferredSizeWidget {
       centerTitle: false,
       title: isMobile
           ? _buildAppBarTitle()
-          : Row(
-              mainAxisSize: MainAxisSize.max,
-              children: [
-                const SizedBox(width: 8),
-                _buildAppBarTitle(),
-                const Spacer(),
-                buildTabBar(
-                  tabBarProviderNotifier,
-                  selectedTabItem,
-                  isMobile,
-                  isTablet,
-                  theme,
-                  casesCounts,
-                ),
-                const SizedBox(width: 8),
-                buildDateRangeButton(isTablet, onDateRangePressed, foregroundColor: Colors.white, borderColor: Colors.white38),
-                const SizedBox(width: 8),
-                buildClockButton(onClockPressed, theme),
-                const SizedBox(width: 8),
-                buildLiveWidget(isTablet, onLivePressed, theme, ref),
-              ],
+          : Padding(
+              padding: const EdgeInsets.only(left: 16),
+              child: _buildAppBarTitle(),
             ),
       titleSpacing: 0,
       actionsPadding: const EdgeInsets.symmetric(vertical: 0, horizontal: 12),
       actions: [
-        if (isMobile)
+        if (isMobile) ...[
           CircleAvatar(
             radius: 16,
             backgroundColor: theme.colors.primaryColor,
             child: IconButton(
-              iconSize: kDefaultIconSize - 6,
+              iconSize: _kDefaultIconSize - 6,
               icon: AppImage(theme.assets.filterIcon, color: Colors.white),
               onPressed: onFilterSelect,
             ),
           ),
-        const SizedBox(width: 8),
-        AppBarActionButtons(theme: theme),
-        const SizedBox(width: 8),
-        UserAvatarButtonComponent(
-          ref: ref,
-          theme: theme,
-          profilePic: userProfilePic ?? '',
-          userName: userName,
-          size: kDefaultIconSize,
-          onActionSelected: (value) {
-            if (value == 0) {
-              NavigationUtil.push(context, '/profile');
-            } else if (value == 1) {
-              NavigationUtil.push(context, '/settings');
-            } else if (value == 2) {
-              onLogoutPressed?.call();
-            }
-          },
-        ),
+          const SizedBox(width: _kAppBarControlGap),
+          AppBarActionButtons(theme: theme),
+          const SizedBox(width: _kAppBarControlGap),
+          UserAvatarButtonComponent(
+            ref: ref,
+            theme: theme,
+            profilePic: userProfilePic ?? '',
+            userName: userName,
+            size: _kDefaultIconSize,
+            onActionSelected: (value) {
+              if (value == 0) {
+                NavigationUtil.push(context, '/profile');
+              } else if (value == 1) {
+                NavigationUtil.push(context, '/settings');
+              } else if (value == 2) {
+                onLogoutPressed?.call();
+              }
+            },
+          ),
+        ] else
+          Row(
+            mainAxisSize: MainAxisSize.min,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              buildTabBar(
+                ref,
+                tabBarProviderNotifier,
+                selectedTabItem,
+                isMobile,
+                isTablet,
+                theme,
+                casesCounts,
+              ),
+              const SizedBox(width: _kAppBarControlGap),
+              buildDateRangeButton(
+                isTablet,
+                onDateRangePressed,
+                foregroundColor: Colors.white,
+                borderColor: Colors.white38,
+              ),
+              const SizedBox(width: _kAppBarControlGap),
+              buildClockButton(onClockPressed, theme),
+              const SizedBox(width: _kAppBarControlGap),
+              buildLiveWidget(isTablet, onLivePressed, theme, ref),
+              const SizedBox(width: _kAppBarControlGap),
+              AppBarActionButtons(theme: theme),
+              const SizedBox(width: _kAppBarControlGap),
+              UserAvatarButtonComponent(
+                ref: ref,
+                theme: theme,
+                profilePic: userProfilePic ?? '',
+                userName: userName,
+                size: _kDefaultIconSize,
+                onActionSelected: (value) {
+                  if (value == 0) {
+                    NavigationUtil.push(context, '/profile');
+                  } else if (value == 1) {
+                    NavigationUtil.push(context, '/settings');
+                  } else if (value == 2) {
+                    onLogoutPressed?.call();
+                  }
+                },
+              ),
+            ],
+          ),
       ],
     );
   }
@@ -145,6 +175,7 @@ class DashboardAppBar extends ConsumerWidget implements PreferredSizeWidget {
 /// The below components will get access publicly in the app.
 /// Custom tab bar with callback for switching tabs.
 Widget buildTabBar(
+  WidgetRef ref,
   StateController<TabBarType> tabBarProviderNotifier,
   TabBarType selectedTab,
   bool isMobile,
@@ -158,8 +189,8 @@ Widget buildTabBar(
     listTabs: List.generate(TabBarType.values.length, (index) {
       final item = TabBarType.values[index];
       return {
-        'label': item.title,
-        'value': casesCounts[item.title.toLowerCase()] ?? 0,
+        'label': item.statusKey.tr(ref).toAllCapitalize(),
+        'value': casesCounts[item.statusKey] ?? 0,
         'isActive': selectedTab == item,
       };
     }),
@@ -181,10 +212,13 @@ Widget buildTabBar(
 
 /// Date Range Picker button.
 Widget buildDateRangeButton(bool isTablet, Function()? onDateRangePressed, {Color? foregroundColor, Color? borderColor}) {
-  return ResponsiveDateRangeSelector(
-    isTablet: isTablet,
-    foregroundColor: foregroundColor,
-    borderColor: borderColor,
+  return SizedBox(
+    height: 36,
+    child: ResponsiveDateRangeSelector(
+      isTablet: isTablet,
+      foregroundColor: foregroundColor,
+      borderColor: borderColor,
+    ),
   );
   // return AppCustomOutlinedButton(
   //   label: isTablet ? "" : "28 Jun 25 - 10 Jul 25",
@@ -197,14 +231,17 @@ Widget buildDateRangeButton(bool isTablet, Function()? onDateRangePressed, {Colo
 
 /// Clock dropdown button.
 Widget buildClockButton(Function()? onClockPressed, AppTheme theme) {
-  return AppCustomOutlinedButton(
-    icon: Icons.access_time,
-    labelIcon: Icons.keyboard_arrow_down,
-    label: '',
-    padding: EdgeInsets.zero,
-    onPressed: onClockPressed,
-    foregroundColor: Colors.white,
-    borderColor: Colors.white38,
+  return SizedBox(
+    height: 36,
+    child: AppCustomOutlinedButton(
+      icon: Icons.access_time,
+      labelIcon: Icons.keyboard_arrow_down,
+      label: '',
+      padding: const EdgeInsets.symmetric(horizontal: 8),
+      onPressed: onClockPressed,
+      foregroundColor: Colors.white,
+      borderColor: Colors.white38,
+    ),
   );
 }
 
@@ -216,24 +253,30 @@ Widget buildLiveWidget(
   WidgetRef ref,
 ) {
   if (isTablet) {
-    return AppCustomOutlinedButton(
-      label: '',
-      icon: Icons.wifi_tethering,
-      padding: const EdgeInsets.all(2.0),
-      onPressed: onLivePressed,
-      backgroundColor: Colors.white,
-      foregroundColor: theme.colors.secondaryColor,
-      borderColor: Colors.white38,
+    return SizedBox(
+      height: 36,
+      child: AppCustomOutlinedButton(
+        label: '',
+        icon: Icons.wifi_tethering,
+        padding: const EdgeInsets.symmetric(horizontal: 8),
+        onPressed: onLivePressed,
+        backgroundColor: Colors.white,
+        foregroundColor: theme.colors.secondaryColor,
+        borderColor: Colors.white38,
+      ),
     );
   }
-  return AppElevatedIconButton(
-    onPressed: onLivePressed,
-    label: 'live'.tr(ref).toAllCapitalize(),
-    icon: Icons.wifi_tethering,
-    backgroundColor: Colors.white,
-    foregroundColor: theme.colors.secondaryColor,
-    elevation: 0,
-    padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 10),
-    radius: 20,
+  return SizedBox(
+    height: 36,
+    child: AppElevatedIconButton(
+      onPressed: onLivePressed,
+      label: 'live'.tr(ref).toAllCapitalize(),
+      icon: Icons.wifi_tethering,
+      backgroundColor: Colors.white,
+      foregroundColor: theme.colors.secondaryColor,
+      elevation: 0,
+      padding: const EdgeInsets.symmetric(horizontal: 12),
+      radius: 20,
+    ),
   );
 }

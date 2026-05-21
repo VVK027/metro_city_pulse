@@ -1,40 +1,78 @@
 import 'package:metro_city_pulse/core/themes/app_theme.dart';
-import 'package:metro_city_pulse/data/models/alert_model.dart';
+import 'package:metro_city_pulse/domain/entities/map_data_entity.dart';
+import 'package:metro_city_pulse/presentation/utils/date_time_util.dart';
 import 'package:metro_city_pulse/presentation/utils/localization_util.dart';
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 class AlertListItem extends ConsumerWidget {
-  final AlertDataModel alert;
+  final MapDataEntity alert;
   final AppTheme theme;
 
   const AlertListItem({super.key, required this.alert, required this.theme});
 
+  String _cameraLabel() {
+    if (alert.cameraName?.trim().isNotEmpty == true) {
+      return alert.cameraName!.trim();
+    }
+    if (alert.vehicleNo?.trim().isNotEmpty == true) {
+      return alert.vehicleNo!.trim();
+    }
+    return alert.id ?? '--';
+  }
+
+  String _locationLabel() {
+    if (alert.locationName?.trim().isNotEmpty == true) {
+      return alert.locationName!.trim();
+    }
+    if (alert.locationAddress?.trim().isNotEmpty == true) {
+      return alert.locationAddress!.trim();
+    }
+    return '--';
+  }
+
+  String _caseLabel() {
+    if (alert.status?.trim().isNotEmpty == true) {
+      return alert.status!.trim().toAllCapitalize();
+    }
+    return alert.confidenceScore?.toString() ?? '--';
+  }
+
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    final title = alert.type?.trim().isNotEmpty == true
+        ? alert.type!.trim()
+        : 'Alert';
+    final imageUrl = alert.imageUrl?.trim();
+    final formattedDate = DateTimeUtil.getFormattedDateTime(
+      alert.isoTimestamp,
+      format: 'MMM dd yyyy h:mm:ss a',
+    );
+
     return Padding(
-      padding: const EdgeInsets.all(16.0),
+      padding: const EdgeInsets.all(16),
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.start,
-        mainAxisSize: MainAxisSize.min,
         children: [
           ClipRRect(
             borderRadius: BorderRadius.circular(8),
-            child: Image.network(
-              alert.imageUrl,
-              width: 120,
-              height: 90,
-              fit: BoxFit.cover,
-            ),
+            child: imageUrl != null && imageUrl.isNotEmpty
+                ? Image.network(
+                    imageUrl,
+                    width: 120,
+                    height: 90,
+                    fit: BoxFit.cover,
+                    errorBuilder: (_, error, stackTrace) => _placeholderImage(),
+                  )
+                : _placeholderImage(),
           ),
           const SizedBox(width: 16),
           Expanded(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
-              mainAxisSize: MainAxisSize.min,
               children: [
                 Text(
-                  alert.title,
+                  title,
                   style: TextStyle(
                     fontSize: 16,
                     fontWeight: FontWeight.bold,
@@ -48,7 +86,7 @@ class AlertListItem extends ConsumerWidget {
                     style: TextStyle(color: theme.colors.text),
                     children: [
                       TextSpan(
-                        text: alert.camera,
+                        text: _cameraLabel(),
                         style: TextStyle(
                           color: theme.colors.primaryColor,
                           decoration: TextDecoration.underline,
@@ -59,27 +97,28 @@ class AlertListItem extends ConsumerWidget {
                 ),
                 const SizedBox(height: 4),
                 Text(
-                  '${'location'.tr(ref).toAllCapitalize()}: ${alert.location}',
+                  '${'location'.tr(ref).toAllCapitalize()}: ${_locationLabel()}',
                   style: TextStyle(color: theme.colors.text),
                 ),
                 const SizedBox(height: 4),
                 Text(
-                  '${'cases'.tr(ref).toAllCapitalize()}: ${alert.caseName}',
+                  '${'cases'.tr(ref).toAllCapitalize()}: ${_caseLabel()}',
                   style: TextStyle(color: theme.colors.text),
                 ),
               ],
             ),
           ),
-
-          // Date & ID
           Column(
             crossAxisAlignment: CrossAxisAlignment.end,
             children: [
-              Text('Nov 02 2023', style: TextStyle(color: Colors.grey)),
-              Text('6:29:37 PM', style: TextStyle(color: Colors.grey)),
+              Text(
+                formattedDate,
+                style: TextStyle(color: Colors.grey.shade600, fontSize: 12),
+                textAlign: TextAlign.right,
+              ),
               const SizedBox(height: 12),
               Text(
-                '${'id_required'.tr(ref).replaceAll('*', '').trim().toUpperCase()} : ${alert.id}',
+                '${'id_required'.tr(ref).replaceAll('*', '').trim().toUpperCase()} : ${alert.id ?? '--'}',
                 style: TextStyle(
                   color: theme.colors.text,
                   fontWeight: FontWeight.w500,
@@ -89,6 +128,15 @@ class AlertListItem extends ConsumerWidget {
           ),
         ],
       ),
+    );
+  }
+
+  Widget _placeholderImage() {
+    return Container(
+      width: 120,
+      height: 90,
+      color: Colors.grey.shade200,
+      child: Icon(Icons.image_not_supported, color: Colors.grey.shade500),
     );
   }
 }

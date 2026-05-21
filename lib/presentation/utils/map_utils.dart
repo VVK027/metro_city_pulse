@@ -4,11 +4,24 @@ import 'package:metro_city_pulse/domain/entities/map_marker_data.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:flutter/material.dart';
 
-const double markerWidth = 40;
-const double markerHeight = 40;
+import 'package:metro_city_pulse/presentation/widgets/responsive.dart';
+
+const double markerWidthMobile = 40;
+const double markerWidthTablet = 48;
+const double markerWidthDesktop = 55;
 const double infoWindowWidth = 180;
 
 class MapUtils {
+  static double markerSizeForScreenWidth(double width) {
+    if (width <= mobileWidth) return markerWidthMobile;
+    if (width >= desktopWidth) return markerWidthDesktop;
+    return markerWidthTablet;
+  }
+
+  static Size markerSizeFromWidth(double width) {
+    final size = markerSizeForScreenWidth(width);
+    return Size(size, size);
+  }
   static List<Map<String, Object>> getSeveritiesList(
     Map<String, int> casesCounts,
   ) {
@@ -39,7 +52,7 @@ class MapUtils {
   // }
 
   static FilterType getFilterType(MapDataEntity entity) {
-    final String? type = entity.location?.locationType?.trim().toLowerCase();
+    final String? type = entity.locationType?.trim().toLowerCase();
     switch (type) {
       case 'traffic':
         return FilterType.traffic;
@@ -56,8 +69,8 @@ class MapUtils {
     }
   }
 
-  static TabBarType getCaseType(String caseStatus) {
-    switch (caseStatus) {
+  static TabBarType getCaseType(String status) {
+    switch (status) {
       case 'new':
         return TabBarType.newTab;
       case 'dispatch':
@@ -70,23 +83,24 @@ class MapUtils {
   }
 
   static Future<Map<FilterType, BitmapDescriptor>> loadIcons(
-    AppAssets assets,
-  ) async {
+    AppAssets assets, {
+    required Size markerSize,
+  }) async {
     return {
       FilterType.traffic: await BitmapDescriptor.asset(
-        ImageConfiguration(size: const Size(markerWidth, markerHeight)),
+        ImageConfiguration(size: markerSize),
         assets.vehicleIcon,
       ),
       FilterType.publicWorks: await BitmapDescriptor.asset(
-        ImageConfiguration(size: const Size(markerWidth, markerHeight)),
+        ImageConfiguration(size: markerSize),
         assets.publicGroupIcon,
       ),
       FilterType.airport: await BitmapDescriptor.asset(
-        ImageConfiguration(size: const Size(markerWidth, markerHeight)),
+        ImageConfiguration(size: markerSize),
         assets.theftIcon,
       ),
       FilterType.park: await BitmapDescriptor.asset(
-        ImageConfiguration(size: const Size(markerWidth, markerHeight)),
+        ImageConfiguration(size: markerSize),
         assets.publicGroupIcon,
       ),
     };
@@ -109,8 +123,9 @@ class MapUtils {
     GoogleMapController? controller,
     LatLngBounds? mapBounds,
     Size? mapSize,
-    LatLng? markerLatLng,
-  ) {
+    LatLng? markerLatLng, {
+    double markerSize = markerWidthMobile,
+  }) {
     if (markerLatLng == null ||
         controller == null ||
         mapBounds == null ||
@@ -128,20 +143,26 @@ class MapUtils {
         mapSize.height;
     bool showLeft = dx + infoWindowWidth > mapSize.width;
     double offsetX = showLeft
-        ? dx - infoWindowWidth + markerWidth / 2.1
-        : dx + markerWidth / 2.1;
-    double offsetY = dy - markerHeight * 2;
+        ? dx - infoWindowWidth + markerSize / 2.1
+        : dx + markerSize / 2.1;
+    double offsetY = dy - markerSize * 2;
     return Offset(offsetX, offsetY);
+  }
+
+  static Future<void> resetCameraPosition(
+    GoogleMapController? controller,
+  ) async {
+    if (controller != null) {
+      await controller.animateCamera(
+        CameraUpdate.newCameraPosition(initialCameraPosition),
+      );
+    }
   }
 
   static Future<void> goToCurrentLocation(
     GoogleMapController? controller,
   ) async {
-    if (controller != null) {
-      controller.animateCamera(
-        CameraUpdate.newCameraPosition(initialCameraPosition),
-      );
-    }
+    await resetCameraPosition(controller);
     // Position position = await Geolocator.getCurrentPosition(
     //     desiredAccuracy: LocationAccuracy.high);
     // final controller = await _controller.future;

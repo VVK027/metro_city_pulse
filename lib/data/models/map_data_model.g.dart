@@ -8,60 +8,55 @@ part of 'map_data_model.dart';
 
 MapDataModel _$MapDataModelFromJson(Map<String, dynamic> json) => MapDataModel(
   id: json['id'] as String,
-  position: PositionModel.fromJson(json['position'] as Map<String, dynamic>),
-  label: json['label'] as String,
   type: json['type'] as String,
-  caseStatus: json['caseStatus'] as String,
-  reportedBy: json['reportedBy'] as String,
-  vehicleNo: json['vehicleNo'] as String,
-  reportedTime: json['reportedTime'] as String,
+  cameraName: json['cameraName'] as String,
+  locationName: json['locationName'] as String,
+  locationAddress: json['locationAddress'] as String,
+  locationType: json['locationType'] as String,
+  coordinates: CoordinatesModel.fromJson(
+    json['coordinates'] as Map<String, dynamic>,
+  ),
+  date: json['date'] as String,
+  time: json['time'] as String,
+  isoTimestamp: json['isoTimestamp'] as String,
+  confidenceScore: (json['confidenceScore'] as num).toInt(),
+  status: json['status'] as String,
   severity: json['severity'] as String,
-  location: LocationModel.fromJson(json['location'] as Map<String, dynamic>),
   isLive: json['isLive'] as bool,
   imageUrl: json['imageUrl'] as String,
-  cameraUrl: json['camera_url'] as String,
+  cameraUrl: json['cameraUrl'] as String,
+  vehicleNo: json['vehicleNo'] as String?,
 );
 
 Map<String, dynamic> _$MapDataModelToJson(MapDataModel instance) =>
     <String, dynamic>{
       'id': instance.id,
-      'position': instance.position,
-      'label': instance.label,
       'type': instance.type,
-      'caseStatus': instance.caseStatus,
-      'reportedBy': instance.reportedBy,
-      'vehicleNo': instance.vehicleNo,
-      'reportedTime': instance.reportedTime,
-      'severity': instance.severity,
-      'location': instance.location,
-      'isLive': instance.isLive,
-      'imageUrl': instance.imageUrl,
-      'camera_url': instance.cameraUrl,
-    };
-
-PositionModel _$PositionModelFromJson(Map<String, dynamic> json) =>
-    PositionModel(
-      lat: (json['lat'] as num).toDouble(),
-      lng: (json['lng'] as num).toDouble(),
-    );
-
-Map<String, dynamic> _$PositionModelToJson(PositionModel instance) =>
-    <String, dynamic>{'lat': instance.lat, 'lng': instance.lng};
-
-LocationModel _$LocationModelFromJson(Map<String, dynamic> json) =>
-    LocationModel(
-      locationType: json['locationType'] as String,
-      locationName: json['locationName'] as String,
-      locationAddress: json['locationAddress'] as String,
-      currentCrowdCount: (json['currentCrowdCount'] as num).toInt(),
-      crowdLimit: (json['crowdLimit'] as num).toInt(),
-    );
-
-Map<String, dynamic> _$LocationModelToJson(LocationModel instance) =>
-    <String, dynamic>{
-      'locationType': instance.locationType,
+      'cameraName': instance.cameraName,
       'locationName': instance.locationName,
       'locationAddress': instance.locationAddress,
-      'currentCrowdCount': instance.currentCrowdCount,
-      'crowdLimit': instance.crowdLimit,
+      'locationType': instance.locationType,
+      'coordinates': instance.coordinates,
+      'date': instance.date,
+      'time': instance.time,
+      'isoTimestamp': instance.isoTimestamp,
+      'confidenceScore': instance.confidenceScore,
+      'status': instance.status,
+      'severity': instance.severity,
+      'isLive': instance.isLive,
+      'imageUrl': instance.imageUrl,
+      'cameraUrl': instance.cameraUrl,
+      'vehicleNo': instance.vehicleNo,
+    };
+
+CoordinatesModel _$CoordinatesModelFromJson(Map<String, dynamic> json) =>
+    CoordinatesModel(
+      latitude: (json['latitude'] as num).toDouble(),
+      longitude: (json['longitude'] as num).toDouble(),
+    );
+
+Map<String, dynamic> _$CoordinatesModelToJson(CoordinatesModel instance) =>
+    <String, dynamic>{
+      'latitude': instance.latitude,
+      'longitude': instance.longitude,
     };
