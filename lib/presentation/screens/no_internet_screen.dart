@@ -17,7 +17,7 @@ class NoInternetConnectionScreen extends ConsumerWidget {
             children: [
               const Spacer(flex: 2),
               SizedBox(
-                width: MediaQuery.of(context).size.width * 0.8,
+                width: MediaQuery.sizeOf(context).width * 0.8,
                 child: AspectRatio(
                   aspectRatio: 1,
                   child: SvgPicture.asset(

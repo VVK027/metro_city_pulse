@@ -1,3 +1,5 @@
+import 'package:flutter/material.dart';
+import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:metro_city_pulse/core/provider/theme/app_theme_provider.dart';
 import 'package:metro_city_pulse/core/themes/app_theme.dart';
 import 'package:metro_city_pulse/domain/entities/map_data_entity.dart';
@@ -6,11 +8,9 @@ import 'package:metro_city_pulse/presentation/screens/alerts/provider/alerts_sta
 import 'package:metro_city_pulse/presentation/screens/dashboard/component/responsive_date_range_selector.dart';
 import 'package:metro_city_pulse/presentation/screens/maps/provider/map_state_provider.dart';
 import 'package:metro_city_pulse/presentation/utils/localization_util.dart';
+import 'package:metro_city_pulse/presentation/widgets/common/app_responsive_scope.dart';
 import 'package:metro_city_pulse/presentation/widgets/common/app_tab_bar_widget.dart';
 import 'package:metro_city_pulse/presentation/widgets/common/app_text_widget.dart';
-import 'package:metro_city_pulse/presentation/widgets/responsive.dart';
-import 'package:flutter/material.dart';
-import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:video_player/video_player.dart';
 
 class AlertsScreen extends ConsumerWidget {
@@ -19,17 +19,16 @@ class AlertsScreen extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final theme = ref.watch(appThemeStateProvider);
-    final isMobile = Responsive.isMobile(context);
-    final isTablet = Responsive.isTablet(context);
+    final AppResponsive layout = AppResponsive.fromContext(context);
 
     return Scaffold(
       appBar: null,
-      body: isMobile
+      body: layout.isMobile
           ? SafeArea(child: _LeftPanel(theme: theme, isMobileLayout: true))
           : Row(
               children: [
                 Container(
-                  width: isTablet ? 300 : 360,
+                  width: layout.isTablet ? 300 : 360,
                   color: theme.colors.backgroundColor,
                   child: _LeftPanel(theme: theme),
                 ),
@@ -48,295 +47,261 @@ class _LeftPanel extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final confidenceScore = ref.watch(confidenceProvider);
-    final alerts = ref.watch(filteredAlertsProvider);
-    final selectedAlert = ref.watch(selectedAlertProvider);
+    final double confidenceScore = ref.watch(confidenceProvider);
+    final List<MapDataEntity> alerts = ref.watch(filteredAlertsProvider);
 
-    final shouldClearSelection = alerts.isEmpty && selectedAlert != null;
-    final shouldSelectFirst =
-        alerts.isNotEmpty &&
-        (selectedAlert == null ||
-            !alerts.any((alert) => alert.id == selectedAlert.id));
-
-    if (shouldClearSelection || shouldSelectFirst) {
-      WidgetsBinding.instance.addPostFrameCallback((_) {
-        final currentSelected = ref.read(selectedAlertProvider);
-        if (alerts.isEmpty) {
-          if (currentSelected != null) {
-            ref.read(selectedAlertProvider.notifier).state = null;
-          }
-          return;
+    // Reconcile selectedAlert with the current filtered list. Doing this in a
+    // dedicated listener keeps the build pure and avoids the
+    // `addPostFrameCallback in build` pattern.
+    ref.listen<List<MapDataEntity>>(filteredAlertsProvider, (previous, next) {
+      final MapDataEntity? currentSelected = ref.read(selectedAlertProvider);
+      if (next.isEmpty) {
+        if (currentSelected != null) {
+          ref.read(selectedAlertProvider.notifier).state = null;
         }
+        return;
+      }
+      final bool hasSelection = currentSelected != null &&
+          next.any((a) => a.id == currentSelected.id);
+      if (!hasSelection) {
+        ref.read(selectedAlertProvider.notifier).state = next.first;
+      }
+    });
 
-        final hasCurrentSelection =
-            currentSelected != null &&
-            alerts.any((alert) => alert.id == currentSelected.id);
-        if (!hasCurrentSelection) {
-          ref.read(selectedAlertProvider.notifier).state = alerts.first;
-        }
-      });
-    }
-
-    final apiTabCounts = ref.watch(
+    final MapDataEntity? selectedAlert = ref.watch(selectedAlertProvider);
+    final Map<String, int> apiTabCounts = ref.watch(
       remoteMarkersProvider.select(
         (value) => value.value?.casesCounts ?? const <String, int>{},
       ),
     );
-    final selectedTab = ref.watch(selectedAlertTabProvider);
-    final selectedTabNotifier = ref.read(selectedAlertTabProvider.notifier);
+    final TabBarType selectedTab = ref.watch(selectedAlertTabProvider);
+    final StateController<TabBarType> selectedTabNotifier =
+        ref.read(selectedAlertTabProvider.notifier);
 
-    final tabCounts = apiTabCounts;
+    final List<Map<String, dynamic>> tabs = [
+      {
+        'label': 'new'.tr(ref).toAllCapitalize(),
+        'value': apiTabCounts['new'] ?? 0,
+        'isActive': selectedTab == TabBarType.newTab,
+      },
+      {
+        'label': 'dispatch'.tr(ref).toAllCapitalize(),
+        'value': apiTabCounts['dispatch'] ?? 0,
+        'isActive': selectedTab == TabBarType.dispatch,
+      },
+      {
+        'label': 'cases'.tr(ref).toAllCapitalize(),
+        'value': apiTabCounts['cases'] ?? 0,
+        'isActive': selectedTab == TabBarType.cases,
+      },
+    ];
+    void onTabPressed(int index) {
+      switch (index) {
+        case 0:
+          selectedTabNotifier.state = TabBarType.newTab;
+          break;
+        case 1:
+          selectedTabNotifier.state = TabBarType.dispatch;
+          break;
+        case 2:
+          selectedTabNotifier.state = TabBarType.cases;
+          break;
+      }
+    }
 
     return Container(
       color: theme.colors.backgroundColor,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-        SizedBox(height: isMobileLayout ? 8 : 16),
-        // Status tabs + date range (same row on mobile)
-        Padding(
-          padding: EdgeInsets.symmetric(horizontal: isMobileLayout ? 10 : 8),
-          child: isMobileLayout
-              ? Row(
-                  children: [
-                    Expanded(
-                      child: AppTabBarWidget(
-                        theme: theme,
-                        isWide: !isMobileLayout,
-                        listTabs: [
-                          {
-                            'label': "new".tr(ref).toAllCapitalize(),
-                            'value': tabCounts['new'] ?? 0,
-                            'isActive': selectedTab == TabBarType.newTab,
-                          },
-                          {
-                            'label': "dispatch".tr(ref).toAllCapitalize(),
-                            'value': tabCounts['dispatch'] ?? 0,
-                            'isActive': selectedTab == TabBarType.dispatch,
-                          },
-                          {
-                            'label': "cases".tr(ref).toAllCapitalize(),
-                            'value': tabCounts['cases'] ?? 0,
-                            'isActive': selectedTab == TabBarType.cases,
-                          },
-                        ],
-                        onTabPressed: (index) {
-                          switch (index) {
-                            case 0:
-                              selectedTabNotifier.state = TabBarType.newTab;
-                              break;
-                            case 1:
-                              selectedTabNotifier.state = TabBarType.dispatch;
-                              break;
-                            case 2:
-                              selectedTabNotifier.state = TabBarType.cases;
-                              break;
-                          }
-                        },
-                      ),
-                    ),
-                    const SizedBox(width: 8),
-                    const ResponsiveDateRangeSelector(),
-                  ],
-                )
-              : Center(
-                  child: AppTabBarWidget(
-                    theme: theme,
-                    isWide: true,
-                    listTabs: [
-                    {
-                      'label': "new".tr(ref).toAllCapitalize(),
-                      'value': tabCounts['new'] ?? 0,
-                      'isActive': selectedTab == TabBarType.newTab,
-                    },
-                    {
-                      'label': "dispatch".tr(ref).toAllCapitalize(),
-                      'value': tabCounts['dispatch'] ?? 0,
-                      'isActive': selectedTab == TabBarType.dispatch,
-                    },
-                    {
-                      'label': "cases".tr(ref).toAllCapitalize(),
-                      'value': tabCounts['cases'] ?? 0,
-                      'isActive': selectedTab == TabBarType.cases,
-                    },
-                  ],
-                  onTabPressed: (index) {
-                    switch (index) {
-                      case 0:
-                        selectedTabNotifier.state = TabBarType.newTab;
-                        break;
-                      case 1:
-                        selectedTabNotifier.state = TabBarType.dispatch;
-                        break;
-                      case 2:
-                        selectedTabNotifier.state = TabBarType.cases;
-                        break;
-                    }
-                  },
-                ),
-              ),
-        ),
-
-        const Divider(),
-
-        // Date + Confidence
-        Padding(
-          padding: const EdgeInsets.all(8.0),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              if (isMobileLayout)
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Row(
-                      children: [
-                        Expanded(
-                          child: Text(
-                            "confidence_score".tr(ref).toAllCapitalize(),
-                          ),
-                        ),
-                        Container(
-                          padding: const EdgeInsets.symmetric(
-                            horizontal: 8,
-                            vertical: 4,
-                          ),
-                          decoration: BoxDecoration(
-                            color: Theme.of(
-                              context,
-                            ).colorScheme.primary.withValues(alpha: 0.12),
-                            borderRadius: BorderRadius.circular(12),
-                          ),
-                          child: Text(
-                            ">= ${confidenceScore.toInt()}",
-                            style: TextStyle(
-                              color: Theme.of(context).colorScheme.primary,
-                              fontWeight: FontWeight.w600,
-                              fontSize: 12,
-                            ),
-                          ),
-                        ),
-                      ],
-                    ),
-                    Slider(
-                      value: confidenceScore,
-                      min: 0,
-                      max: 100,
-                      divisions: 100,
-                      label: "${confidenceScore.toInt()}",
-                      onChanged: (value) {
-                        ref.read(confidenceProvider.notifier).state = value;
-                      },
-                    ),
-                  ],
-                )
-              else ...[
-                Row(
-                  children: [
-                    Expanded(
-                      child: Text("select_date_range".tr(ref).toAllCapitalize()),
-                    ),
-                    const ResponsiveDateRangeSelector(),
-                  ],
-                ),
-                const SizedBox(height: 8),
-                const Divider(),
-                const SizedBox(height: 12),
-                Row(
-                  children: [
-                    Expanded(
-                      child: Text("confidence_score".tr(ref).toAllCapitalize()),
-                    ),
-                    Container(
-                      padding: const EdgeInsets.symmetric(
-                        horizontal: 8,
-                        vertical: 4,
-                      ),
-                      decoration: BoxDecoration(
-                        color: Theme.of(
-                          context,
-                        ).colorScheme.primary.withValues(alpha: 0.12),
-                        borderRadius: BorderRadius.circular(12),
-                      ),
-                      child: Text(
-                        ">= ${confidenceScore.toInt()}",
-                        style: TextStyle(
-                          color: Theme.of(context).colorScheme.primary,
-                          fontWeight: FontWeight.w600,
-                          fontSize: 12,
+          SizedBox(height: isMobileLayout ? 8 : 16),
+          Padding(
+            padding: EdgeInsets.symmetric(horizontal: isMobileLayout ? 10 : 8),
+            child: isMobileLayout
+                ? Row(
+                    children: [
+                      Expanded(
+                        child: AppTabBarWidget(
+                          theme: theme,
+                          isWide: false,
+                          listTabs: tabs,
+                          onTabPressed: onTabPressed,
                         ),
                       ),
+                      const SizedBox(width: 8),
+                      const ResponsiveDateRangeSelector(),
+                    ],
+                  )
+                : Center(
+                    child: AppTabBarWidget(
+                      theme: theme,
+                      isWide: true,
+                      listTabs: tabs,
+                      onTabPressed: onTabPressed,
                     ),
-                  ],
-                ),
-                Slider(
-                  value: confidenceScore,
-                  min: 0,
-                  max: 100,
-                  divisions: 100,
-                  label: "${confidenceScore.toInt()}",
-                  onChanged: (value) {
-                    ref.read(confidenceProvider.notifier).state = value;
-                  },
-                ),
-              ],
-            ],
+                  ),
           ),
-        ),
-
-        const Divider(),
-
-        // Alerts List
+          const Divider(),
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: _AlertsFilterBlock(
+              isMobile: isMobileLayout,
+              confidenceScore: confidenceScore,
+            ),
+          ),
+          const Divider(),
           Expanded(
-            child: ClipRect(
-              child: ListView.builder(
-                padding: const EdgeInsets.only(bottom: 8),
-                primary: false,
-                itemCount: alerts.length,
-                itemBuilder: (context, index) {
-                  final alert = alerts[index];
-                  final isSelected = selectedAlert?.id == alert.id;
-                  final title = alert.type?.trim().isNotEmpty == true
-                      ? alert.type!.trim()
-                      : "Alert";
-                  final camera = alert.cameraName?.trim().isNotEmpty == true
-                      ? alert.cameraName!.trim()
-                      : (alert.vehicleNo?.trim().isNotEmpty == true
-                            ? alert.vehicleNo!.trim()
-                            : "--");
-                  final location =
-                      alert.locationName?.trim().isNotEmpty == true
-                      ? alert.locationName!.trim()
-                      : (alert.locationAddress?.trim().isNotEmpty == true
-                            ? alert.locationAddress!.trim()
-                            : "--");
-                  final reportedAt = _parseReportedTime(alert.isoTimestamp);
-                  return ListTile(
-                    leading: const CircleAvatar(child: Icon(Icons.camera_alt)),
-                    title: AppText(title, fontWeight: FontWeight.bold),
-                    selected: isSelected,
-                    selectedTileColor: Theme.of(
-                      context,
-                    ).colorScheme.primary.withValues(alpha: 0.12),
-                    subtitle: Text(
-                      "${"camera".tr(ref).toAllCapitalize()}: $camera\n"
-                      "${"location".tr(ref).toAllCapitalize()}: $location",
-                    ),
-                    isThreeLine: true,
-                    trailing: Text(
-                      "${reportedAt.month}/${reportedAt.day}/${reportedAt.year}\n${reportedAt.hour}:${reportedAt.minute.toString().padLeft(2, '0')}",
-                      style: const TextStyle(fontSize: 12),
-                      textAlign: TextAlign.right,
-                    ),
-                    onTap: () {
-                      ref.read(selectedAlertProvider.notifier).state = alert;
-                    },
-                  );
-                },
+            child: RepaintBoundary(
+              child: _AlertList(
+                alerts: alerts,
+                selectedAlertId: selectedAlert?.id,
+                theme: theme,
               ),
             ),
           ),
         ],
+      ),
+    );
+  }
+}
+
+class _AlertsFilterBlock extends ConsumerWidget {
+  final bool isMobile;
+  final double confidenceScore;
+  const _AlertsFilterBlock({
+    required this.isMobile,
+    required this.confidenceScore,
+  });
+
+  @override
+  Widget build(BuildContext context, WidgetRef ref) {
+    final ThemeData themeData = Theme.of(context);
+
+    final Widget confidenceRow = Row(
+      children: [
+        Expanded(
+          child: AppText(
+            'confidence_score'.tr(ref).toAllCapitalize(),
+          ),
+        ),
+        Container(
+          padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
+          decoration: BoxDecoration(
+            color: themeData.colorScheme.primary.withValues(alpha: 0.12),
+            borderRadius: BorderRadius.circular(12),
+          ),
+          child: AppText(
+            '>= ${confidenceScore.toInt()}',
+            color: themeData.colorScheme.primary,
+            fontWeight: FontWeight.w600,
+            size: 12,
+          ),
+        ),
+      ],
+    );
+
+    final Widget slider = Slider(
+      value: confidenceScore,
+      min: 0,
+      max: 100,
+      divisions: 100,
+      label: '${confidenceScore.toInt()}',
+      onChanged: (value) {
+        ref.read(confidenceProvider.notifier).state = value;
+      },
+    );
+
+    if (isMobile) {
+      return Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [confidenceRow, slider],
+      );
+    }
+
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Row(
+          children: [
+            Expanded(
+              child: AppText(
+                'select_date_range'.tr(ref).toAllCapitalize(),
+              ),
+            ),
+            const ResponsiveDateRangeSelector(),
+          ],
+        ),
+        const SizedBox(height: 8),
+        const Divider(),
+        const SizedBox(height: 12),
+        confidenceRow,
+        slider,
+      ],
+    );
+  }
+}
+
+class _AlertList extends ConsumerWidget {
+  final List<MapDataEntity> alerts;
+  final String? selectedAlertId;
+  final AppTheme theme;
+
+  const _AlertList({
+    required this.alerts,
+    required this.selectedAlertId,
+    required this.theme,
+  });
+
+  @override
+  Widget build(BuildContext context, WidgetRef ref) {
+    return ClipRect(
+      child: ListView.builder(
+        padding: const EdgeInsets.only(bottom: 8),
+        primary: false,
+        itemCount: alerts.length,
+        cacheExtent: 250,
+        addAutomaticKeepAlives: false,
+        addRepaintBoundaries: true,
+        itemBuilder: (context, index) {
+          final MapDataEntity alert = alerts[index];
+          final bool isSelected = selectedAlertId == alert.id;
+          final String title = alert.type?.trim().isNotEmpty == true
+              ? alert.type!.trim()
+              : 'Alert';
+          final String camera = alert.cameraName?.trim().isNotEmpty == true
+              ? alert.cameraName!.trim()
+              : (alert.vehicleNo?.trim().isNotEmpty == true
+                  ? alert.vehicleNo!.trim()
+                  : '--');
+          final String location =
+              alert.locationName?.trim().isNotEmpty == true
+                  ? alert.locationName!.trim()
+                  : (alert.locationAddress?.trim().isNotEmpty == true
+                      ? alert.locationAddress!.trim()
+                      : '--');
+          final DateTime reportedAt = _parseReportedTime(alert.isoTimestamp);
+          return ListTile(
+            leading: const CircleAvatar(child: Icon(Icons.camera_alt)),
+            title: AppText(title, fontWeight: FontWeight.bold),
+            selected: isSelected,
+            selectedTileColor:
+                Theme.of(context).colorScheme.primary.withValues(alpha: 0.12),
+            subtitle: Text(
+              '${'camera'.tr(ref).toAllCapitalize()}: $camera\n'
+              '${'location'.tr(ref).toAllCapitalize()}: $location',
+            ),
+            isThreeLine: true,
+            trailing: Text(
+              '${reportedAt.month}/${reportedAt.day}/${reportedAt.year}\n'
+              '${reportedAt.hour}:${reportedAt.minute.toString().padLeft(2, '0')}',
+              style: const TextStyle(fontSize: 12),
+              textAlign: TextAlign.right,
+            ),
+            onTap: () {
+              ref.read(selectedAlertProvider.notifier).state = alert;
+            },
+          );
+        },
       ),
     );
   }
@@ -356,28 +321,21 @@ class _RightPanelState extends ConsumerState<_RightPanel> {
   bool _isVideoInitializing = false;
 
   @override
-  void initState() {
-    super.initState();
-  }
-
-  @override
   void dispose() {
     _controller?.dispose();
     super.dispose();
   }
 
   String? _normalizedUrl(String? value) {
-    final trimmed = value?.trim() ?? "";
+    final String trimmed = value?.trim() ?? '';
     return trimmed.isEmpty ? null : trimmed;
   }
 
   void _syncVideoController(String? videoUrl) {
-    if (_activeVideoUrl == videoUrl) {
-      return;
-    }
+    if (_activeVideoUrl == videoUrl) return;
 
     _activeVideoUrl = videoUrl;
-    final previousController = _controller;
+    final VideoPlayerController? previousController = _controller;
     _controller = null;
     previousController?.dispose();
 
@@ -388,44 +346,37 @@ class _RightPanelState extends ConsumerState<_RightPanel> {
       return;
     }
 
-    final controller = VideoPlayerController.networkUrl(Uri.parse(videoUrl));
+    final VideoPlayerController controller =
+        VideoPlayerController.networkUrl(Uri.parse(videoUrl));
     _controller = controller;
     if (mounted) {
       setState(() => _isVideoInitializing = true);
     }
 
-    controller
-        .initialize()
-        .then((_) {
-          if (!mounted || _controller != controller) {
-            return;
-          }
-          controller
-            ..setLooping(true)
-            ..play();
-          setState(() => _isVideoInitializing = false);
-        })
-        .catchError((_) {
-          if (!mounted || _controller != controller) {
-            return;
-          }
-          setState(() => _isVideoInitializing = false);
-        });
+    controller.initialize().then((_) {
+      if (!mounted || _controller != controller) return;
+      controller
+        ..setLooping(true)
+        ..play();
+      setState(() => _isVideoInitializing = false);
+    }).catchError((_) {
+      if (!mounted || _controller != controller) return;
+      setState(() => _isVideoInitializing = false);
+    });
   }
 
   @override
   Widget build(BuildContext context) {
-    final selectedAlert = ref.watch(selectedAlertProvider);
-    final videoUrl = _normalizedUrl(selectedAlert?.cameraUrl);
-    final imageUrl = _normalizedUrl(selectedAlert?.imageUrl);
+    final MapDataEntity? selectedAlert = ref.watch(selectedAlertProvider);
+    final String? videoUrl = _normalizedUrl(selectedAlert?.cameraUrl);
+    final String? imageUrl = _normalizedUrl(selectedAlert?.imageUrl);
     _syncVideoController(videoUrl);
 
     return Padding(
-      padding: const EdgeInsets.all(12.0),
+      padding: const EdgeInsets.all(12),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          // Video Evidence
           ClipRRect(
             borderRadius: BorderRadius.circular(12),
             child: Container(
@@ -434,65 +385,61 @@ class _RightPanelState extends ConsumerState<_RightPanel> {
               width: double.infinity,
               child:
                   videoUrl != null && _controller?.value.isInitialized == true
-                  ? AspectRatio(
-                      aspectRatio: _controller!.value.aspectRatio,
-                      child: VideoPlayer(_controller!),
-                    )
-                  : imageUrl != null
-                  ? Image.network(
-                      imageUrl,
-                      fit: BoxFit.cover,
-                      errorBuilder: (context, error, stackTrace) => Image.asset(
-                        "assets/images/traffic_area.jpg",
-                        fit: BoxFit.cover,
-                      ),
-                    )
-                  : SizedBox(
-                      height: 220,
-                      child: Center(
-                        child: videoUrl != null && _isVideoInitializing
-                            ? const CircularProgressIndicator()
-                            : const Text(
-                                "No evidence available",
-                                style: TextStyle(color: Colors.white70),
+                      ? AspectRatio(
+                          aspectRatio: _controller!.value.aspectRatio,
+                          child: VideoPlayer(_controller!),
+                        )
+                      : imageUrl != null
+                          ? Image.network(
+                              imageUrl,
+                              fit: BoxFit.cover,
+                              gaplessPlayback: true,
+                              filterQuality: FilterQuality.medium,
+                              errorBuilder: (_, _, _) => _NoEvidencePlaceholder(),
+                            )
+                          : SizedBox(
+                              height: 220,
+                              child: Center(
+                                child: videoUrl != null && _isVideoInitializing
+                                    ? const CircularProgressIndicator()
+                                    : const Text(
+                                        'No evidence available',
+                                        style:
+                                            TextStyle(color: Colors.white70),
+                                      ),
                               ),
-                      ),
-                    ),
+                            ),
             ),
           ),
           const SizedBox(height: 12),
-
-          // Action Buttons
           Wrap(
             spacing: 8,
             runSpacing: 8,
             children: [
               ElevatedButton.icon(
                 icon: const Icon(Icons.work),
-                label: Text("create_case".tr(ref).toAllCapitalize()),
+                label: Text('create_case'.tr(ref).toAllCapitalize()),
                 onPressed: () {},
               ),
               ElevatedButton.icon(
                 icon: const Icon(Icons.feedback),
-                label: Text("feedback".tr(ref).toAllCapitalize()),
+                label: Text('feedback'.tr(ref).toAllCapitalize()),
                 onPressed: () {},
               ),
               ElevatedButton.icon(
                 icon: const Icon(Icons.sos, color: Colors.white),
-                label: Text("sos".tr(ref).toUpperCase()),
+                label: Text('sos'.tr(ref).toUpperCase()),
                 style: ElevatedButton.styleFrom(backgroundColor: Colors.red),
                 onPressed: () {},
               ),
               OutlinedButton.icon(
                 icon: const Icon(Icons.close),
-                label: Text("ignore".tr(ref).toAllCapitalize()),
+                label: Text('ignore'.tr(ref).toAllCapitalize()),
                 onPressed: () {},
               ),
             ],
           ),
           const SizedBox(height: 12),
-
-          // Alert Info Card
           if (selectedAlert != null) ...[
             Card(
               shape: RoundedRectangleBorder(
@@ -503,27 +450,26 @@ class _RightPanelState extends ConsumerState<_RightPanel> {
                 title: Text(
                   selectedAlert.type?.trim().isNotEmpty == true
                       ? selectedAlert.type!.trim()
-                      : "Alert",
+                      : 'Alert',
                 ),
                 subtitle: Text(
                   selectedAlert.isoTimestamp ??
-                      _parseReportedTime(
-                        selectedAlert.isoTimestamp,
-                      ).toIso8601String(),
+                      _parseReportedTime(selectedAlert.isoTimestamp)
+                          .toIso8601String(),
                 ),
                 trailing: Container(
-                  padding: const EdgeInsets.symmetric(
-                    horizontal: 12,
-                    vertical: 6,
-                  ),
+                  padding:
+                      const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
                   decoration: BoxDecoration(
-                    color: Theme.of(
-                      context,
-                    ).colorScheme.primary.withValues(alpha: 0.15),
+                    color: Theme.of(context)
+                        .colorScheme
+                        .primary
+                        .withValues(alpha: 0.15),
                     borderRadius: BorderRadius.circular(12),
                   ),
                   child: Text(
-                    "${"confidence".tr(ref).toAllCapitalize()} ${selectedAlert.confidenceScore ?? 0}%",
+                    '${'confidence'.tr(ref).toAllCapitalize()} '
+                    '${selectedAlert.confidenceScore ?? 0}%',
                   ),
                 ),
               ),
@@ -534,7 +480,7 @@ class _RightPanelState extends ConsumerState<_RightPanel> {
             ),
           ] else
             Text(
-              "select_alert_to_view_details".tr(ref).toAllCapitalize(),
+              'select_alert_to_view_details'.tr(ref).toAllCapitalize(),
               style: const TextStyle(color: Colors.grey),
             ),
         ],
@@ -550,14 +496,14 @@ class _AlertDetailsPanel extends StatelessWidget {
   const _AlertDetailsPanel({required this.alert, required this.ref});
 
   String _value(String? value) {
-    final trimmed = value?.trim() ?? '';
+    final String trimmed = value?.trim() ?? '';
     return trimmed.isEmpty ? '--' : trimmed;
   }
 
   @override
   Widget build(BuildContext context) {
-    final theme = Theme.of(context);
-    final details = <MapEntry<String, String>>[
+    final ThemeData themeData = Theme.of(context);
+    final List<MapEntry<String, String>> details = <MapEntry<String, String>>[
       MapEntry('ID', _value(alert.id)),
       MapEntry('type'.tr(ref).toAllCapitalize(), _value(alert.type)),
       MapEntry('camera'.tr(ref).toAllCapitalize(), _value(alert.cameraName)),
@@ -588,10 +534,10 @@ class _AlertDetailsPanel extends StatelessWidget {
     return Container(
       width: double.infinity,
       decoration: BoxDecoration(
-        color: theme.colorScheme.primary.withValues(alpha: 0.06),
+        color: themeData.colorScheme.primary.withValues(alpha: 0.06),
         borderRadius: BorderRadius.circular(12),
         border: Border.all(
-          color: theme.colorScheme.primary.withValues(alpha: 0.12),
+          color: themeData.colorScheme.primary.withValues(alpha: 0.12),
         ),
       ),
       child: ListView.separated(
@@ -599,7 +545,7 @@ class _AlertDetailsPanel extends StatelessWidget {
         itemCount: details.length,
         separatorBuilder: (context, index) => const Divider(height: 20),
         itemBuilder: (context, index) {
-          final entry = details[index];
+          final MapEntry<String, String> entry = details[index];
           return Row(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -609,14 +555,16 @@ class _AlertDetailsPanel extends StatelessWidget {
                   entry.key,
                   style: TextStyle(
                     fontWeight: FontWeight.w600,
-                    color: theme.colorScheme.onSurface.withValues(alpha: 0.7),
+                    color: themeData.colorScheme.onSurface
+                        .withValues(alpha: 0.7),
                   ),
                 ),
               ),
               Expanded(
                 child: Text(
                   entry.value,
-                  style: TextStyle(color: theme.colorScheme.onSurface),
+                  style:
+                      TextStyle(color: themeData.colorScheme.onSurface),
                 ),
               ),
             ],
@@ -632,4 +580,28 @@ DateTime _parseReportedTime(String? value) {
     return DateTime.now();
   }
   return DateTime.tryParse(value.trim()) ?? DateTime.now();
+}
+
+/// Lightweight placeholder shown when both the live evidence stream and the
+/// fallback image fail to load. Replaces the previous 74KB JPG that was
+/// shipped only to be displayed as a "no image" state.
+class _NoEvidencePlaceholder extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      color: Colors.black,
+      alignment: Alignment.center,
+      child: const Column(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          Icon(Icons.videocam_off_outlined, color: Colors.white54, size: 48),
+          SizedBox(height: 8),
+          Text(
+            'No evidence available',
+            style: TextStyle(color: Colors.white70),
+          ),
+        ],
+      ),
+    );
+  }
 }

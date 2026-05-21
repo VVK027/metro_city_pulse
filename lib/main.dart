@@ -47,7 +47,6 @@ class MainApp extends ConsumerWidget {
 
 /// Dark mode extension
 extension DarkMode on BuildContext {
-  bool get isDarkMode {
-    return MediaQuery.of(this).platformBrightness == Brightness.dark;
-  }
+  bool get isDarkMode =>
+      MediaQuery.platformBrightnessOf(this) == Brightness.dark;
 }

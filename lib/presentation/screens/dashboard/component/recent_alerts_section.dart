@@ -1,12 +1,13 @@
-import 'package:metro_city_pulse/core/constants/constants.dart';
+import 'package:flutter/material.dart';
+import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:metro_city_pulse/core/themes/app_theme.dart';
 import 'package:metro_city_pulse/presentation/screens/dashboard/component/alert_list_item.dart';
 import 'package:metro_city_pulse/presentation/screens/dashboard/provider/dashboard_stats_provider.dart';
 import 'package:metro_city_pulse/presentation/screens/home/provider/menu_state_provider.dart';
 import 'package:metro_city_pulse/presentation/utils/localization_util.dart';
+import 'package:metro_city_pulse/presentation/widgets/common/app_card.dart';
+import 'package:metro_city_pulse/presentation/widgets/common/app_text_widget.dart';
 import 'package:metro_city_pulse/presentation/widgets/components/card_top_container_widget.dart';
-import 'package:flutter/material.dart';
-import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 class RecentAlertsSection extends ConsumerWidget {
   final AppTheme theme;
@@ -20,39 +21,36 @@ class RecentAlertsSection extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final alerts = ref.watch(recentMapAlertsProvider);
-    final alertsHeight = MediaQuery.sizeOf(context).height * 0.42;
+    final List alerts = ref.watch(recentMapAlertsProvider);
+    final double alertsHeight = MediaQuery.sizeOf(context).height * 0.42;
 
-    final alertsList = alerts.isEmpty
+    final Widget alertsList = alerts.isEmpty
         ? Center(
-            child: Text(
+            child: AppText(
               'select_alert_to_view_details'.tr(ref),
-              style: TextStyle(color: Colors.grey.shade600),
+              color: Colors.grey.shade600,
               textAlign: TextAlign.center,
             ),
           )
         : ListView.separated(
             padding: EdgeInsets.zero,
             itemCount: alerts.length,
+            // Avoid laying out off-screen items at startup; lets the first
+            // frame paint sooner on big lists.
+            cacheExtent: 250,
+            addAutomaticKeepAlives: false,
+            addRepaintBoundaries: true,
             itemBuilder: (context, index) {
-              return AlertListItem(
-                alert: alerts[index],
-                theme: theme,
-              );
+              return AlertListItem(alert: alerts[index], theme: theme);
             },
-            separatorBuilder: (context, index) {
-              return Divider(
-                thickness: 0.5,
-                height: 0.5,
-                color: Colors.grey.shade400,
-              );
-            },
+            separatorBuilder: (_, _) => Divider(
+              thickness: 0.5,
+              height: 0.5,
+              color: Colors.grey.shade400,
+            ),
           );
 
-    return Card(
-      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
-      elevation: defaultCardElevation,
-      clipBehavior: Clip.antiAlias,
+    return AppCard(
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -69,11 +67,11 @@ class RecentAlertsSection extends ConsumerWidget {
             ),
           ),
           if (fillAvailableHeight)
-            Expanded(child: alertsList)
+            Expanded(child: RepaintBoundary(child: alertsList))
           else
             SizedBox(
               height: alertsHeight.clamp(280, 520),
-              child: alertsList,
+              child: RepaintBoundary(child: alertsList),
             ),
         ],
       ),

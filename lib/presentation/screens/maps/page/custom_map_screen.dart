@@ -10,8 +10,8 @@ import 'package:metro_city_pulse/presentation/screens/maps/component/severity_ba
 import 'package:metro_city_pulse/presentation/screens/maps/provider/map_state_provider.dart';
 import 'package:metro_city_pulse/presentation/utils/localization_util.dart';
 import 'package:metro_city_pulse/presentation/utils/map_utils.dart';
+import 'package:metro_city_pulse/presentation/widgets/common/app_responsive_scope.dart';
 import 'package:metro_city_pulse/presentation/widgets/common/app_text_widget.dart';
-import 'package:metro_city_pulse/presentation/widgets/responsive.dart';
 import 'package:flutter/material.dart';
 //import 'package:google_maps_cluster_manager_2/google_maps_cluster_manager_2.dart' as cm;
 import 'package:google_maps_flutter/google_maps_flutter.dart';
@@ -59,9 +59,10 @@ class _NewCustomMapScreenState extends ConsumerState<CustomMapScreen> {
     final tabBarProviderNotifier = ref.read(tabBarProvider.notifier);
     final TabBarType selectedTabItem = ref.watch(tabBarProvider);
 
-    final bool isMobileSmallerTablet =
-        (Responsive.isMobile(context) || Responsive.isSmallerTablet(context));
-    final bool isTablet = Responsive.isTablet(context);
+    final AppResponsive layout = AppResponsive.fromContext(context);
+    final bool isMobileSmallerTablet = layout.isMobileOrSmallerTablet;
+    final bool isTablet = layout.isTablet;
+    final bool isMobile = layout.isMobile;
 
     ref.listen<int>(mapLiveResetTriggerProvider, (previous, next) {
       if (previous != next) {
@@ -71,7 +72,7 @@ class _NewCustomMapScreenState extends ConsumerState<CustomMapScreen> {
 
     return Scaffold(
       backgroundColor: theme.colors.surface,
-      appBar: !Responsive.isMobile(context)
+      appBar: !isMobile
           ? DashboardAppBar(
               title: 'dashboard'.tr(ref),
               theme: theme,
@@ -99,35 +100,34 @@ class _NewCustomMapScreenState extends ConsumerState<CustomMapScreen> {
                 remoteMarkersResultNotifier.casesCounts,
                 isMobileSmallerTablet,
                 isTablet,
+                isMobile,
               ),
             Expanded(
               child: Stack(
                 alignment: Alignment.center,
                 children: [
-                  _buildMap(
-                    remoteMarkersResult,
-                    selectedFilter,
-                    selectedTabItem,
-                    selectedSeverityIndex,
+                  RepaintBoundary(
+                    child: _buildMap(
+                      remoteMarkersResult,
+                      selectedFilter,
+                      selectedTabItem,
+                      selectedSeverityIndex,
+                    ),
                   ),
                   if (_showCustomInfo &&
                       _selectedMarker != null &&
                       _selectedMarkerLatLng != null)
                     _buildInfoWindow(context),
-                  if (!Responsive.isMobile(context)) ...[
-                    // Top filter bar
+                  if (!isMobile) ...[
                     _buildFilterBar(theme, selectedFilter),
                   ],
-                  // Severity legend at bottom-left
                   _buildSeverityBar(
                     selectedSeverityIndex,
                     remoteMarkersResultNotifier.severityCounts,
-                    Responsive.isMobile(context),
+                    isMobile,
                   ),
-                  // Zoom Controls
-                  _buildZoomControls(theme),
-                  if (_showFilterOptions && !Responsive.isMobile(context))
-                    //Side panel for wide layout
+                  _buildZoomControls(theme, isMobile),
+                  if (_showFilterOptions && !isMobile)
                     _buildSidePanel(remoteMarkersResult, selectedFilter),
                 ],
               ),
@@ -159,7 +159,9 @@ class _NewCustomMapScreenState extends ConsumerState<CustomMapScreen> {
     Map<String, int> casesCounts,
     bool isMobileSmallerTablet,
     bool isTablet,
+    bool isMobile,
   ) {
+    final double gap = isMobile ? 8 : 4;
     return Container(
       width: double.infinity,
       color: theme.colors.surface,
@@ -179,14 +181,9 @@ class _NewCustomMapScreenState extends ConsumerState<CustomMapScreen> {
               casesCounts,
             ),
           ),
-          SizedBox(width: Responsive.isMobile(context) ? 8 : 4),
-          buildDateRangeButton(Responsive.isTablet(context), () {}),
-          SizedBox(width: Responsive.isMobile(context) ? 8 : 4),
-          // buildClockButton(() {
-          //   // onClockPressed action
-          //
-          // },),
-          SizedBox(width: Responsive.isMobile(context) ? 8 : 4),
+          SizedBox(width: gap),
+          buildDateRangeButton(isTablet, () {}),
+          SizedBox(width: gap),
           //         Row(
           //             children: [
           //               const Text("Auto-refresh"),
@@ -395,11 +392,10 @@ class _NewCustomMapScreenState extends ConsumerState<CustomMapScreen> {
         : const SizedBox.shrink();
   }
 
-  Widget _buildZoomControls(dynamic theme) {
+  Widget _buildZoomControls(dynamic theme, bool isMobile) {
     return Positioned(
       right: 10,
-      //top: Responsive.isMobile(context) ? 0 : null,
-      bottom: !Responsive.isMobile(context) ? kBottomNavigationBarHeight : 8,
+      bottom: !isMobile ? kBottomNavigationBarHeight : 8,
       child: MapZoomControlWidget(
         theme: theme,
         onLocationPressed: () => MapUtils.goToCurrentLocation(_mapController),

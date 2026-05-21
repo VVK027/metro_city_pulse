@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
   <!--
     If you are serving your web app in a path other than the root, change the
@@ -7,41 +7,85 @@
 
     The path provided below has to start and end with a slash "/" in order for
     it to work correctly.
-
-    For more details:
-    * https://developer.mozilla.org/en-US/docs/Web/HTML/Element/base
-
-    This is a placeholder for base href that will be replaced by the value of
-    the `--base-href` argument provided to `flutter build`.
   -->
   <base href="$FLUTTER_BASE_HREF">
 
   <meta charset="UTF-8">
-  <meta content="IE=Edge" http-equiv="X-UA-Compatible">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, viewport-fit=cover">
+  <meta name="theme-color" content="#4671C6">
   <meta name="description" content="Metro City Pulse - Your trusted source for real-time traffic updates, road conditions, and travel information.">
 
   <!-- iOS meta tags & icons -->
   <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
-  <meta name="apple-mobile-web-app-title" content="metro_city_pulse">
+  <meta name="apple-mobile-web-app-title" content="Metro City Pulse">
   <link rel="apple-touch-icon" href="icons/Icon-192.png">
 
   <!-- Favicon -->
   <link rel="icon" type="image/png" href="favicon.png"/>
 
-  <title>metro_city_pulse</title>
+  <title>Metro City Pulse</title>
   <link rel="manifest" href="manifest.json">
 
-  <!--  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA3Ik4aXbvCLzKhkB-oQLULw3evl5LUsfk&libraries=drawing"></script>-->
-  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBAPL6yhcAd-ZBfat2Gz8UcVyGiZfzBxU4&libraries=marker,drawing"></script>
-  <!--  <script-->
-  <!--          src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBAPL6yhcAd-ZBfat2Gz8UcVyGiZfzBxU4&v=weekly&libraries=marker"-->
-  <!--          defer-->
-  <!--  ></script>-->
-  <script src="https://cdn.jsdelivr.net/npm/@googlemaps/markerclusterer@2.5.3/dist/index.umd.min.js"></script>
+  <!-- Preconnect to Google Maps endpoints so the lookup/handshake happens in parallel
+       with parsing the rest of the document. This shaves dozens of ms on first paint. -->
+  <link rel="preconnect" href="https://maps.googleapis.com" crossorigin>
+  <link rel="preconnect" href="https://maps.gstatic.com" crossorigin>
+  <link rel="dns-prefetch" href="https://maps.googleapis.com">
 
+  <!-- Preload Flutter bootstrap and assets manifest to start fetching them ASAP. -->
+  <link rel="preload" href="flutter_bootstrap.js" as="script">
+  <link rel="preload" href="assets/AssetManifest.bin" as="fetch" crossorigin="anonymous">
+
+  <!-- Google Maps JS API. Loaded async so it does NOT block first paint; google_maps_flutter
+       waits for window.google.maps before instantiating the map widget, so async is safe. -->
+  <script async src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBAPL6yhcAd-ZBfat2Gz8UcVyGiZfzBxU4&libraries=marker"></script>
+
+  <style>
+    html, body { margin: 0; padding: 0; height: 100%; background: #E0EBFC; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Poppins", sans-serif; }
+    /* Inline splash that disappears as soon as Flutter starts painting frames. */
+    #app-splash {
+      position: fixed;
+      inset: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(135deg, #4671C6 0%, #3762CC 100%);
+      color: white;
+      z-index: 9999;
+      transition: opacity 350ms ease-out;
+    }
+    #app-splash.fade-out { opacity: 0; pointer-events: none; }
+    #app-splash .title { font-size: 22px; font-weight: 600; letter-spacing: 0.5px; margin-top: 18px; }
+    #app-splash .ring {
+      width: 44px; height: 44px;
+      border-radius: 50%;
+      border: 3px solid rgba(255,255,255,0.25);
+      border-top-color: #ffffff;
+      animation: spin 0.9s linear infinite;
+    }
+    @keyframes spin { to { transform: rotate(360deg); } }
+  </style>
 </head>
 <body>
+  <div id="app-splash" aria-hidden="true">
+    <div class="ring"></div>
+    <div class="title">Metro City Pulse</div>
+  </div>
+
   <script src="flutter_bootstrap.js" async></script>
+
+  <script>
+    // Remove the splash once Flutter has painted its first frame.
+    window.addEventListener('flutter-first-frame', function () {
+      var s = document.getElementById('app-splash');
+      if (!s) return;
+      s.classList.add('fade-out');
+      setTimeout(function () { s && s.parentNode && s.parentNode.removeChild(s); }, 400);
+    });
+  </script>
 </body>
 </html>
