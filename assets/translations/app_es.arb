@@ -1,0 +1,99 @@
+{
+  "app_title" : "Metro City Pulse",
+  "logout": "Cerrar sesión",
+  "change_language": "Cambiar idioma",
+  "settings": "Configuración",
+  "language": "Idioma",
+  "theme": "Tema",
+  "dark_mode": "Modo Oscuro",
+  "save_changes": "Guardar cambios",
+  "changes_saved": "¡Cambios guardados!",
+  "dashboard": "Tablero",
+  "total_cases": "Casos Totales",
+  "newAlerts": "Nuevas Alertas",
+  "openCases": "Casos Abiertos",
+  "totalVideos": "Videos Totales",
+  "mapLocation": "Bengaluru, India",
+  "mapFeatureComingSoon": "Próximamente se añadirá la función de mapas!",
+  "recentAlerts": "Alertas Recientes",
+  "viewAll": "Ver Todo",
+  "noInternetTitle": "Vaya!....",
+  "noInternetDescription": "Hay un problema con tu conexión,\nPor favor intenta de nuevo en un momento.",
+  "retry": "Reintentar",
+  "profile": "Perfil",
+  "save": "Guardar",
+  "settings_saved": "Configuración guardada",
+  "english": "Inglés",
+  "spanish": "Español",
+  "select_date_range": "Seleccionar rango de fechas",
+  "default_date_range": "Rango de fechas predeterminado",
+  "today": "Hoy",
+  "yesterday": "Ayer",
+  "last_week": "La Semana Pasada",
+  "last_month": "El Mes Pasado",
+  "last_quarter": "El Trimestre Pasado",
+  "reset": "Restablecer",
+  "cancel": "Cancelar",
+  "apply": "Aplicar",
+  "details": "Detalles"
+  ,"stats": "Estadísticas"
+  ,"chat_ai": "Chat IA"
+  ,"live": "En Vivo"
+  ,"minutes_short": "Min"
+  ,"logging_out": "Cerrando sesión..."
+  ,"create_account": "Crear Cuenta"
+  ,"forgot_password": "Olvidé mi contraseña"
+  ,"invalid_email_format": "Formato de correo inválido"
+  ,"password_min_6": "La contraseña debe tener al menos 6 caracteres"
+  ,"login_with_account": "Inicia sesión con tu cuenta"
+  ,"by_logging_in_agree": "Al iniciar sesión, aceptas nuestros"
+  ,"terms": "Términos"
+  ,"and": "y"
+  ,"privacy_policy": "Política de Privacidad"
+  ,"sso_log_in": "Iniciar sesión con SSO"
+  ,"or": "O"
+  ,"email_address": "Correo Electrónico"
+  ,"enter_your_email": "Ingresa tu correo electrónico"
+  ,"email": "Correo"
+  ,"email_required": "Correo requerido"
+  ,"enter_valid_email": "Ingresa un correo válido"
+  ,"password": "Contraseña"
+  ,"log_in": "Iniciar Sesión"
+  ,"send_reset_email": "Enviar correo de restablecimiento"
+  ,"invalid_email": "Correo inválido"
+  ,"reset_email_sent_successfully": "Correo de restablecimiento enviado correctamente"
+  ,"reset_failed": "Error al restablecer"
+  ,"ok": "OK"
+  ,"enter_password": "Ingresa la contraseña"
+  ,"min_6_characters": "Mínimo 6 caracteres"
+  ,"sign_up": "Registrarse"
+  ,"account_created": "Cuenta creada"
+  ,"sign_up_failed": "Registro fallido"
+  ,"map_overview": "Resumen del Mapa"
+  ,"tapped_on_item": "Seleccionaste el elemento"
+  ,"failed_to_load_markers": "No se pudieron cargar los marcadores"
+  ,"pd_screen": "Pantalla PD"
+  ,"new": "Nuevo"
+  ,"dispatch": "Despacho"
+  ,"cases": "Casos"
+  ,"confidence_score": "Puntaje de Confianza"
+  ,"camera": "Cámara"
+  ,"location": "Ubicación"
+  ,"create_case": "Crear Caso"
+  ,"feedback": "Comentarios"
+  ,"sos": "SOS"
+  ,"ignore": "Ignorar"
+  ,"confidence": "Confianza"
+  ,"select_alert_to_view_details": "Selecciona una alerta de la lista para ver detalles"
+  ,"department_required": "Departamento*"
+  ,"police_department": "Departamento de Policía"
+  ,"country": "País"
+  ,"india": "India"
+  ,"city": "Ciudad"
+  ,"bengaluru": "Bengaluru"
+  ,"designation": "Cargo"
+  ,"inspector": "Inspector"
+  ,"id_required": "ID*"
+  ,"phone_number_required": "Número de Teléfono*"
+  ,"official_email_required": "Correo Oficial*"
+}

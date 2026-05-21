@@ -1,0 +1,2027 @@
+[
+  {
+    "id": "BPD1001",
+    "position": {
+      "lat": 12.975,
+      "lng": 77.607
+    },
+    "label": "Vehicle Theft",
+    "type": "Vehicle Theft",
+    "caseStatus": "new",
+    "reportedBy": "Mark",
+    "vehicleNo": "KA01 AB 1234",
+    "reportedTime": "2025-08-01T08:30:00.000Z",
+    "severity": "S1",
+    "location": {
+      "locationType": "Traffic",
+      "locationName": "M.G. Road",
+      "locationAddress": "M.G. Road & Brigade Rd Junction, Bengaluru, Karnataka",
+      "currentCrowdCount": 0,
+      "crowdLimit": 0
+    },
+    "isLive": true,
+    "imageUrl": "https://www.mercurynews.com/wp-content/uploads/2016/08/20130625__tolllane2371.jpg",
+    "confidence_score": 6,
+    "camera_url": "https://storage.googleapis.com/kagglesdsdata/datasets/6423073/10369744/Talaimari/east.mp4?X-Goog-Algorithm=GOOG4-RSA-SHA256&X-Goog-Credential=databundle-worker-v2%40kaggle-161607.iam.gserviceaccount.com%2F20260506%2Fauto%2Fstorage%2Fgoog4_request&X-Goog-Date=20260506T171845Z&X-Goog-Expires=345600&X-Goog-SignedHeaders=host&X-Goog-Signature=3c3d16a5e1a717bac0a8840461879559add9a8209228cfc5e4fcdfc3c54f1ec84e48284a99e199cf85499fac5c87304024412cb68643d2a96ccd77f5e71d1ab20df77b48e2237174aa670907e8d7f0bc1edd59d8ad1d65fb8085ced75513f1f23615b33c1636e4856b984911bfa23f9eaa0a8effda6428eb57888295d5c963345ba7b081ff353104260361906b061f17e49928d23c8ad19bf22288dc8afa4b4d26972e2f9d8f9c462362ceae28c65a24173ad150853c426a9e44278d6052d78b5271825c9b0a3d4044a464f0629d885724909d014450743bca9cc7ba7d7e80a99039226a532266ea1e92755dbdeb8096fd2c15ad26eb20b33bf39e5664a11f93"
+  },
+  {
+    "id": "BPD1002",
+    "position": {
+      "lat": 12.9755,
+      "lng": 77.6075
+    },
+    "label": "Assault",
+    "type": "Assault",
+    "caseStatus": "dispatch",
+    "reportedBy": "Judy",
+    "vehicleNo": null,
+    "reportedTime": "2025-08-01T09:15:00.000Z",
+    "severity": "S4",
+    "location": {
+      "locationType": "Traffic",
+      "locationName": "M.G. Road",
+      "locationAddress": "M.G. Road & Residency Rd, Bengaluru, Karnataka",
+      "currentCrowdCount": 0,
+      "crowdLimit": 0
+    },
+    "isLive": false,
+    "imageUrl": "https://static.vecteezy.com/system/resources/thumbnails/034/862/437/small_2x/traffic-on-the-580-freeway-san-francisco-bay-area-free-video.jpg",
+    "confidence_score": 41,
+    "camera_url": "https://storage.googleapis.com/kagglesdsdata/datasets/6423073/10369744/Talaimari/east.mp4?X-Goog-Algorithm=GOOG4-RSA-SHA256&X-Goog-Credential=databundle-worker-v2%40kaggle-161607.iam.gserviceaccount.com%2F20260506%2Fauto%2Fstorage%2Fgoog4_request&X-Goog-Date=20260506T171845Z&X-Goog-Expires=345600&X-Goog-SignedHeaders=host&X-Goog-Signature=3c3d16a5e1a717bac0a8840461879559add9a8209228cfc5e4fcdfc3c54f1ec84e48284a99e199cf85499fac5c87304024412cb68643d2a96ccd77f5e71d1ab20df77b48e2237174aa670907e8d7f0bc1edd59d8ad1d65fb8085ced75513f1f23615b33c1636e4856b984911bfa23f9eaa0a8effda6428eb57888295d5c963345ba7b081ff353104260361906b061f17e49928d23c8ad19bf22288dc8afa4b4d26972e2f9d8f9c462362ceae28c65a24173ad150853c426a9e44278d6052d78b5271825c9b0a3d4044a464f0629d885724909d014450743bca9cc7ba7d7e80a99039226a532266ea1e92755dbdeb8096fd2c15ad26eb20b33bf39e5664a11f93"
+  },
+  {
+    "id": "BPD1003",
+    "position": {
+      "lat": 12.9745,
+      "lng": 77.6065
+    },
+    "label": "Theft",
+    "type": "Theft",
+    "caseStatus": "cases",
+    "reportedBy": "Scott",
+    "vehicleNo": null,
+    "reportedTime": "2025-08-01T10:45:00.000Z",
+    "severity": "S3",
+    "location": {
+      "locationType": "Traffic",
+      "locationName": "M.G. Road",
+      "locationAddress": "M.G. Road Metro Station, Bengaluru, Karnataka",
+      "currentCrowdCount": 0,
+      "crowdLimit": 0
+    },
+    "isLive": true,
+    "imageUrl": "",
+    "confidence_score": 51,
+    "camera_url": "https://storage.googleapis.com/kagglesdsdata/datasets/6423073/10369744/Talaimari/east.mp4?X-Goog-Algorithm=GOOG4-RSA-SHA256&X-Goog-Credential=databundle-worker-v2%40kaggle-161607.iam.gserviceaccount.com%2F20260506%2Fauto%2Fstorage%2Fgoog4_request&X-Goog-Date=20260506T171845Z&X-Goog-Expires=345600&X-Goog-SignedHeaders=host&X-Goog-Signature=3c3d16a5e1a717bac0a8840461879559add9a8209228cfc5e4fcdfc3c54f1ec84e48284a99e199cf85499fac5c87304024412cb68643d2a96ccd77f5e71d1ab20df77b48e2237174aa670907e8d7f0bc1edd59d8ad1d65fb8085ced75513f1f23615b33c1636e4856b984911bfa23f9eaa0a8effda6428eb57888295d5c963345ba7b081ff353104260361906b061f17e49928d23c8ad19bf22288dc8afa4b4d26972e2f9d8f9c462362ceae28c65a24173ad150853c426a9e44278d6052d78b5271825c9b0a3d4044a464f0629d885724909d014450743bca9cc7ba7d7e80a99039226a532266ea1e92755dbdeb8096fd2c15ad26eb20b33bf39e5664a11f93"
+  },
+  {
+    "id": "BPD1004",
+    "position": {
+      "lat": 12.976,
+      "lng": 77.608
+    },
+    "label": "Burglary",
+    "type": "Burglary",
+    "caseStatus": "new",
+    "reportedBy": "Amanda",
+    "vehicleNo": null,
+    "reportedTime": "2025-08-01T11:20:00.000Z",
+    "severity": "S4",
+    "location": {
+      "locationType": "Traffic",
+      "locationName": "M.G. Road",
+      "locationAddress": "St. Marks Road & M.G. Road, Bengaluru, Karnataka",
+      "currentCrowdCount": 0,
+      "crowdLimit": 0
+    },
+    "isLive": false,
+    "imageUrl": "https://filmsupply-files.s3.amazonaws.com/fs/files/production/clip_th/2386649/2-h.484.q1HO7T3ovMTVee0XvSGn66qS2J4yFBuwJ6H6eNVf.jpg",
+    "confidence_score": 88,
+    "camera_url": ""
+  },
+  {
+    "id": "BPD1005",
+    "position": {
+      "lat": 12.974,
+      "lng": 77.606
+    },
+    "label": "Criminal Activity",
+    "type": "Criminal Activity",
+    "caseStatus": "dispatch",
+    "reportedBy": "Michael",
+    "vehicleNo": "KA03 MH 5678",
+    "reportedTime": "2025-08-01T12:10:00.000Z",
+    "severity": "S4",
+    "location": {
+      "locationType": "Traffic",
+      "locationName": "M.G. Road",
+      "locationAddress": "Kasturba Road & M.G. Road, Bengaluru, Karnataka",
+      "currentCrowdCount": 0,
+      "crowdLimit": 0
+    },
+    "isLive": true,
+    "imageUrl": "",
+    "confidence_score": 51,
+    "camera_url": "https://storage.googleapis.com/kagglesdsdata/datasets/6423073/10369744/Talaimari/east.mp4?X-Goog-Algorithm=GOOG4-RSA-SHA256&X-Goog-Credential=databundle-worker-v2%40kaggle-161607.iam.gserviceaccount.com%2F20260506%2Fauto%2Fstorage%2Fgoog4_request&X-Goog-Date=20260506T171845Z&X-Goog-Expires=345600&X-Goog-SignedHeaders=host&X-Goog-Signature=3c3d16a5e1a717bac0a8840461879559add9a8209228cfc5e4fcdfc3c54f1ec84e48284a99e199cf85499fac5c87304024412cb68643d2a96ccd77f5e71d1ab20df77b48e2237174aa670907e8d7f0bc1edd59d8ad1d65fb8085ced75513f1f23615b33c1636e4856b984911bfa23f9eaa0a8effda6428eb57888295d5c963345ba7b081ff353104260361906b061f17e49928d23c8ad19bf22288dc8afa4b4d26972e2f9d8f9c462362ceae28c65a24173ad150853c426a9e44278d6052d78b5271825c9b0a3d4044a464f0629d885724909d014450743bca9cc7ba7d7e80a99039226a532266ea1e92755dbdeb8096fd2c15ad26eb20b33bf39e5664a11f93"
+  },
+  {
+    "id": "BPD1006",
+    "position": {
+      "lat": 12.9719,
+      "lng": 77.6412
+    },
+    "label": "Vehicle Theft",
+    "type": "Vehicle Theft",
+    "caseStatus": "new",
+    "reportedBy": "Sarah",
+    "vehicleNo": "KA51 J 9012",
+    "reportedTime": "2025-08-01T13:30:00.000Z",
+    "severity": "S1",
+    "location": {
+      "locationType": "Traffic",
+      "locationName": "Indiranagar 100 Ft Rd",
+      "locationAddress": "100 Feet Rd & 12th Main, Indiranagar, Bengaluru, Karnataka",
+      "currentCrowdCount": 0,
+      "crowdLimit": 0
+    },
+    "isLive": true,
+    "imageUrl": "https://static.vecteezy.com/system/resources/thumbnails/028/899/546/small/aerial-view-of-city-motorway-with-public-transport-stop-video.jpg",
+    "confidence_score": 37,
+    "camera_url": ""
+  },
+  {
+    "id": "BPD1007",
+    "position": {
+      "lat": 12.9725,
+      "lng": 77.6418
+    },
+    "label": "Assault",
+    "type": "Assault",
+    "caseStatus": "cases",
+    "reportedBy": "David",
+    "vehicleNo": null,
+    "reportedTime": "2025-08-01T14:15:00.000Z",
+    "severity": "S1",
+    "location": {
+      "locationType": "Traffic",
+      "locationName": "Indiranagar 100 Ft Rd",
+      "locationAddress": "100 Feet Rd & CMH Rd, Indiranagar, Bengaluru, Karnataka",
+      "currentCrowdCount": 0,
+      "crowdLimit": 0
+    },
+    "isLive": false,
+    "imageUrl": "",
+    "confidence_score": 85,
+    "camera_url": "https://storage.googleapis.com/kagglesdsdata/datasets/6423073/10369744/Talaimari/east.mp4?X-Goog-Algorithm=GOOG4-RSA-SHA256&X-Goog-Credential=databundle-worker-v2%40kaggle-161607.iam.gserviceaccount.com%2F20260506%2Fauto%2Fstorage%2Fgoog4_request&X-Goog-Date=20260506T171845Z&X-Goog-Expires=345600&X-Goog-SignedHeaders=host&X-Goog-Signature=3c3d16a5e1a717bac0a8840461879559add9a8209228cfc5e4fcdfc3c54f1ec84e48284a99e199cf85499fac5c87304024412cb68643d2a96ccd77f5e71d1ab20df77b48e2237174aa670907e8d7f0bc1edd59d8ad1d65fb8085ced75513f1f23615b33c1636e4856b984911bfa23f9eaa0a8effda6428eb57888295d5c963345ba7b081ff353104260361906b061f17e49928d23c8ad19bf22288dc8afa4b4d26972e2f9d8f9c462362ceae28c65a24173ad150853c426a9e44278d6052d78b5271825c9b0a3d4044a464f0629d885724909d014450743bca9cc7ba7d7e80a99039226a532266ea1e92755dbdeb8096fd2c15ad26eb20b33bf39e5664a11f93"
+  },
+  {
+    "id": "BPD1008",
+    "position": {
+      "lat": 12.971,
+      "lng": 77.6405
+    },
+    "label": "Theft",
+    "type": "Theft",
+    "caseStatus": "dispatch",
+    "reportedBy": "Jennifer",
+    "vehicleNo": null,
+    "reportedTime": "2025-08-01T15:45:00.000Z",
+    "severity": "S2",
+    "location": {
+      "locationType": "Traffic",
+      "locationName": "Indiranagar 100 Ft Rd",
+      "locationAddress": "100 Feet Rd & Doopanahalli, Indiranagar, Bengaluru, Karnataka",
+      "currentCrowdCount": 0,
+      "crowdLimit": 0
+    },
+    "isLive": true,
+    "imageUrl": "",
+    "confidence_score": 26,
+    "camera_url": "https://storage.googleapis.com/kagglesdsdata/datasets/6423073/10369744/Talaimari/Weast.mp4?X-Goog-Algorithm=GOOG4-RSA-SHA256&X-Goog-Credential=databundle-worker-v2%40kaggle-161607.iam.gserviceaccount.com%2F20260506%2Fauto%2Fstorage%2Fgoog4_request&X-Goog-Date=20260506T172219Z&X-Goog-Expires=345600&X-Goog-SignedHeaders=host&X-Goog-Signature=85816f6aad57d58db382a8b47b5af348f7c9e18f2e969ef9819c9977943cb3ee15a63055f24adcaa13f30a3b1ba6a3537df72e2072cef1486b9aaa671b2e1f883806d0305a8dcb526997f6cfe690060bf2cc518fc8680dcb63efe9c4562746a4f9f7c2d1bd85d03d1fecf8e4e08835483085e4684cc85d38aca2d83b890d5ae5c7b6f0e256548db961ae7eff28933e242890a8a4c6c95167c54203c0be7d5f42e4dc81d153523ea97463f283b0d3f184ce663a49d96c3d7d99fe1171ce9e05d677b3baa3c4cd706981de4db94697bad4e71a360ee46f0b2d82b30dc3a8782204ece57bbf4e5136d77db614eea4a4ab0cbd08d9b6087159a9b062ceb44135aa01"
+  },
+  {
+    "id": "BPD1009",
+    "position": {
+      "lat": 12.973,
+      "lng": 77.6425
+    },
+    "label": "Burglary",
+    "type": "Burglary",
+    "caseStatus": "new",
+    "reportedBy": "Robert",
+    "vehicleNo": null,
+    "reportedTime": "2025-08-01T16:20:00.000Z",
+    "severity": "S2",
+    "location": {
+      "locationType": "Traffic",
+      "locationName": "Indiranagar 100 Ft Rd",
+      "locationAddress": "100 Feet Rd & ESI Hospital, Indiranagar, Bengaluru, Karnataka",
+      "currentCrowdCount": 0,
+      "crowdLimit": 0
+    },
+    "isLive": true,
+    "imageUrl": "https://filmsupply-files.s3.amazonaws.com/fs/files/production/clip_th/2386649/2-h.484.q1HO7T3ovMTVee0XvSGn66qS2J4yFBuwJ6H6eNVf.jpg",
+    "confidence_score": 61,
+    "camera_url": ""
+  },
+  {
+    "id": "BPD1010",
+    "position": {
+      "lat": 12.9715,
+      "lng": 77.641
+    },
+    "label": "Criminal Activity",
+    "type": "Criminal Activity",
+    "caseStatus": "cases",
+    "reportedBy": "Lisa",
+    "vehicleNo": null,
+    "reportedTime": "2025-08-01T17:10:00.000Z",
+    "severity": "S1",
+    "location": {
+      "locationType": "Traffic",
+      "locationName": "Indiranagar 100 Ft Rd",
+      "locationAddress": "Old Madras Road & Indiranagar 100 Ft Rd, Bengaluru, Karnataka",
+      "currentCrowdCount": 0,
+      "crowdLimit": 0
+    },
+    "isLive": false,
+    "imageUrl": "",
+    "confidence_score": 79,
+    "camera_url": "https://storage.googleapis.com/kagglesdsdata/datasets/6423073/10369744/Talaimari/east.mp4?X-Goog-Algorithm=GOOG4-RSA-SHA256&X-Goog-Credential=databundle-worker-v2%40kaggle-161607.iam.gserviceaccount.com%2F20260506%2Fauto%2Fstorage%2Fgoog4_request&X-Goog-Date=20260506T171845Z&X-Goog-Expires=345600&X-Goog-SignedHeaders=host&X-Goog-Signature=3c3d16a5e1a717bac0a8840461879559add9a8209228cfc5e4fcdfc3c54f1ec84e48284a99e199cf85499fac5c87304024412cb68643d2a96ccd77f5e71d1ab20df77b48e2237174aa670907e8d7f0bc1edd59d8ad1d65fb8085ced75513f1f23615b33c1636e4856b984911bfa23f9eaa0a8effda6428eb57888295d5c963345ba7b081ff353104260361906b061f17e49928d23c8ad19bf22288dc8afa4b4d26972e2f9d8f9c462362ceae28c65a24173ad150853c426a9e44278d6052d78b5271825c9b0a3d4044a464f0629d885724909d014450743bca9cc7ba7d7e80a99039226a532266ea1e92755dbdeb8096fd2c15ad26eb20b33bf39e5664a11f93"
+  },
+  {
+    "id": "BPD1011",
+    "position": {
+      "lat": 12.922,
+      "lng": 77.674
+    },
+    "label": "Vehicle Theft",
+    "type": "Vehicle Theft",
+    "caseStatus": "new",
+    "reportedBy": "Kevin",
+    "vehicleNo": "KA04 P 2345",
+    "reportedTime": "2025-08-01T18:30:00.000Z",
+    "severity": "S1",
+    "location": {
+      "locationType": "Traffic",
+      "locationName": "Outer Ring Road",
+      "locationAddress": "ORR & Marathahalli Bridge, Bengaluru, Karnataka",
+      "currentCrowdCount": 0,
+      "crowdLimit": 0
+    },
+    "isLive": true,
+    "imageUrl": "https://filmsupply-files.s3.amazonaws.com/fs/files/production/clip_th/2386649/2-h.484.q1HO7T3ovMTVee0XvSGn66qS2J4yFBuwJ6H6eNVf.jpg",
+    "confidence_score": 41,
+    "camera_url": ""
+  },
+  {
+    "id": "BPD1012",
+    "position": {
+      "lat": 12.9225,
+      "lng": 77.6745
+    },
+    "label": "Assault",
+    "type": "Assault",
+    "caseStatus": "cases",
+    "reportedBy": "Maria",
+    "vehicleNo": null,
+    "reportedTime": "2025-08-01T19:15:00.000Z",
+    "severity": "S4",
+    "location": {
+      "locationType": "Traffic",
+      "locationName": "Outer Ring Road",
+      "locationAddress": "ORR & Kadubeesanahalli, Bengaluru, Karnataka",
+      "currentCrowdCount": 0,
+      "crowdLimit": 0
+    },
+    "isLive": true,
+    "imageUrl": "",
+    "confidence_score": 73,
+    "camera_url": "https://storage.googleapis.com/kagglesdsdata/datasets/6423073/10369744/Talaimari/Weast.mp4?X-Goog-Algorithm=GOOG4-RSA-SHA256&X-Goog-Credential=databundle-worker-v2%40kaggle-161607.iam.gserviceaccount.com%2F20260506%2Fauto%2Fstorage%2Fgoog4_request&X-Goog-Date=20260506T172219Z&X-Goog-Expires=345600&X-Goog-SignedHeaders=host&X-Goog-Signature=85816f6aad57d58db382a8b47b5af348f7c9e18f2e969ef9819c9977943cb3ee15a63055f24adcaa13f30a3b1ba6a3537df72e2072cef1486b9aaa671b2e1f883806d0305a8dcb526997f6cfe690060bf2cc518fc8680dcb63efe9c4562746a4f9f7c2d1bd85d03d1fecf8e4e08835483085e4684cc85d38aca2d83b890d5ae5c7b6f0e256548db961ae7eff28933e242890a8a4c6c95167c54203c0be7d5f42e4dc81d153523ea97463f283b0d3f184ce663a49d96c3d7d99fe1171ce9e05d677b3baa3c4cd706981de4db94697bad4e71a360ee46f0b2d82b30dc3a8782204ece57bbf4e5136d77db614eea4a4ab0cbd08d9b6087159a9b062ceb44135aa01"
+  },
+  {
+    "id": "BPD1013",
+    "position": {
+      "lat": 12.9215,
+      "lng": 77.6735
+    },
+    "label": "Theft",
+    "type": "Theft",
+    "caseStatus": "dispatch",
+    "reportedBy": "James",
+    "vehicleNo": null,
+    "reportedTime": "2025-08-01T20:45:00.000Z",
+    "severity": "S2",
+    "location": {
+      "locationType": "Traffic",
+      "locationName": "Outer Ring Road",
+      "locationAddress": "ORR & Bellandur, Bengaluru, Karnataka",
+      "currentCrowdCount": 0,
+      "crowdLimit": 0
+    },
+    "isLive": false,
+    "imageUrl": "https://www.habiledata.com/wp-content/uploads/2024/04/live-video-stream-annotation-for-traffic-management-and-road-planning.jpg",
+    "confidence_score": 20,
+    "camera_url": ""
+  },
+  {
+    "id": "BPD1014",
+    "position": {
+      "lat": 12.923,
+      "lng": 77.675
+    },
+    "label": "Burglary",
+    "type": "Burglary",
+    "caseStatus": "new",
+    "reportedBy": "Patricia",
+    "vehicleNo": null,
+    "reportedTime": "2025-08-01T21:20:00.000Z",
+    "severity": "S2",
+    "location": {
+      "locationType": "Traffic",
+      "locationName": "Outer Ring Road",
+      "locationAddress": "ORR & Ecospace, Bengaluru, Karnataka",
+      "currentCrowdCount": 0,
+      "crowdLimit": 0
+    },
+    "isLive": true,
+    "imageUrl": "",
+    "confidence_score": 65,
+    "camera_url": "https://storage.googleapis.com/kagglesdsdata/datasets/6423073/10369744/Talaimari/east.mp4?X-Goog-Algorithm=GOOG4-RSA-SHA256&X-Goog-Credential=databundle-worker-v2%40kaggle-161607.iam.gserviceaccount.com%2F20260506%2Fauto%2Fstorage%2Fgoog4_request&X-Goog-Date=20260506T171845Z&X-Goog-Expires=345600&X-Goog-SignedHeaders=host&X-Goog-Signature=3c3d16a5e1a717bac0a8840461879559add9a8209228cfc5e4fcdfc3c54f1ec84e48284a99e199cf85499fac5c87304024412cb68643d2a96ccd77f5e71d1ab20df77b48e2237174aa670907e8d7f0bc1edd59d8ad1d65fb8085ced75513f1f23615b33c1636e4856b984911bfa23f9eaa0a8effda6428eb57888295d5c963345ba7b081ff353104260361906b061f17e49928d23c8ad19bf22288dc8afa4b4d26972e2f9d8f9c462362ceae28c65a24173ad150853c426a9e44278d6052d78b5271825c9b0a3d4044a464f0629d885724909d014450743bca9cc7ba7d7e80a99039226a532266ea1e92755dbdeb8096fd2c15ad26eb20b33bf39e5664a11f93"
+  },
+  {
+    "id": "BPD1015",
+    "position": {
+      "lat": 12.921,
+      "lng": 77.673
+    },
+    "label": "Criminal Activity",
+    "type": "Criminal Activity",
+    "caseStatus": "dispatch",
+    "reportedBy": "Christopher",
+    "vehicleNo": null,
+    "reportedTime": "2025-08-01T22:10:00.000Z",
+    "severity": "S4",
+    "location": {
+      "locationType": "Traffic",
+      "locationName": "Outer Ring Road",
+      "locationAddress": "ORR & Devarabeesanahalli, Bengaluru, Karnataka",
+      "currentCrowdCount": 0,
+      "crowdLimit": 0
+    },
+    "isLive": true,
+    "imageUrl": "https://www.habiledata.com/wp-content/uploads/2024/04/live-video-stream-annotation-for-traffic-management-and-road-planning.jpg",
+    "confidence_score": 22,
+    "camera_url": ""
+  },
+  {
+    "id": "BPD1016",
+    "position": {
+      "lat": 12.9352,
+      "lng": 77.6245
+    },
+    "label": "Vehicle Theft",
+    "type": "Vehicle Theft",
+    "caseStatus": "new",
+    "reportedBy": "Linda",
+    "vehicleNo": "KA05 N 3456",
+    "reportedTime": "2025-08-02T08:30:00.000Z",
+    "severity": "S1",
+    "location": {
+      "locationType": "Traffic",
+      "locationName": "Koramangala 80 Ft Rd",
+      "locationAddress": "80 Feet Rd & Sony World Junction, Koramangala, Bengaluru, Karnataka",
+      "currentCrowdCount": 0,
+      "crowdLimit": 0
+    },
+    "isLive": true,
+    "imageUrl": "https://static.vecteezy.com/system/resources/thumbnails/034/862/437/small_2x/traffic-on-the-580-freeway-san-francisco-bay-area-free-video.jpg",
+    "confidence_score": 99,
+    "camera_url": ""
+  },
+  {
+    "id": "BPD1017",
+    "position": {
+      "lat": 12.9358,
+      "lng": 77.625
+    },
+    "label": "Assault",
+    "type": "Assault",
+    "caseStatus": "cases",
+    "reportedBy": "Daniel",
+    "vehicleNo": null,
+    "reportedTime": "2025-08-02T09:15:00.000Z",
+    "severity": "S1",
+    "location": {
+      "locationType": "Traffic",
+      "locationName": "Koramangala 80 Ft Rd",
+      "locationAddress": "80 Feet Rd & Maharaja Signal, Koramangala, Bengaluru, Karnataka",
+      "currentCrowdCount": 0,
+      "crowdLimit": 0
+    },
+    "isLive": false,
+    "imageUrl": "https://filmsupply-files.s3.amazonaws.com/fs/files/production/clip_th/2386649/2-h.484.q1HO7T3ovMTVee0XvSGn66qS2J4yFBuwJ6H6eNVf.jpg",
+    "confidence_score": 2,
+    "camera_url": ""
+  },
+  {
+    "id": "BPD1018",
+    "position": {
+      "lat": 12.9345,
+      "lng": 77.624
+    },
+    "label": "Theft",
+    "type": "Theft",
+    "caseStatus": "dispatch",
+    "reportedBy": "Michelle",
+    "vehicleNo": null,
+    "reportedTime": "2025-08-02T10:45:00.000Z",
+    "severity": "S5",
+    "location": {
+      "locationType": "Traffic",
+      "locationName": "Koramangala 80 Ft Rd",
+      "locationAddress": "80 Feet Rd & Wipro Park, Koramangala, Bengaluru, Karnataka",
+      "currentCrowdCount": 0,
+      "crowdLimit": 0
+    },
+    "isLive": true,
+    "imageUrl": "https://filmsupply-files.s3.amazonaws.com/fs/files/production/clip_th/2386649/2-h.484.q1HO7T3ovMTVee0XvSGn66qS2J4yFBuwJ6H6eNVf.jpg",
+    "confidence_score": 25,
+    "camera_url": ""
+  },
+  {
+    "id": "BPD1019",
+    "position": {
+      "lat": 12.9365,
+      "lng": 77.6255
+    },
+    "label": "Burglary",
+    "type": "Burglary",
+    "caseStatus": "cases",
+    "reportedBy": "Jason",
+    "vehicleNo": null,
+    "reportedTime": "2025-08-02T11:20:00.000Z",
+    "severity": "S2",
+    "location": {
+      "locationType": "Traffic",
+      "locationName": "Koramangala 80 Ft Rd",
+      "locationAddress": "80 Feet Rd & Paschim Express, Koramangala, Bengaluru, Karnataka",
+      "currentCrowdCount": 0,
+      "crowdLimit": 0
+    },
+    "isLive": false,
+    "imageUrl": "",
+    "confidence_score": 82,
+    "camera_url": "https://storage.googleapis.com/kagglesdsdata/datasets/6423073/10369744/Talaimari/Weast.mp4?X-Goog-Algorithm=GOOG4-RSA-SHA256&X-Goog-Credential=databundle-worker-v2%40kaggle-161607.iam.gserviceaccount.com%2F20260506%2Fauto%2Fstorage%2Fgoog4_request&X-Goog-Date=20260506T172219Z&X-Goog-Expires=345600&X-Goog-SignedHeaders=host&X-Goog-Signature=85816f6aad57d58db382a8b47b5af348f7c9e18f2e969ef9819c9977943cb3ee15a63055f24adcaa13f30a3b1ba6a3537df72e2072cef1486b9aaa671b2e1f883806d0305a8dcb526997f6cfe690060bf2cc518fc8680dcb63efe9c4562746a4f9f7c2d1bd85d03d1fecf8e4e08835483085e4684cc85d38aca2d83b890d5ae5c7b6f0e256548db961ae7eff28933e242890a8a4c6c95167c54203c0be7d5f42e4dc81d153523ea97463f283b0d3f184ce663a49d96c3d7d99fe1171ce9e05d677b3baa3c4cd706981de4db94697bad4e71a360ee46f0b2d82b30dc3a8782204ece57bbf4e5136d77db614eea4a4ab0cbd08d9b6087159a9b062ceb44135aa01"
+  },
+  {
+    "id": "BPD1020",
+    "position": {
+      "lat": 12.934,
+      "lng": 77.6235
+    },
+    "label": "Criminal Activity",
+    "type": "Criminal Activity",
+    "caseStatus": "new",
+    "reportedBy": "Nancy",
+    "vehicleNo": null,
+    "reportedTime": "2025-08-02T12:10:00.000Z",
+    "severity": "S1",
+    "location": {
+      "locationType": "Traffic",
+      "locationName": "Koramangala 80 Ft Rd",
+      "locationAddress": "80 Feet Rd & Koramangala 4th Block, Bengaluru, Karnataka",
+      "currentCrowdCount": 0,
+      "crowdLimit": 0
+    },
+    "isLive": true,
+    "imageUrl": "https://www.habiledata.com/wp-content/uploads/2024/04/live-video-stream-annotation-for-traffic-management-and-road-planning.jpg",
+    "confidence_score": 44,
+    "camera_url": ""
+  },
+  {
+    "id": "BPD2001",
+    "position": {
+      "lat": 12.955,
+      "lng": 77.58
+    },
+    "label": "Theft",
+    "type": "Theft",
+    "caseStatus": "dispatch",
+    "reportedBy": "Ryan",
+    "vehicleNo": null,
+    "reportedTime": "2025-08-02T06:30:00.000Z",
+    "severity": "S2",
+    "location": {
+      "locationType": "Public Works",
+      "locationName": "BWSSB Water Station",
+      "locationAddress": "Jayanagar Water Tank Area, Bengaluru, Karnataka",
+      "currentCrowdCount": 5,
+      "crowdLimit": 20
+    },
+    "isLive": true,
+    "imageUrl": "https://p5iconsp.s3.amazonaws.com/154931522_iconl.webp",
+    "confidence_score": 89,
+    "camera_url": ""
+  },
+  {
+    "id": "BPD2002",
+    "position": {
+      "lat": 12.985,
+      "lng": 77.595
+    },
+    "label": "Criminal Activity",
+    "type": "Criminal Activity",
+    "caseStatus": "new",
+    "reportedBy": "Karen",
+    "vehicleNo": null,
+    "reportedTime": "2025-08-02T07:15:00.000Z",
+    "severity": "S5",
+    "location": {
+      "locationType": "Public Works",
+      "locationName": "BESCOM Substation",
+      "locationAddress": "Vasanth Nagar Substation, Bengaluru, Karnataka",
+      "currentCrowdCount": 0,
+      "crowdLimit": 10
+    },
+    "isLive": false,
+    "imageUrl": "https://p5iconsp.s3.amazonaws.com/154931522_iconl.webp",
+    "confidence_score": 6,
+    "camera_url": ""
+  },
+  {
+    "id": "BPD2003",
+    "position": {
+      "lat": 12.91,
+      "lng": 77.6
+    },
+    "label": "Burglary",
+    "type": "Burglary",
+    "caseStatus": "cases",
+    "reportedBy": "Steven",
+    "vehicleNo": null,
+    "reportedTime": "2025-08-02T08:45:00.000Z",
+    "severity": "S2",
+    "location": {
+      "locationType": "Public Works",
+      "locationName": "Sewage Treatment Plant",
+      "locationAddress": "Bannerghatta Rd STP, Bengaluru, Karnataka",
+      "currentCrowdCount": 8,
+      "crowdLimit": 15
+    },
+    "isLive": true,
+    "imageUrl": "",
+    "confidence_score": 74,
+    "camera_url": "https://storage.googleapis.com/kagglesdsdata/datasets/6423073/10369744/Talaimari/Weast.mp4?X-Goog-Algorithm=GOOG4-RSA-SHA256&X-Goog-Credential=databundle-worker-v2%40kaggle-161607.iam.gserviceaccount.com%2F20260506%2Fauto%2Fstorage%2Fgoog4_request&X-Goog-Date=20260506T172219Z&X-Goog-Expires=345600&X-Goog-SignedHeaders=host&X-Goog-Signature=85816f6aad57d58db382a8b47b5af348f7c9e18f2e969ef9819c9977943cb3ee15a63055f24adcaa13f30a3b1ba6a3537df72e2072cef1486b9aaa671b2e1f883806d0305a8dcb526997f6cfe690060bf2cc518fc8680dcb63efe9c4562746a4f9f7c2d1bd85d03d1fecf8e4e08835483085e4684cc85d38aca2d83b890d5ae5c7b6f0e256548db961ae7eff28933e242890a8a4c6c95167c54203c0be7d5f42e4dc81d153523ea97463f283b0d3f184ce663a49d96c3d7d99fe1171ce9e05d677b3baa3c4cd706981de4db94697bad4e71a360ee46f0b2d82b30dc3a8782204ece57bbf4e5136d77db614eea4a4ab0cbd08d9b6087159a9b062ceb44135aa01"
+  },
+  {
+    "id": "BPD2004",
+    "position": {
+      "lat": 12.945,
+      "lng": 77.65
+    },
+    "label": "Vehicle Theft",
+    "type": "Vehicle Theft",
+    "caseStatus": "dispatch",
+    "reportedBy": "Helen",
+    "vehicleNo": "PWD KA 01",
+    "reportedTime": "2025-08-02T09:20:00.000Z",
+    "severity": "S1",
+    "location": {
+      "locationType": "Public Works",
+      "locationName": "Road Construction Zone",
+      "locationAddress": "Old Airport Rd Construction, Bengaluru, Karnataka",
+      "currentCrowdCount": 12,
+      "crowdLimit": 25
+    },
+    "isLive": true,
+    "imageUrl": "https://filmsupply-files.s3.amazonaws.com/fs/files/production/clip_th/2386649/2-h.484.q1HO7T3ovMTVee0XvSGn66qS2J4yFBuwJ6H6eNVf.jpg",
+    "confidence_score": 88,
+    "camera_url": ""
+  },
+  {
+    "id": "BPD2005",
+    "position": {
+      "lat": 12.92,
+      "lng": 77.61
+    },
+    "label": "Assault",
+    "type": "Assault",
+    "caseStatus": "cases",
+    "reportedBy": "Edward",
+    "vehicleNo": null,
+    "reportedTime": "2025-08-02T10:10:00.000Z",
+    "severity": "S1",
+    "location": {
+      "locationType": "Public Works",
+      "locationName": "Gas Main Maintenance",
+      "locationAddress": "BTM Layout 2nd Stage, Bengaluru, Karnataka",
+      "currentCrowdCount": 15,
+      "crowdLimit": 30
+    },
+    "isLive": true,
+    "imageUrl": "",
+    "confidence_score": 57,
+    "camera_url": "https://storage.googleapis.com/kagglesdsdata/datasets/6423073/10369744/Talaimari/east.mp4?X-Goog-Algorithm=GOOG4-RSA-SHA256&X-Goog-Credential=databundle-worker-v2%40kaggle-161607.iam.gserviceaccount.com%2F20260506%2Fauto%2Fstorage%2Fgoog4_request&X-Goog-Date=20260506T171845Z&X-Goog-Expires=345600&X-Goog-SignedHeaders=host&X-Goog-Signature=3c3d16a5e1a717bac0a8840461879559add9a8209228cfc5e4fcdfc3c54f1ec84e48284a99e199cf85499fac5c87304024412cb68643d2a96ccd77f5e71d1ab20df77b48e2237174aa670907e8d7f0bc1edd59d8ad1d65fb8085ced75513f1f23615b33c1636e4856b984911bfa23f9eaa0a8effda6428eb57888295d5c963345ba7b081ff353104260361906b061f17e49928d23c8ad19bf22288dc8afa4b4d26972e2f9d8f9c462362ceae28c65a24173ad150853c426a9e44278d6052d78b5271825c9b0a3d4044a464f0629d885724909d014450743bca9cc7ba7d7e80a99039226a532266ea1e92755dbdeb8096fd2c15ad26eb20b33bf39e5664a11f93"
+  },
+  {
+    "id": "BPD2006",
+    "position": {
+      "lat": 12.965,
+      "lng": 77.57
+    },
+    "label": "Theft",
+    "type": "Theft",
+    "caseStatus": "new",
+    "reportedBy": "Sandra",
+    "vehicleNo": null,
+    "reportedTime": "2025-08-02T11:30:00.000Z",
+    "severity": "S2",
+    "location": {
+      "locationType": "Public Works",
+      "locationName": "Metro Maintenance Yard",
+      "locationAddress": "Majestic Interchange Area, Bengaluru, Karnataka",
+      "currentCrowdCount": 3,
+      "crowdLimit": 10
+    },
+    "isLive": false,
+    "imageUrl": "",
+    "confidence_score": 58,
+    "camera_url": "https://storage.googleapis.com/kagglesdsdata/datasets/6423073/10369744/Talaimari/Weast.mp4?X-Goog-Algorithm=GOOG4-RSA-SHA256&X-Goog-Credential=databundle-worker-v2%40kaggle-161607.iam.gserviceaccount.com%2F20260506%2Fauto%2Fstorage%2Fgoog4_request&X-Goog-Date=20260506T172219Z&X-Goog-Expires=345600&X-Goog-SignedHeaders=host&X-Goog-Signature=85816f6aad57d58db382a8b47b5af348f7c9e18f2e969ef9819c9977943cb3ee15a63055f24adcaa13f30a3b1ba6a3537df72e2072cef1486b9aaa671b2e1f883806d0305a8dcb526997f6cfe690060bf2cc518fc8680dcb63efe9c4562746a4f9f7c2d1bd85d03d1fecf8e4e08835483085e4684cc85d38aca2d83b890d5ae5c7b6f0e256548db961ae7eff28933e242890a8a4c6c95167c54203c0be7d5f42e4dc81d153523ea97463f283b0d3f184ce663a49d96c3d7d99fe1171ce9e05d677b3baa3c4cd706981de4db94697bad4e71a360ee46f0b2d82b30dc3a8782204ece57bbf4e5136d77db614eea4a4ab0cbd08d9b6087159a9b062ceb44135aa01"
+  },
+  {
+    "id": "BPD2007",
+    "position": {
+      "lat": 12.99,
+      "lng": 77.63
+    },
+    "label": "Criminal Activity",
+    "type": "Criminal Activity",
+    "caseStatus": "dispatch",
+    "reportedBy": "Paul",
+    "vehicleNo": null,
+    "reportedTime": "2025-08-02T12:45:00.000Z",
+    "severity": "S1",
+    "location": {
+      "locationType": "Public Works",
+      "locationName": "Street Light Repair",
+      "locationAddress": "Kalyan Nagar ORR, Bengaluru, Karnataka",
+      "currentCrowdCount": 0,
+      "crowdLimit": 5
+    },
+    "isLive": true,
+    "imageUrl": "https://www.habiledata.com/wp-content/uploads/2024/04/live-video-stream-annotation-for-traffic-management-and-road-planning.jpg",
+    "confidence_score": 48,
+    "camera_url": ""
+  },
+  {
+    "id": "BPD2008",
+    "position": {
+      "lat": 12.85,
+      "lng": 77.65
+    },
+    "label": "Burglary",
+    "type": "Burglary",
+    "caseStatus": "new",
+    "reportedBy": "Donna",
+    "vehicleNo": null,
+    "reportedTime": "2025-08-02T13:20:00.000Z",
+    "severity": "S5",
+    "location": {
+      "locationType": "Public Works",
+      "locationName": "Electronic City Landfill",
+      "locationAddress": "South Bengaluru Industrial Area, TX",
+      "currentCrowdCount": 6,
+      "crowdLimit": 20
+    },
+    "isLive": false,
+    "imageUrl": "",
+    "confidence_score": 82,
+    "camera_url": "https://storage.googleapis.com/kagglesdsdata/datasets/6423073/10369744/Talaimari/Weast.mp4?X-Goog-Algorithm=GOOG4-RSA-SHA256&X-Goog-Credential=databundle-worker-v2%40kaggle-161607.iam.gserviceaccount.com%2F20260506%2Fauto%2Fstorage%2Fgoog4_request&X-Goog-Date=20260506T172219Z&X-Goog-Expires=345600&X-Goog-SignedHeaders=host&X-Goog-Signature=85816f6aad57d58db382a8b47b5af348f7c9e18f2e969ef9819c9977943cb3ee15a63055f24adcaa13f30a3b1ba6a3537df72e2072cef1486b9aaa671b2e1f883806d0305a8dcb526997f6cfe690060bf2cc518fc8680dcb63efe9c4562746a4f9f7c2d1bd85d03d1fecf8e4e08835483085e4684cc85d38aca2d83b890d5ae5c7b6f0e256548db961ae7eff28933e242890a8a4c6c95167c54203c0be7d5f42e4dc81d153523ea97463f283b0d3f184ce663a49d96c3d7d99fe1171ce9e05d677b3baa3c4cd706981de4db94697bad4e71a360ee46f0b2d82b30dc3a8782204ece57bbf4e5136d77db614eea4a4ab0cbd08d9b6087159a9b062ceb44135aa01"
+  },
+  {
+    "id": "BPD2009",
+    "position": {
+      "lat": 12.975,
+      "lng": 77.6
+    },
+    "label": "Vehicle Theft",
+    "type": "Vehicle Theft",
+    "caseStatus": "cases",
+    "reportedBy": "Kenneth",
+    "vehicleNo": "PWD KA 02",
+    "reportedTime": "2025-08-02T14:10:00.000Z",
+    "severity": "S1",
+    "location": {
+      "locationType": "Public Works",
+      "locationName": "Fire Hydrant Service",
+      "locationAddress": "Church St & Brigade Rd, Bengaluru, Karnataka",
+      "currentCrowdCount": 4,
+      "crowdLimit": 15
+    },
+    "isLive": true,
+    "imageUrl": "",
+    "confidence_score": 10,
+    "camera_url": "https://storage.googleapis.com/kagglesdsdata/datasets/6423073/10369744/Talaimari/east.mp4?X-Goog-Algorithm=GOOG4-RSA-SHA256&X-Goog-Credential=databundle-worker-v2%40kaggle-161607.iam.gserviceaccount.com%2F20260506%2Fauto%2Fstorage%2Fgoog4_request&X-Goog-Date=20260506T171845Z&X-Goog-Expires=345600&X-Goog-SignedHeaders=host&X-Goog-Signature=3c3d16a5e1a717bac0a8840461879559add9a8209228cfc5e4fcdfc3c54f1ec84e48284a99e199cf85499fac5c87304024412cb68643d2a96ccd77f5e71d1ab20df77b48e2237174aa670907e8d7f0bc1edd59d8ad1d65fb8085ced75513f1f23615b33c1636e4856b984911bfa23f9eaa0a8effda6428eb57888295d5c963345ba7b081ff353104260361906b061f17e49928d23c8ad19bf22288dc8afa4b4d26972e2f9d8f9c462362ceae28c65a24173ad150853c426a9e44278d6052d78b5271825c9b0a3d4044a464f0629d885724909d014450743bca9cc7ba7d7e80a99039226a532266ea1e92755dbdeb8096fd2c15ad26eb20b33bf39e5664a11f93"
+  },
+  {
+    "id": "BPD2010",
+    "position": {
+      "lat": 12.94,
+      "lng": 77.62
+    },
+    "label": "Assault",
+    "type": "Assault",
+    "caseStatus": "dispatch",
+    "reportedBy": "Carol",
+    "vehicleNo": null,
+    "reportedTime": "2025-08-02T15:30:00.000Z",
+    "severity": "S1",
+    "location": {
+      "locationType": "Public Works",
+      "locationName": "Traffic Signal Maintenance",
+      "locationAddress": "Koramangala 100 Ft Rd Junction, Bengaluru, Karnataka",
+      "currentCrowdCount": 0,
+      "crowdLimit": 10
+    },
+    "isLive": true,
+    "imageUrl": "",
+    "confidence_score": 13,
+    "camera_url": "https://storage.googleapis.com/kagglesdsdata/datasets/6423073/10369744/Talaimari/east.mp4?X-Goog-Algorithm=GOOG4-RSA-SHA256&X-Goog-Credential=databundle-worker-v2%40kaggle-161607.iam.gserviceaccount.com%2F20260506%2Fauto%2Fstorage%2Fgoog4_request&X-Goog-Date=20260506T171845Z&X-Goog-Expires=345600&X-Goog-SignedHeaders=host&X-Goog-Signature=3c3d16a5e1a717bac0a8840461879559add9a8209228cfc5e4fcdfc3c54f1ec84e48284a99e199cf85499fac5c87304024412cb68643d2a96ccd77f5e71d1ab20df77b48e2237174aa670907e8d7f0bc1edd59d8ad1d65fb8085ced75513f1f23615b33c1636e4856b984911bfa23f9eaa0a8effda6428eb57888295d5c963345ba7b081ff353104260361906b061f17e49928d23c8ad19bf22288dc8afa4b4d26972e2f9d8f9c462362ceae28c65a24173ad150853c426a9e44278d6052d78b5271825c9b0a3d4044a464f0629d885724909d014450743bca9cc7ba7d7e80a99039226a532266ea1e92755dbdeb8096fd2c15ad26eb20b33bf39e5664a11f93"
+  },
+  {
+    "id": "BPD2011",
+    "position": {
+      "lat": 13.02,
+      "lng": 77.58
+    },
+    "label": "Theft",
+    "type": "Theft",
+    "caseStatus": "new",
+    "reportedBy": "Matthew",
+    "vehicleNo": null,
+    "reportedTime": "2025-08-02T16:15:00.000Z",
+    "severity": "S2",
+    "location": {
+      "locationType": "Public Works",
+      "locationName": "Drainage System Work",
+      "locationAddress": "Hebbal Flyover Area, Bengaluru, Karnataka",
+      "currentCrowdCount": 2,
+      "crowdLimit": 12
+    },
+    "isLive": false,
+    "imageUrl": "https://static.vecteezy.com/system/resources/thumbnails/034/862/437/small_2x/traffic-on-the-580-freeway-san-francisco-bay-area-free-video.jpg",
+    "confidence_score": 95,
+    "camera_url": ""
+  },
+  {
+    "id": "BPD2012",
+    "position": {
+      "lat": 12.88,
+      "lng": 77.62
+    },
+    "label": "Criminal Activity",
+    "type": "Criminal Activity",
+    "caseStatus": "cases",
+    "reportedBy": "Ruth",
+    "vehicleNo": null,
+    "reportedTime": "2025-08-02T17:45:00.000Z",
+    "severity": "S1",
+    "location": {
+      "locationType": "Public Works",
+      "locationName": "Park Maintenance Hub",
+      "locationAddress": "Begur Road Maintenance, Bengaluru, Karnataka",
+      "currentCrowdCount": 7,
+      "crowdLimit": 18
+    },
+    "isLive": true,
+    "imageUrl": "",
+    "confidence_score": 51,
+    "camera_url": "https://storage.googleapis.com/kagglesdsdata/datasets/6423073/10369744/Talaimari/east.mp4?X-Goog-Algorithm=GOOG4-RSA-SHA256&X-Goog-Credential=databundle-worker-v2%40kaggle-161607.iam.gserviceaccount.com%2F20260506%2Fauto%2Fstorage%2Fgoog4_request&X-Goog-Date=20260506T171845Z&X-Goog-Expires=345600&X-Goog-SignedHeaders=host&X-Goog-Signature=3c3d16a5e1a717bac0a8840461879559add9a8209228cfc5e4fcdfc3c54f1ec84e48284a99e199cf85499fac5c87304024412cb68643d2a96ccd77f5e71d1ab20df77b48e2237174aa670907e8d7f0bc1edd59d8ad1d65fb8085ced75513f1f23615b33c1636e4856b984911bfa23f9eaa0a8effda6428eb57888295d5c963345ba7b081ff353104260361906b061f17e49928d23c8ad19bf22288dc8afa4b4d26972e2f9d8f9c462362ceae28c65a24173ad150853c426a9e44278d6052d78b5271825c9b0a3d4044a464f0629d885724909d014450743bca9cc7ba7d7e80a99039226a532266ea1e92755dbdeb8096fd2c15ad26eb20b33bf39e5664a11f93"
+  },
+  {
+    "id": "BPD2013",
+    "position": {
+      "lat": 12.95,
+      "lng": 77.64
+    },
+    "label": "Burglary",
+    "type": "Burglary",
+    "caseStatus": "dispatch",
+    "reportedBy": "Anthony",
+    "vehicleNo": null,
+    "reportedTime": "2025-08-02T18:20:00.000Z",
+    "severity": "S2",
+    "location": {
+      "locationType": "Public Works",
+      "locationName": "Road Repair Team",
+      "locationAddress": "Domlur Flyover Access, Bengaluru, Karnataka",
+      "currentCrowdCount": 5,
+      "crowdLimit": 15
+    },
+    "isLive": true,
+    "imageUrl": "",
+    "confidence_score": 62,
+    "camera_url": "https://storage.googleapis.com/kagglesdsdata/datasets/6423073/10369744/Talaimari/Weast.mp4?X-Goog-Algorithm=GOOG4-RSA-SHA256&X-Goog-Credential=databundle-worker-v2%40kaggle-161607.iam.gserviceaccount.com%2F20260506%2Fauto%2Fstorage%2Fgoog4_request&X-Goog-Date=20260506T172219Z&X-Goog-Expires=345600&X-Goog-SignedHeaders=host&X-Goog-Signature=85816f6aad57d58db382a8b47b5af348f7c9e18f2e969ef9819c9977943cb3ee15a63055f24adcaa13f30a3b1ba6a3537df72e2072cef1486b9aaa671b2e1f883806d0305a8dcb526997f6cfe690060bf2cc518fc8680dcb63efe9c4562746a4f9f7c2d1bd85d03d1fecf8e4e08835483085e4684cc85d38aca2d83b890d5ae5c7b6f0e256548db961ae7eff28933e242890a8a4c6c95167c54203c0be7d5f42e4dc81d153523ea97463f283b0d3f184ce663a49d96c3d7d99fe1171ce9e05d677b3baa3c4cd706981de4db94697bad4e71a360ee46f0b2d82b30dc3a8782204ece57bbf4e5136d77db614eea4a4ab0cbd08d9b6087159a9b062ceb44135aa01"
+  },
+  {
+    "id": "BPD2014",
+    "position": {
+      "lat": 12.98,
+      "lng": 77.68
+    },
+    "label": "Vehicle Theft",
+    "type": "Vehicle Theft",
+    "caseStatus": "cases",
+    "reportedBy": "Lisa",
+    "vehicleNo": "PWD KA 03",
+    "reportedTime": "2025-08-02T19:10:00.000Z",
+    "severity": "S1",
+    "location": {
+      "locationType": "Public Works",
+      "locationName": "Water Quality Station",
+      "locationAddress": "Whitefield Water Treatment, Bengaluru, Karnataka",
+      "currentCrowdCount": 3,
+      "crowdLimit": 12
+    },
+    "isLive": false,
+    "imageUrl": "https://static.vecteezy.com/system/resources/thumbnails/028/899/546/small/aerial-view-of-city-motorway-with-public-transport-stop-video.jpg",
+    "confidence_score": 24,
+    "camera_url": ""
+  },
+  {
+    "id": "BPD2015",
+    "position": {
+      "lat": 12.93,
+      "lng": 77.58
+    },
+    "label": "Assault",
+    "type": "Assault",
+    "caseStatus": "new",
+    "reportedBy": "Joshua",
+    "vehicleNo": null,
+    "reportedTime": "2025-08-02T20:30:00.000Z",
+    "severity": "S1",
+    "location": {
+      "locationType": "Public Works",
+      "locationName": "Heritage Site Area",
+      "locationAddress": "Wilson Garden Cemetery Area, Bengaluru, Karnataka",
+      "currentCrowdCount": 1,
+      "crowdLimit": 8
+    },
+    "isLive": true,
+    "imageUrl": "",
+    "confidence_score": 53,
+    "camera_url": "https://storage.googleapis.com/kagglesdsdata/datasets/6423073/10369744/Talaimari/Weast.mp4?X-Goog-Algorithm=GOOG4-RSA-SHA256&X-Goog-Credential=databundle-worker-v2%40kaggle-161607.iam.gserviceaccount.com%2F20260506%2Fauto%2Fstorage%2Fgoog4_request&X-Goog-Date=20260506T172219Z&X-Goog-Expires=345600&X-Goog-SignedHeaders=host&X-Goog-Signature=85816f6aad57d58db382a8b47b5af348f7c9e18f2e969ef9819c9977943cb3ee15a63055f24adcaa13f30a3b1ba6a3537df72e2072cef1486b9aaa671b2e1f883806d0305a8dcb526997f6cfe690060bf2cc518fc8680dcb63efe9c4562746a4f9f7c2d1bd85d03d1fecf8e4e08835483085e4684cc85d38aca2d83b890d5ae5c7b6f0e256548db961ae7eff28933e242890a8a4c6c95167c54203c0be7d5f42e4dc81d153523ea97463f283b0d3f184ce663a49d96c3d7d99fe1171ce9e05d677b3baa3c4cd706981de4db94697bad4e71a360ee46f0b2d82b30dc3a8782204ece57bbf4e5136d77db614eea4a4ab0cbd08d9b6087159a9b062ceb44135aa01"
+  },
+  {
+    "id": "BPD2016",
+    "position": {
+      "lat": 13.01,
+      "lng": 77.67
+    },
+    "label": "Theft",
+    "type": "Theft",
+    "caseStatus": "dispatch",
+    "reportedBy": "Betty",
+    "vehicleNo": null,
+    "reportedTime": "2025-08-02T21:15:00.000Z",
+    "severity": "S5",
+    "location": {
+      "locationType": "Public Works",
+      "locationName": "Power Grid Station",
+      "locationAddress": "Manyata Tech Park Area Power Station, Bengaluru, Karnataka",
+      "currentCrowdCount": 4,
+      "crowdLimit": 16
+    },
+    "isLive": true,
+    "imageUrl": "",
+    "confidence_score": 29,
+    "camera_url": "https://storage.googleapis.com/kagglesdsdata/datasets/6423073/10369744/Talaimari/east.mp4?X-Goog-Algorithm=GOOG4-RSA-SHA256&X-Goog-Credential=databundle-worker-v2%40kaggle-161607.iam.gserviceaccount.com%2F20260506%2Fauto%2Fstorage%2Fgoog4_request&X-Goog-Date=20260506T171845Z&X-Goog-Expires=345600&X-Goog-SignedHeaders=host&X-Goog-Signature=3c3d16a5e1a717bac0a8840461879559add9a8209228cfc5e4fcdfc3c54f1ec84e48284a99e199cf85499fac5c87304024412cb68643d2a96ccd77f5e71d1ab20df77b48e2237174aa670907e8d7f0bc1edd59d8ad1d65fb8085ced75513f1f23615b33c1636e4856b984911bfa23f9eaa0a8effda6428eb57888295d5c963345ba7b081ff353104260361906b061f17e49928d23c8ad19bf22288dc8afa4b4d26972e2f9d8f9c462362ceae28c65a24173ad150853c426a9e44278d6052d78b5271825c9b0a3d4044a464f0629d885724909d014450743bca9cc7ba7d7e80a99039226a532266ea1e92755dbdeb8096fd2c15ad26eb20b33bf39e5664a11f93"
+  },
+  {
+    "id": "BPD2017",
+    "position": {
+      "lat": 13.04,
+      "lng": 77.59
+    },
+    "label": "Criminal Activity",
+    "type": "Criminal Activity",
+    "caseStatus": "cases",
+    "reportedBy": "Brian",
+    "vehicleNo": null,
+    "reportedTime": "2025-08-02T22:45:00.000Z",
+    "severity": "S1",
+    "location": {
+      "locationType": "Public Works",
+      "locationName": "Logistics Hub Maintenance",
+      "locationAddress": "Yeshwanthpur Rail Terminal Area, Bengaluru, Karnataka",
+      "currentCrowdCount": 8,
+      "crowdLimit": 25
+    },
+    "isLive": true,
+    "imageUrl": "https://static.vecteezy.com/system/resources/thumbnails/034/862/437/small_2x/traffic-on-the-580-freeway-san-francisco-bay-area-free-video.jpg",
+    "confidence_score": 3,
+    "camera_url": ""
+  },
+  {
+    "id": "BPD2018",
+    "position": {
+      "lat": 12.98,
+      "lng": 77.58
+    },
+    "label": "Burglary",
+    "type": "Burglary",
+    "caseStatus": "new",
+    "reportedBy": "Dorothy",
+    "vehicleNo": null,
+    "reportedTime": "2025-08-02T23:30:00.000Z",
+    "severity": "S2",
+    "location": {
+      "locationType": "Public Works",
+      "locationName": "City Corporation Complex",
+      "locationAddress": "BBMP Office, Corporation Circle, Bengaluru, Karnataka",
+      "currentCrowdCount": 2,
+      "crowdLimit": 12
+    },
+    "isLive": false,
+    "imageUrl": "",
+    "confidence_score": 59,
+    "camera_url": "https://storage.googleapis.com/kagglesdsdata/datasets/6423073/10369744/Talaimari/east.mp4?X-Goog-Algorithm=GOOG4-RSA-SHA256&X-Goog-Credential=databundle-worker-v2%40kaggle-161607.iam.gserviceaccount.com%2F20260506%2Fauto%2Fstorage%2Fgoog4_request&X-Goog-Date=20260506T171845Z&X-Goog-Expires=345600&X-Goog-SignedHeaders=host&X-Goog-Signature=3c3d16a5e1a717bac0a8840461879559add9a8209228cfc5e4fcdfc3c54f1ec84e48284a99e199cf85499fac5c87304024412cb68643d2a96ccd77f5e71d1ab20df77b48e2237174aa670907e8d7f0bc1edd59d8ad1d65fb8085ced75513f1f23615b33c1636e4856b984911bfa23f9eaa0a8effda6428eb57888295d5c963345ba7b081ff353104260361906b061f17e49928d23c8ad19bf22288dc8afa4b4d26972e2f9d8f9c462362ceae28c65a24173ad150853c426a9e44278d6052d78b5271825c9b0a3d4044a464f0629d885724909d014450743bca9cc7ba7d7e80a99039226a532266ea1e92755dbdeb8096fd2c15ad26eb20b33bf39e5664a11f93"
+  },
+  {
+    "id": "BPD2019",
+    "position": {
+      "lat": 12.9,
+      "lng": 77.55
+    },
+    "label": "Vehicle Theft",
+    "type": "Vehicle Theft",
+    "caseStatus": "dispatch",
+    "reportedBy": "Gary",
+    "vehicleNo": "PWD KA 04",
+    "reportedTime": "2025-08-03T00:15:00.000Z",
+    "severity": "S1",
+    "location": {
+      "locationType": "Public Works",
+      "locationName": "South Utility Yard",
+      "locationAddress": "Kanakapura Rd Utility Complex, Bengaluru, Karnataka",
+      "currentCrowdCount": 3,
+      "crowdLimit": 15
+    },
+    "isLive": true,
+    "imageUrl": "https://filmsupply-files.s3.amazonaws.com/fs/files/production/clip_th/2386649/2-h.484.q1HO7T3ovMTVee0XvSGn66qS2J4yFBuwJ6H6eNVf.jpg",
+    "confidence_score": 95,
+    "camera_url": ""
+  },
+  {
+    "id": "BPD2020",
+    "position": {
+      "lat": 12.94,
+      "lng": 77.67
+    },
+    "label": "Assault",
+    "type": "Assault",
+    "caseStatus": "cases",
+    "reportedBy": "Sharon",
+    "vehicleNo": null,
+    "reportedTime": "2025-08-03T01:45:00.000Z",
+    "severity": "S1",
+    "location": {
+      "locationType": "Public Works",
+      "locationName": "HAL Maintenance Facility",
+      "locationAddress": "Marathahalli Maintenance Area, Bengaluru, Karnataka",
+      "currentCrowdCount": 1,
+      "crowdLimit": 8
+    },
+    "isLive": true,
+    "imageUrl": "https://p5iconsp.s3.amazonaws.com/154931522_iconl.webp",
+    "confidence_score": 89,
+    "camera_url": ""
+  },
+  {
+    "id": "BPD3001",
+    "position": {
+      "lat": 13.1986,
+      "lng": 77.7066
+    },
+    "label": "Vehicle Theft",
+    "type": "Vehicle Theft",
+    "caseStatus": "new",
+    "reportedBy": "Mark",
+    "vehicleNo": "AIR KA 01",
+    "reportedTime": "2025-08-03T06:30:00.000Z",
+    "severity": "S1",
+    "location": {
+      "locationType": "Airport",
+      "locationName": "Kempegowda Int. Airport - Terminal 1",
+      "locationAddress": "Devanahalli, Bengaluru, Karnataka",
+      "currentCrowdCount": 120,
+      "crowdLimit": 200
+    },
+    "isLive": true,
+    "imageUrl": "",
+    "confidence_score": 27,
+    "camera_url": "https://storage.googleapis.com/kagglesdsdata/datasets/6423073/10369744/Talaimari/east.mp4?X-Goog-Algorithm=GOOG4-RSA-SHA256&X-Goog-Credential=databundle-worker-v2%40kaggle-161607.iam.gserviceaccount.com%2F20260506%2Fauto%2Fstorage%2Fgoog4_request&X-Goog-Date=20260506T171845Z&X-Goog-Expires=345600&X-Goog-SignedHeaders=host&X-Goog-Signature=3c3d16a5e1a717bac0a8840461879559add9a8209228cfc5e4fcdfc3c54f1ec84e48284a99e199cf85499fac5c87304024412cb68643d2a96ccd77f5e71d1ab20df77b48e2237174aa670907e8d7f0bc1edd59d8ad1d65fb8085ced75513f1f23615b33c1636e4856b984911bfa23f9eaa0a8effda6428eb57888295d5c963345ba7b081ff353104260361906b061f17e49928d23c8ad19bf22288dc8afa4b4d26972e2f9d8f9c462362ceae28c65a24173ad150853c426a9e44278d6052d78b5271825c9b0a3d4044a464f0629d885724909d014450743bca9cc7ba7d7e80a99039226a532266ea1e92755dbdeb8096fd2c15ad26eb20b33bf39e5664a11f93"
+  },
+  {
+    "id": "BPD3002",
+    "position": {
+      "lat": 13.199,
+      "lng": 77.707
+    },
+    "label": "Forbidden Object",
+    "type": "Forbidden Object",
+    "caseStatus": "dispatch",
+    "reportedBy": "CISF Officer",
+    "vehicleNo": null,
+    "reportedTime": "2025-08-03T07:15:00.000Z",
+    "severity": "S5",
+    "location": {
+      "locationType": "Airport",
+      "locationName": "Airport Security Checkpoint",
+      "locationAddress": "T1 Departures Security, Bengaluru Airport, Karnataka",
+      "currentCrowdCount": 80,
+      "crowdLimit": 150
+    },
+    "isLive": true,
+    "imageUrl": "https://static.vecteezy.com/system/resources/thumbnails/028/899/546/small/aerial-view-of-city-motorway-with-public-transport-stop-video.jpg",
+    "confidence_score": 81,
+    "camera_url": ""
+  },
+  {
+    "id": "BPD3003",
+    "position": {
+      "lat": 13.198,
+      "lng": 77.706
+    },
+    "label": "Vehicle Theft",
+    "type": "Vehicle Theft",
+    "caseStatus": "cases",
+    "reportedBy": "Judy",
+    "vehicleNo": "AIR KA 02",
+    "reportedTime": "2025-08-03T08:45:00.000Z",
+    "severity": "S1",
+    "location": {
+      "locationType": "Airport",
+      "locationName": "Airport Long Term Parking",
+      "locationAddress": "Parking Lot P3, Bengaluru Airport, Karnataka",
+      "currentCrowdCount": 100,
+      "crowdLimit": 150
+    },
+    "isLive": false,
+    "imageUrl": "",
+    "confidence_score": 45,
+    "camera_url": "https://storage.googleapis.com/kagglesdsdata/datasets/6423073/10369744/Talaimari/east.mp4?X-Goog-Algorithm=GOOG4-RSA-SHA256&X-Goog-Credential=databundle-worker-v2%40kaggle-161607.iam.gserviceaccount.com%2F20260506%2Fauto%2Fstorage%2Fgoog4_request&X-Goog-Date=20260506T171845Z&X-Goog-Expires=345600&X-Goog-SignedHeaders=host&X-Goog-Signature=3c3d16a5e1a717bac0a8840461879559add9a8209228cfc5e4fcdfc3c54f1ec84e48284a99e199cf85499fac5c87304024412cb68643d2a96ccd77f5e71d1ab20df77b48e2237174aa670907e8d7f0bc1edd59d8ad1d65fb8085ced75513f1f23615b33c1636e4856b984911bfa23f9eaa0a8effda6428eb57888295d5c963345ba7b081ff353104260361906b061f17e49928d23c8ad19bf22288dc8afa4b4d26972e2f9d8f9c462362ceae28c65a24173ad150853c426a9e44278d6052d78b5271825c9b0a3d4044a464f0629d885724909d014450743bca9cc7ba7d7e80a99039226a532266ea1e92755dbdeb8096fd2c15ad26eb20b33bf39e5664a11f93"
+  },
+  {
+    "id": "BPD3004",
+    "position": {
+      "lat": 13.2,
+      "lng": 77.708
+    },
+    "label": "Forbidden Object",
+    "type": "Forbidden Object",
+    "caseStatus": "new",
+    "reportedBy": "Screening Agent",
+    "vehicleNo": null,
+    "reportedTime": "2025-08-03T09:20:00.000Z",
+    "severity": "S1",
+    "location": {
+      "locationType": "Airport",
+      "locationName": "Baggage Scanning - T2",
+      "locationAddress": "Terminal 2 Baggage Area, Bengaluru Airport, Karnataka",
+      "currentCrowdCount": 50,
+      "crowdLimit": 100
+    },
+    "isLive": true,
+    "imageUrl": "https://www.habiledata.com/wp-content/uploads/2024/04/live-video-stream-annotation-for-traffic-management-and-road-planning.jpg",
+    "confidence_score": 39,
+    "camera_url": ""
+  },
+  {
+    "id": "BPD3005",
+    "position": {
+      "lat": 13.197,
+      "lng": 77.705
+    },
+    "label": "Vehicle Theft",
+    "type": "Vehicle Theft",
+    "caseStatus": "dispatch",
+    "reportedBy": "Scott",
+    "vehicleNo": "AIR KA 03",
+    "reportedTime": "2025-08-03T10:10:00.000Z",
+    "severity": "S1",
+    "location": {
+      "locationType": "Airport",
+      "locationName": "Airport Taxi Stand",
+      "locationAddress": "Ola/Uber Pickup Area, Bengaluru Airport, Karnataka",
+      "currentCrowdCount": 40,
+      "crowdLimit": 80
+    },
+    "isLive": true,
+    "imageUrl": "https://static.vecteezy.com/system/resources/thumbnails/028/899/546/small/aerial-view-of-city-motorway-with-public-transport-stop-video.jpg",
+    "confidence_score": 65,
+    "camera_url": ""
+  },
+  {
+    "id": "BPD3006",
+    "position": {
+      "lat": 13.201,
+      "lng": 77.709
+    },
+    "label": "Forbidden Object",
+    "type": "Forbidden Object",
+    "caseStatus": "cases",
+    "reportedBy": "Airport Police",
+    "vehicleNo": null,
+    "reportedTime": "2025-08-03T11:30:00.000Z",
+    "severity": "S5",
+    "location": {
+      "locationType": "Airport",
+      "locationName": "International Gate Security",
+      "locationAddress": "Gate 15, Bengaluru Airport, Karnataka",
+      "currentCrowdCount": 60,
+      "crowdLimit": 120
+    },
+    "isLive": false,
+    "imageUrl": "https://static.vecteezy.com/system/resources/thumbnails/028/899/546/small/aerial-view-of-city-motorway-with-public-transport-stop-video.jpg",
+    "confidence_score": 42,
+    "camera_url": ""
+  },
+  {
+    "id": "BPD3007",
+    "position": {
+      "lat": 13.196,
+      "lng": 77.704
+    },
+    "label": "Vehicle Theft",
+    "type": "Vehicle Theft",
+    "caseStatus": "new",
+    "reportedBy": "Amanda",
+    "vehicleNo": "AIR KA 04",
+    "reportedTime": "2025-08-03T12:45:00.000Z",
+    "severity": "S1",
+    "location": {
+      "locationType": "Airport",
+      "locationName": "Airport Cargo Terminal",
+      "locationAddress": "Menlo Logistics Area, Bengaluru Airport, Karnataka",
+      "currentCrowdCount": 30,
+      "crowdLimit": 60
+    },
+    "isLive": true,
+    "imageUrl": "",
+    "confidence_score": 10,
+    "camera_url": "https://storage.googleapis.com/kagglesdsdata/datasets/6423073/10369744/Talaimari/east.mp4?X-Goog-Algorithm=GOOG4-RSA-SHA256&X-Goog-Credential=databundle-worker-v2%40kaggle-161607.iam.gserviceaccount.com%2F20260506%2Fauto%2Fstorage%2Fgoog4_request&X-Goog-Date=20260506T171845Z&X-Goog-Expires=345600&X-Goog-SignedHeaders=host&X-Goog-Signature=3c3d16a5e1a717bac0a8840461879559add9a8209228cfc5e4fcdfc3c54f1ec84e48284a99e199cf85499fac5c87304024412cb68643d2a96ccd77f5e71d1ab20df77b48e2237174aa670907e8d7f0bc1edd59d8ad1d65fb8085ced75513f1f23615b33c1636e4856b984911bfa23f9eaa0a8effda6428eb57888295d5c963345ba7b081ff353104260361906b061f17e49928d23c8ad19bf22288dc8afa4b4d26972e2f9d8f9c462362ceae28c65a24173ad150853c426a9e44278d6052d78b5271825c9b0a3d4044a464f0629d885724909d014450743bca9cc7ba7d7e80a99039226a532266ea1e92755dbdeb8096fd2c15ad26eb20b33bf39e5664a11f93"
+  },
+  {
+    "id": "BPD3008",
+    "position": {
+      "lat": 13.202,
+      "lng": 77.71
+    },
+    "label": "Forbidden Object",
+    "type": "Forbidden Object",
+    "caseStatus": "dispatch",
+    "reportedBy": "Security Guard",
+    "vehicleNo": null,
+    "reportedTime": "2025-08-03T13:20:00.000Z",
+    "severity": "S1",
+    "location": {
+      "locationType": "Airport",
+      "locationName": "Plaza Premium Lounge",
+      "locationAddress": "T1 Domestic Lounge, Bengaluru Airport, Karnataka",
+      "currentCrowdCount": 25,
+      "crowdLimit": 50
+    },
+    "isLive": true,
+    "imageUrl": "https://www.habiledata.com/wp-content/uploads/2024/04/live-video-stream-annotation-for-traffic-management-and-road-planning.jpg",
+    "confidence_score": 10,
+    "camera_url": ""
+  },
+  {
+    "id": "BPD3009",
+    "position": {
+      "lat": 13.195,
+      "lng": 77.703
+    },
+    "label": "Vehicle Theft",
+    "type": "Vehicle Theft",
+    "caseStatus": "cases",
+    "reportedBy": "Michael",
+    "vehicleNo": "AIR KA 05",
+    "reportedTime": "2025-08-03T14:10:00.000Z",
+    "severity": "S3",
+    "location": {
+      "locationType": "Airport",
+      "locationName": "Airport Staff Parking",
+      "locationAddress": "Staff Lot S2, Bengaluru Airport, Karnataka",
+      "currentCrowdCount": 15,
+      "crowdLimit": 40
+    },
+    "isLive": false,
+    "imageUrl": "https://p5iconsp.s3.amazonaws.com/154931522_iconl.webp",
+    "confidence_score": 12,
+    "camera_url": ""
+  },
+  {
+    "id": "BPD3010",
+    "position": {
+      "lat": 13.203,
+      "lng": 77.711
+    },
+    "label": "Forbidden Object",
+    "type": "Forbidden Object",
+    "caseStatus": "new",
+    "reportedBy": "K9 Unit",
+    "vehicleNo": null,
+    "reportedTime": "2025-08-03T15:30:00.000Z",
+    "severity": "S1",
+    "location": {
+      "locationType": "Airport",
+      "locationName": "Customs Arrival Area",
+      "locationAddress": "International Arrivals, Bengaluru Airport, Karnataka",
+      "currentCrowdCount": 35,
+      "crowdLimit": 70
+    },
+    "isLive": true,
+    "imageUrl": "https://filmsupply-files.s3.amazonaws.com/fs/files/production/clip_th/2386649/2-h.484.q1HO7T3ovMTVee0XvSGn66qS2J4yFBuwJ6H6eNVf.jpg",
+    "confidence_score": 83,
+    "camera_url": ""
+  },
+  {
+    "id": "BPD3011",
+    "position": {
+      "lat": 13.194,
+      "lng": 77.702
+    },
+    "label": "Vehicle Theft",
+    "type": "Vehicle Theft",
+    "caseStatus": "dispatch",
+    "reportedBy": "Sarah",
+    "vehicleNo": "AIR KA 06",
+    "reportedTime": "2025-08-03T16:15:00.000Z",
+    "severity": "S1",
+    "location": {
+      "locationType": "Airport",
+      "locationName": "Air India Hangar",
+      "locationAddress": "MRO Facility, Bengaluru Airport, Karnataka",
+      "currentCrowdCount": 20,
+      "crowdLimit": 35
+    },
+    "isLive": true,
+    "imageUrl": "",
+    "confidence_score": 29,
+    "camera_url": "https://storage.googleapis.com/kagglesdsdata/datasets/6423073/10369744/Talaimari/east.mp4?X-Goog-Algorithm=GOOG4-RSA-SHA256&X-Goog-Credential=databundle-worker-v2%40kaggle-161607.iam.gserviceaccount.com%2F20260506%2Fauto%2Fstorage%2Fgoog4_request&X-Goog-Date=20260506T171845Z&X-Goog-Expires=345600&X-Goog-SignedHeaders=host&X-Goog-Signature=3c3d16a5e1a717bac0a8840461879559add9a8209228cfc5e4fcdfc3c54f1ec84e48284a99e199cf85499fac5c87304024412cb68643d2a96ccd77f5e71d1ab20df77b48e2237174aa670907e8d7f0bc1edd59d8ad1d65fb8085ced75513f1f23615b33c1636e4856b984911bfa23f9eaa0a8effda6428eb57888295d5c963345ba7b081ff353104260361906b061f17e49928d23c8ad19bf22288dc8afa4b4d26972e2f9d8f9c462362ceae28c65a24173ad150853c426a9e44278d6052d78b5271825c9b0a3d4044a464f0629d885724909d014450743bca9cc7ba7d7e80a99039226a532266ea1e92755dbdeb8096fd2c15ad26eb20b33bf39e5664a11f93"
+  },
+  {
+    "id": "BPD3012",
+    "position": {
+      "lat": 13.204,
+      "lng": 77.712
+    },
+    "label": "Forbidden Object",
+    "type": "Forbidden Object",
+    "caseStatus": "cases",
+    "reportedBy": "Immigration Officer",
+    "vehicleNo": null,
+    "reportedTime": "2025-08-03T17:45:00.000Z",
+    "severity": "S1",
+    "location": {
+      "locationType": "Airport",
+      "locationName": "Immigration Hall",
+      "locationAddress": "T2 Immigration, Bengaluru Airport, Karnataka",
+      "currentCrowdCount": 45,
+      "crowdLimit": 80
+    },
+    "isLive": true,
+    "imageUrl": "https://static.vecteezy.com/system/resources/thumbnails/034/862/437/small_2x/traffic-on-the-580-freeway-san-francisco-bay-area-free-video.jpg",
+    "confidence_score": 12,
+    "camera_url": ""
+  },
+  {
+    "id": "BPD3013",
+    "position": {
+      "lat": 13.193,
+      "lng": 77.701
+    },
+    "label": "Vehicle Theft",
+    "type": "Vehicle Theft",
+    "caseStatus": "new",
+    "reportedBy": "David",
+    "vehicleNo": "AIR KA 07",
+    "reportedTime": "2025-08-03T18:20:00.000Z",
+    "severity": "S3",
+    "location": {
+      "locationType": "Airport",
+      "locationName": "Airport Fuel Farm",
+      "locationAddress": "BPCL Aviation Fuel Station, Bengaluru Airport, Karnataka",
+      "currentCrowdCount": 12,
+      "crowdLimit": 25
+    },
+    "isLive": false,
+    "imageUrl": "https://static.vecteezy.com/system/resources/thumbnails/034/862/437/small_2x/traffic-on-the-580-freeway-san-francisco-bay-area-free-video.jpg",
+    "confidence_score": 87,
+    "camera_url": ""
+  },
+  {
+    "id": "BPD3014",
+    "position": {
+      "lat": 13.205,
+      "lng": 77.713
+    },
+    "label": "Forbidden Object",
+    "type": "Forbidden Object",
+    "caseStatus": "dispatch",
+    "reportedBy": "X-Ray Operator",
+    "vehicleNo": null,
+    "reportedTime": "2025-08-03T19:10:00.000Z",
+    "severity": "S1",
+    "location": {
+      "locationType": "Airport",
+      "locationName": "T2 Security Screening",
+      "locationAddress": "Level 1 Security, Bengaluru Airport, Karnataka",
+      "currentCrowdCount": 55,
+      "crowdLimit": 110
+    },
+    "isLive": true,
+    "imageUrl": "https://www.habiledata.com/wp-content/uploads/2024/04/live-video-stream-annotation-for-traffic-management-and-road-planning.jpg",
+    "confidence_score": 18,
+    "camera_url": ""
+  },
+  {
+    "id": "BPD3015",
+    "position": {
+      "lat": 13.192,
+      "lng": 77.7
+    },
+    "label": "Vehicle Theft",
+    "type": "Vehicle Theft",
+    "caseStatus": "cases",
+    "reportedBy": "Jennifer",
+    "vehicleNo": "AIR KA 08",
+    "reportedTime": "2025-08-03T20:30:00.000Z",
+    "severity": "S1",
+    "location": {
+      "locationType": "Airport",
+      "locationName": "Airport Fire Station",
+      "locationAddress": "ARFF Station North, Bengaluru Airport, Karnataka",
+      "currentCrowdCount": 8,
+      "crowdLimit": 20
+    },
+    "isLive": true,
+    "imageUrl": "https://p5iconsp.s3.amazonaws.com/154931522_iconl.webp",
+    "confidence_score": 73,
+    "camera_url": ""
+  },
+  {
+    "id": "BPD3016",
+    "position": {
+      "lat": 13.206,
+      "lng": 77.714
+    },
+    "label": "Forbidden Object",
+    "type": "Forbidden Object",
+    "caseStatus": "new",
+    "reportedBy": "Security Supervisor",
+    "vehicleNo": null,
+    "reportedTime": "2025-08-03T21:15:00.000Z",
+    "severity": "S1",
+    "location": {
+      "locationType": "Airport",
+      "locationName": "Airport Operations Control",
+      "locationAddress": "AOCC Building, Bengaluru Airport, Karnataka",
+      "currentCrowdCount": 10,
+      "crowdLimit": 25
+    },
+    "isLive": false,
+    "imageUrl": "",
+    "confidence_score": 1,
+    "camera_url": "https://storage.googleapis.com/kagglesdsdata/datasets/6423073/10369744/Talaimari/east.mp4?X-Goog-Algorithm=GOOG4-RSA-SHA256&X-Goog-Credential=databundle-worker-v2%40kaggle-161607.iam.gserviceaccount.com%2F20260506%2Fauto%2Fstorage%2Fgoog4_request&X-Goog-Date=20260506T171845Z&X-Goog-Expires=345600&X-Goog-SignedHeaders=host&X-Goog-Signature=3c3d16a5e1a717bac0a8840461879559add9a8209228cfc5e4fcdfc3c54f1ec84e48284a99e199cf85499fac5c87304024412cb68643d2a96ccd77f5e71d1ab20df77b48e2237174aa670907e8d7f0bc1edd59d8ad1d65fb8085ced75513f1f23615b33c1636e4856b984911bfa23f9eaa0a8effda6428eb57888295d5c963345ba7b081ff353104260361906b061f17e49928d23c8ad19bf22288dc8afa4b4d26972e2f9d8f9c462362ceae28c65a24173ad150853c426a9e44278d6052d78b5271825c9b0a3d4044a464f0629d885724909d014450743bca9cc7ba7d7e80a99039226a532266ea1e92755dbdeb8096fd2c15ad26eb20b33bf39e5664a11f93"
+  },
+  {
+    "id": "BPD3017",
+    "position": {
+      "lat": 13.191,
+      "lng": 77.699
+    },
+    "label": "Vehicle Theft",
+    "type": "Vehicle Theft",
+    "caseStatus": "dispatch",
+    "reportedBy": "Robert",
+    "vehicleNo": "AIR KA 09",
+    "reportedTime": "2025-08-03T22:45:00.000Z",
+    "severity": "S3",
+    "location": {
+      "locationType": "Airport",
+      "locationName": "Ground Handling Area",
+      "locationAddress": "AISATS Equipment Yard, Bengaluru Airport, Karnataka",
+      "currentCrowdCount": 6,
+      "crowdLimit": 15
+    },
+    "isLive": true,
+    "imageUrl": "",
+    "confidence_score": 47,
+    "camera_url": "https://storage.googleapis.com/kagglesdsdata/datasets/6423073/10369744/Talaimari/Weast.mp4?X-Goog-Algorithm=GOOG4-RSA-SHA256&X-Goog-Credential=databundle-worker-v2%40kaggle-161607.iam.gserviceaccount.com%2F20260506%2Fauto%2Fstorage%2Fgoog4_request&X-Goog-Date=20260506T172219Z&X-Goog-Expires=345600&X-Goog-SignedHeaders=host&X-Goog-Signature=85816f6aad57d58db382a8b47b5af348f7c9e18f2e969ef9819c9977943cb3ee15a63055f24adcaa13f30a3b1ba6a3537df72e2072cef1486b9aaa671b2e1f883806d0305a8dcb526997f6cfe690060bf2cc518fc8680dcb63efe9c4562746a4f9f7c2d1bd85d03d1fecf8e4e08835483085e4684cc85d38aca2d83b890d5ae5c7b6f0e256548db961ae7eff28933e242890a8a4c6c95167c54203c0be7d5f42e4dc81d153523ea97463f283b0d3f184ce663a49d96c3d7d99fe1171ce9e05d677b3baa3c4cd706981de4db94697bad4e71a360ee46f0b2d82b30dc3a8782204ece57bbf4e5136d77db614eea4a4ab0cbd08d9b6087159a9b062ceb44135aa01"
+  },
+  {
+    "id": "BPD3018",
+    "position": {
+      "lat": 13.207,
+      "lng": 77.715
+    },
+    "label": "Forbidden Object",
+    "type": "Forbidden Object",
+    "caseStatus": "cases",
+    "reportedBy": "Bomb Squad",
+    "vehicleNo": null,
+    "reportedTime": "2025-08-03T23:20:00.000Z",
+    "severity": "S1",
+    "location": {
+      "locationType": "Airport",
+      "locationName": "Isolation Bay",
+      "locationAddress": "Runway 27L Isolation Point, Bengaluru Airport, Karnataka",
+      "currentCrowdCount": 0,
+      "crowdLimit": 5
+    },
+    "isLive": true,
+    "imageUrl": "https://filmsupply-files.s3.amazonaws.com/fs/files/production/clip_th/2386649/2-h.484.q1HO7T3ovMTVee0XvSGn66qS2J4yFBuwJ6H6eNVf.jpg",
+    "confidence_score": 57,
+    "camera_url": ""
+  },
+  {
+    "id": "BPD3019",
+    "position": {
+      "lat": 13.19,
+      "lng": 77.698
+    },
+    "label": "Vehicle Theft",
+    "type": "Vehicle Theft",
+    "caseStatus": "new",
+    "reportedBy": "Lisa",
+    "vehicleNo": "AIR KA 10",
+    "reportedTime": "2025-08-04T00:10:00.000Z",
+    "severity": "S1",
+    "location": {
+      "locationType": "Airport",
+      "locationName": "Perimeter Gate 4",
+      "locationAddress": "North Perimeter Security, Bengaluru Airport, Karnataka",
+      "currentCrowdCount": 2,
+      "crowdLimit": 10
+    },
+    "isLive": false,
+    "imageUrl": "",
+    "confidence_score": 74,
+    "camera_url": "https://storage.googleapis.com/kagglesdsdata/datasets/6423073/10369744/Talaimari/Weast.mp4?X-Goog-Algorithm=GOOG4-RSA-SHA256&X-Goog-Credential=databundle-worker-v2%40kaggle-161607.iam.gserviceaccount.com%2F20260506%2Fauto%2Fstorage%2Fgoog4_request&X-Goog-Date=20260506T172219Z&X-Goog-Expires=345600&X-Goog-SignedHeaders=host&X-Goog-Signature=85816f6aad57d58db382a8b47b5af348f7c9e18f2e969ef9819c9977943cb3ee15a63055f24adcaa13f30a3b1ba6a3537df72e2072cef1486b9aaa671b2e1f883806d0305a8dcb526997f6cfe690060bf2cc518fc8680dcb63efe9c4562746a4f9f7c2d1bd85d03d1fecf8e4e08835483085e4684cc85d38aca2d83b890d5ae5c7b6f0e256548db961ae7eff28933e242890a8a4c6c95167c54203c0be7d5f42e4dc81d153523ea97463f283b0d3f184ce663a49d96c3d7d99fe1171ce9e05d677b3baa3c4cd706981de4db94697bad4e71a360ee46f0b2d82b30dc3a8782204ece57bbf4e5136d77db614eea4a4ab0cbd08d9b6087159a9b062ceb44135aa01"
+  },
+  {
+    "id": "BPD3020",
+    "position": {
+      "lat": 13.208,
+      "lng": 77.716
+    },
+    "label": "Forbidden Object",
+    "type": "Forbidden Object",
+    "caseStatus": "dispatch",
+    "reportedBy": "Canine Officer",
+    "vehicleNo": null,
+    "reportedTime": "2025-08-04T01:30:00.000Z",
+    "severity": "S3",
+    "location": {
+      "locationType": "Airport",
+      "locationName": "T1 Baggage Claim",
+      "locationAddress": "Belt 5 Area, Bengaluru Airport, Karnataka",
+      "currentCrowdCount": 15,
+      "crowdLimit": 40
+    },
+    "isLive": true,
+    "imageUrl": "https://filmsupply-files.s3.amazonaws.com/fs/files/production/clip_th/2386649/2-h.484.q1HO7T3ovMTVee0XvSGn66qS2J4yFBuwJ6H6eNVf.jpg",
+    "confidence_score": 26,
+    "camera_url": ""
+  },
+  {
+    "id": "BPD4001",
+    "position": {
+      "lat": 12.9738,
+      "lng": 77.5906
+    },
+    "label": "Assault",
+    "type": "Assault",
+    "caseStatus": "new",
+    "reportedBy": "Mark",
+    "vehicleNo": null,
+    "reportedTime": "2025-08-04T06:30:00.000Z",
+    "severity": "S1",
+    "location": {
+      "locationType": "Park",
+      "locationName": "Cubbon Park",
+      "locationAddress": "Kasturba Road, Bengaluru, Karnataka",
+      "currentCrowdCount": 35,
+      "crowdLimit": 50
+    },
+    "isLive": true,
+    "imageUrl": "",
+    "confidence_score": 24,
+    "camera_url": "https://storage.googleapis.com/kagglesdsdata/datasets/6423073/10369744/Talaimari/east.mp4?X-Goog-Algorithm=GOOG4-RSA-SHA256&X-Goog-Credential=databundle-worker-v2%40kaggle-161607.iam.gserviceaccount.com%2F20260506%2Fauto%2Fstorage%2Fgoog4_request&X-Goog-Date=20260506T171845Z&X-Goog-Expires=345600&X-Goog-SignedHeaders=host&X-Goog-Signature=3c3d16a5e1a717bac0a8840461879559add9a8209228cfc5e4fcdfc3c54f1ec84e48284a99e199cf85499fac5c87304024412cb68643d2a96ccd77f5e71d1ab20df77b48e2237174aa670907e8d7f0bc1edd59d8ad1d65fb8085ced75513f1f23615b33c1636e4856b984911bfa23f9eaa0a8effda6428eb57888295d5c963345ba7b081ff353104260361906b061f17e49928d23c8ad19bf22288dc8afa4b4d26972e2f9d8f9c462362ceae28c65a24173ad150853c426a9e44278d6052d78b5271825c9b0a3d4044a464f0629d885724909d014450743bca9cc7ba7d7e80a99039226a532266ea1e92755dbdeb8096fd2c15ad26eb20b33bf39e5664a11f93"
+  },
+  {
+    "id": "BPD4002",
+    "position": {
+      "lat": 12.974,
+      "lng": 77.591
+    },
+    "label": "Theft",
+    "type": "Theft",
+    "caseStatus": "dispatch",
+    "reportedBy": "Judy",
+    "vehicleNo": null,
+    "reportedTime": "2025-08-04T07:15:00.000Z",
+    "severity": "S2",
+    "location": {
+      "locationType": "Park",
+      "locationName": "Cubbon Park",
+      "locationAddress": "Cubbon Park Metro Access, Bengaluru, Karnataka",
+      "currentCrowdCount": 42,
+      "crowdLimit": 50
+    },
+    "isLive": false,
+    "imageUrl": "",
+    "confidence_score": 48,
+    "camera_url": "https://storage.googleapis.com/kagglesdsdata/datasets/6423073/10369744/Talaimari/east.mp4?X-Goog-Algorithm=GOOG4-RSA-SHA256&X-Goog-Credential=databundle-worker-v2%40kaggle-161607.iam.gserviceaccount.com%2F20260506%2Fauto%2Fstorage%2Fgoog4_request&X-Goog-Date=20260506T171845Z&X-Goog-Expires=345600&X-Goog-SignedHeaders=host&X-Goog-Signature=3c3d16a5e1a717bac0a8840461879559add9a8209228cfc5e4fcdfc3c54f1ec84e48284a99e199cf85499fac5c87304024412cb68643d2a96ccd77f5e71d1ab20df77b48e2237174aa670907e8d7f0bc1edd59d8ad1d65fb8085ced75513f1f23615b33c1636e4856b984911bfa23f9eaa0a8effda6428eb57888295d5c963345ba7b081ff353104260361906b061f17e49928d23c8ad19bf22288dc8afa4b4d26972e2f9d8f9c462362ceae28c65a24173ad150853c426a9e44278d6052d78b5271825c9b0a3d4044a464f0629d885724909d014450743bca9cc7ba7d7e80a99039226a532266ea1e92755dbdeb8096fd2c15ad26eb20b33bf39e5664a11f93"
+  },
+  {
+    "id": "BPD4003",
+    "position": {
+      "lat": 12.9735,
+      "lng": 77.59
+    },
+    "label": "Burglary",
+    "type": "Burglary",
+    "caseStatus": "cases",
+    "reportedBy": "Scott",
+    "vehicleNo": null,
+    "reportedTime": "2025-08-04T08:45:00.000Z",
+    "severity": "S3",
+    "location": {
+      "locationType": "Park",
+      "locationName": "Cubbon Park",
+      "locationAddress": "High Court Area, Cubbon Park, Bengaluru, Karnataka",
+      "currentCrowdCount": 28,
+      "crowdLimit": 50
+    },
+    "isLive": true,
+    "imageUrl": "https://p5iconsp.s3.amazonaws.com/154931522_iconl.webp",
+    "confidence_score": 19,
+    "camera_url": ""
+  },
+  {
+    "id": "BPD4004",
+    "position": {
+      "lat": 12.9745,
+      "lng": 77.5915
+    },
+    "label": "Vehicle Theft",
+    "type": "Vehicle Theft",
+    "caseStatus": "new",
+    "reportedBy": "Amanda",
+    "vehicleNo": "KA01 P 4001",
+    "reportedTime": "2025-08-04T09:20:00.000Z",
+    "severity": "S1",
+    "location": {
+      "locationType": "Park",
+      "locationName": "Cubbon Park",
+      "locationAddress": "Bal Bhavan Parking, Bengaluru, Karnataka",
+      "currentCrowdCount": 31,
+      "crowdLimit": 50
+    },
+    "isLive": true,
+    "imageUrl": "https://static.vecteezy.com/system/resources/thumbnails/028/899/546/small/aerial-view-of-city-motorway-with-public-transport-stop-video.jpg",
+    "confidence_score": 16,
+    "camera_url": ""
+  },
+  {
+    "id": "BPD4005",
+    "position": {
+      "lat": 12.973,
+      "lng": 77.5895
+    },
+    "label": "Criminal Activity",
+    "type": "Criminal Activity",
+    "caseStatus": "dispatch",
+    "reportedBy": "Michael",
+    "vehicleNo": null,
+    "reportedTime": "2025-08-04T10:10:00.000Z",
+    "severity": "S1",
+    "location": {
+      "locationType": "Park",
+      "locationName": "Cubbon Park",
+      "locationAddress": "Library Area, Cubbon Park, Bengaluru, Karnataka",
+      "currentCrowdCount": 38,
+      "crowdLimit": 50
+    },
+    "isLive": false,
+    "imageUrl": "https://static.vecteezy.com/system/resources/thumbnails/028/899/546/small/aerial-view-of-city-motorway-with-public-transport-stop-video.jpg",
+    "confidence_score": 28,
+    "camera_url": ""
+  },
+  {
+    "id": "BPD4006",
+    "position": {
+      "lat": 12.975,
+      "lng": 77.592
+    },
+    "label": "Assault",
+    "type": "Assault",
+    "caseStatus": "cases",
+    "reportedBy": "Sarah",
+    "vehicleNo": null,
+    "reportedTime": "2025-08-04T11:30:00.000Z",
+    "severity": "S3",
+    "location": {
+      "locationType": "Park",
+      "locationName": "Cubbon Park",
+      "locationAddress": "Queen Victoria Statue Area, Bengaluru, Karnataka",
+      "currentCrowdCount": 45,
+      "crowdLimit": 50
+    },
+    "isLive": true,
+    "imageUrl": "",
+    "confidence_score": 36,
+    "camera_url": "https://storage.googleapis.com/kagglesdsdata/datasets/6423073/10369744/Talaimari/east.mp4?X-Goog-Algorithm=GOOG4-RSA-SHA256&X-Goog-Credential=databundle-worker-v2%40kaggle-161607.iam.gserviceaccount.com%2F20260506%2Fauto%2Fstorage%2Fgoog4_request&X-Goog-Date=20260506T171845Z&X-Goog-Expires=345600&X-Goog-SignedHeaders=host&X-Goog-Signature=3c3d16a5e1a717bac0a8840461879559add9a8209228cfc5e4fcdfc3c54f1ec84e48284a99e199cf85499fac5c87304024412cb68643d2a96ccd77f5e71d1ab20df77b48e2237174aa670907e8d7f0bc1edd59d8ad1d65fb8085ced75513f1f23615b33c1636e4856b984911bfa23f9eaa0a8effda6428eb57888295d5c963345ba7b081ff353104260361906b061f17e49928d23c8ad19bf22288dc8afa4b4d26972e2f9d8f9c462362ceae28c65a24173ad150853c426a9e44278d6052d78b5271825c9b0a3d4044a464f0629d885724909d014450743bca9cc7ba7d7e80a99039226a532266ea1e92755dbdeb8096fd2c15ad26eb20b33bf39e5664a11f93"
+  },
+  {
+    "id": "BPD4007",
+    "position": {
+      "lat": 12.9725,
+      "lng": 77.589
+    },
+    "label": "Theft",
+    "type": "Theft",
+    "caseStatus": "new",
+    "reportedBy": "David",
+    "vehicleNo": null,
+    "reportedTime": "2025-08-04T12:45:00.000Z",
+    "severity": "S2",
+    "location": {
+      "locationType": "Park",
+      "locationName": "Cubbon Park",
+      "locationAddress": "Hudson Circle Gate, Bengaluru, Karnataka",
+      "currentCrowdCount": 33,
+      "crowdLimit": 50
+    },
+    "isLive": true,
+    "imageUrl": "https://www.habiledata.com/wp-content/uploads/2024/04/live-video-stream-annotation-for-traffic-management-and-road-planning.jpg",
+    "confidence_score": 37,
+    "camera_url": ""
+  },
+  {
+    "id": "BPD4008",
+    "position": {
+      "lat": 12.9507,
+      "lng": 77.5848
+    },
+    "label": "Burglary",
+    "type": "Burglary",
+    "caseStatus": "dispatch",
+    "reportedBy": "Jennifer",
+    "vehicleNo": null,
+    "reportedTime": "2025-08-04T13:20:00.000Z",
+    "severity": "S3",
+    "location": {
+      "locationType": "Park",
+      "locationName": "Lalbagh Botanical Garden",
+      "locationAddress": "Lalbagh West Gate, Bengaluru, Karnataka",
+      "currentCrowdCount": 22,
+      "crowdLimit": 40
+    },
+    "isLive": false,
+    "imageUrl": "https://static.vecteezy.com/system/resources/thumbnails/034/862/437/small_2x/traffic-on-the-580-freeway-san-francisco-bay-area-free-video.jpg",
+    "confidence_score": 60,
+    "camera_url": ""
+  },
+  {
+    "id": "BPD4009",
+    "position": {
+      "lat": 12.951,
+      "lng": 77.5855
+    },
+    "label": "Vehicle Theft",
+    "type": "Vehicle Theft",
+    "caseStatus": "cases",
+    "reportedBy": "Robert",
+    "vehicleNo": "KA01 P 4002",
+    "reportedTime": "2025-08-04T14:10:00.000Z",
+    "severity": "S3",
+    "location": {
+      "locationType": "Park",
+      "locationName": "Lalbagh Botanical Garden",
+      "locationAddress": "Lalbagh East Gate Parking, Bengaluru, Karnataka",
+      "currentCrowdCount": 18,
+      "crowdLimit": 40
+    },
+    "isLive": true,
+    "imageUrl": "https://filmsupply-files.s3.amazonaws.com/fs/files/production/clip_th/2386649/2-h.484.q1HO7T3ovMTVee0XvSGn66qS2J4yFBuwJ6H6eNVf.jpg",
+    "confidence_score": 76,
+    "camera_url": ""
+  },
+  {
+    "id": "BPD4010",
+    "position": {
+      "lat": 12.95,
+      "lng": 77.584
+    },
+    "label": "Criminal Activity",
+    "type": "Criminal Activity",
+    "caseStatus": "new",
+    "reportedBy": "Lisa",
+    "vehicleNo": null,
+    "reportedTime": "2025-08-04T15:30:00.000Z",
+    "severity": "S1",
+    "location": {
+      "locationType": "Park",
+      "locationName": "Lalbagh Botanical Garden",
+      "locationAddress": "Glass House Area, Lalbagh, Bengaluru, Karnataka",
+      "currentCrowdCount": 25,
+      "crowdLimit": 40
+    },
+    "isLive": true,
+    "imageUrl": "",
+    "confidence_score": 57,
+    "camera_url": "https://storage.googleapis.com/kagglesdsdata/datasets/6423073/10369744/Talaimari/Weast.mp4?X-Goog-Algorithm=GOOG4-RSA-SHA256&X-Goog-Credential=databundle-worker-v2%40kaggle-161607.iam.gserviceaccount.com%2F20260506%2Fauto%2Fstorage%2Fgoog4_request&X-Goog-Date=20260506T172219Z&X-Goog-Expires=345600&X-Goog-SignedHeaders=host&X-Goog-Signature=85816f6aad57d58db382a8b47b5af348f7c9e18f2e969ef9819c9977943cb3ee15a63055f24adcaa13f30a3b1ba6a3537df72e2072cef1486b9aaa671b2e1f883806d0305a8dcb526997f6cfe690060bf2cc518fc8680dcb63efe9c4562746a4f9f7c2d1bd85d03d1fecf8e4e08835483085e4684cc85d38aca2d83b890d5ae5c7b6f0e256548db961ae7eff28933e242890a8a4c6c95167c54203c0be7d5f42e4dc81d153523ea97463f283b0d3f184ce663a49d96c3d7d99fe1171ce9e05d677b3baa3c4cd706981de4db94697bad4e71a360ee46f0b2d82b30dc3a8782204ece57bbf4e5136d77db614eea4a4ab0cbd08d9b6087159a9b062ceb44135aa01"
+  },
+  {
+    "id": "BPD4011",
+    "position": {
+      "lat": 12.9515,
+      "lng": 77.586
+    },
+    "label": "Assault",
+    "type": "Assault",
+    "caseStatus": "dispatch",
+    "reportedBy": "Kevin",
+    "vehicleNo": null,
+    "reportedTime": "2025-08-04T16:15:00.000Z",
+    "severity": "S3",
+    "location": {
+      "locationType": "Park",
+      "locationName": "Lalbagh Botanical Garden",
+      "locationAddress": "Lalbagh North Gate, Bengaluru, Karnataka",
+      "currentCrowdCount": 30,
+      "crowdLimit": 40
+    },
+    "isLive": false,
+    "imageUrl": "",
+    "confidence_score": 31,
+    "camera_url": "https://storage.googleapis.com/kagglesdsdata/datasets/6423073/10369744/Talaimari/east.mp4?X-Goog-Algorithm=GOOG4-RSA-SHA256&X-Goog-Credential=databundle-worker-v2%40kaggle-161607.iam.gserviceaccount.com%2F20260506%2Fauto%2Fstorage%2Fgoog4_request&X-Goog-Date=20260506T171845Z&X-Goog-Expires=345600&X-Goog-SignedHeaders=host&X-Goog-Signature=3c3d16a5e1a717bac0a8840461879559add9a8209228cfc5e4fcdfc3c54f1ec84e48284a99e199cf85499fac5c87304024412cb68643d2a96ccd77f5e71d1ab20df77b48e2237174aa670907e8d7f0bc1edd59d8ad1d65fb8085ced75513f1f23615b33c1636e4856b984911bfa23f9eaa0a8effda6428eb57888295d5c963345ba7b081ff353104260361906b061f17e49928d23c8ad19bf22288dc8afa4b4d26972e2f9d8f9c462362ceae28c65a24173ad150853c426a9e44278d6052d78b5271825c9b0a3d4044a464f0629d885724909d014450743bca9cc7ba7d7e80a99039226a532266ea1e92755dbdeb8096fd2c15ad26eb20b33bf39e5664a11f93"
+  },
+  {
+    "id": "BPD4012",
+    "position": {
+      "lat": 12.9495,
+      "lng": 77.5835
+    },
+    "label": "Theft",
+    "type": "Theft",
+    "caseStatus": "cases",
+    "reportedBy": "Maria",
+    "vehicleNo": null,
+    "reportedTime": "2025-08-04T17:45:00.000Z",
+    "severity": "S2",
+    "location": {
+      "locationType": "Park",
+      "locationName": "Lalbagh Botanical Garden",
+      "locationAddress": "Lalbagh South Gate, Bengaluru, Karnataka",
+      "currentCrowdCount": 15,
+      "crowdLimit": 40
+    },
+    "isLive": true,
+    "imageUrl": "https://static.vecteezy.com/system/resources/thumbnails/028/899/546/small/aerial-view-of-city-motorway-with-public-transport-stop-video.jpg",
+    "confidence_score": 6,
+    "camera_url": ""
+  },
+  {
+    "id": "BPD4013",
+    "position": {
+      "lat": 12.952,
+      "lng": 77.587
+    },
+    "label": "Burglary",
+    "type": "Burglary",
+    "caseStatus": "new",
+    "reportedBy": "James",
+    "vehicleNo": null,
+    "reportedTime": "2025-08-04T18:20:00.000Z",
+    "severity": "S2",
+    "location": {
+      "locationType": "Park",
+      "locationName": "Lalbagh Botanical Garden",
+      "locationAddress": "Lake Area, Lalbagh, Bengaluru, Karnataka",
+      "currentCrowdCount": 27,
+      "crowdLimit": 40
+    },
+    "isLive": true,
+    "imageUrl": "https://filmsupply-files.s3.amazonaws.com/fs/files/production/clip_th/2386649/2-h.484.q1HO7T3ovMTVee0XvSGn66qS2J4yFBuwJ6H6eNVf.jpg",
+    "confidence_score": 36,
+    "camera_url": ""
+  },
+  {
+    "id": "BPD4014",
+    "position": {
+      "lat": 12.9505,
+      "lng": 77.585
+    },
+    "label": "Vehicle Theft",
+    "type": "Vehicle Theft",
+    "caseStatus": "dispatch",
+    "reportedBy": "Patricia",
+    "vehicleNo": "KA01 P 4003",
+    "reportedTime": "2025-08-04T19:10:00.000Z",
+    "severity": "S3",
+    "location": {
+      "locationType": "Park",
+      "locationName": "Lalbagh Botanical Garden",
+      "locationAddress": "Double Road Gate, Bengaluru, Karnataka",
+      "currentCrowdCount": 20,
+      "crowdLimit": 40
+    },
+    "isLive": false,
+    "imageUrl": "",
+    "confidence_score": 29,
+    "camera_url": "https://storage.googleapis.com/kagglesdsdata/datasets/6423073/10369744/Talaimari/Weast.mp4?X-Goog-Algorithm=GOOG4-RSA-SHA256&X-Goog-Credential=databundle-worker-v2%40kaggle-161607.iam.gserviceaccount.com%2F20260506%2Fauto%2Fstorage%2Fgoog4_request&X-Goog-Date=20260506T172219Z&X-Goog-Expires=345600&X-Goog-SignedHeaders=host&X-Goog-Signature=85816f6aad57d58db382a8b47b5af348f7c9e18f2e969ef9819c9977943cb3ee15a63055f24adcaa13f30a3b1ba6a3537df72e2072cef1486b9aaa671b2e1f883806d0305a8dcb526997f6cfe690060bf2cc518fc8680dcb63efe9c4562746a4f9f7c2d1bd85d03d1fecf8e4e08835483085e4684cc85d38aca2d83b890d5ae5c7b6f0e256548db961ae7eff28933e242890a8a4c6c95167c54203c0be7d5f42e4dc81d153523ea97463f283b0d3f184ce663a49d96c3d7d99fe1171ce9e05d677b3baa3c4cd706981de4db94697bad4e71a360ee46f0b2d82b30dc3a8782204ece57bbf4e5136d77db614eea4a4ab0cbd08d9b6087159a9b062ceb44135aa01"
+  },
+  {
+    "id": "BPD4015",
+    "position": {
+      "lat": 12.83,
+      "lng": 77.58
+    },
+    "label": "Criminal Activity",
+    "type": "Criminal Activity",
+    "caseStatus": "cases",
+    "reportedBy": "Christopher",
+    "vehicleNo": null,
+    "reportedTime": "2025-08-04T20:30:00.000Z",
+    "severity": "S3",
+    "location": {
+      "locationType": "Park",
+      "locationName": "Bannerghatta National Park",
+      "locationAddress": "Bannerghatta Rd, Bengaluru, Karnataka",
+      "currentCrowdCount": 40,
+      "crowdLimit": 60
+    },
+    "isLive": true,
+    "imageUrl": "",
+    "confidence_score": 96,
+    "camera_url": "https://storage.googleapis.com/kagglesdsdata/datasets/6423073/10369744/Talaimari/Weast.mp4?X-Goog-Algorithm=GOOG4-RSA-SHA256&X-Goog-Credential=databundle-worker-v2%40kaggle-161607.iam.gserviceaccount.com%2F20260506%2Fauto%2Fstorage%2Fgoog4_request&X-Goog-Date=20260506T172219Z&X-Goog-Expires=345600&X-Goog-SignedHeaders=host&X-Goog-Signature=85816f6aad57d58db382a8b47b5af348f7c9e18f2e969ef9819c9977943cb3ee15a63055f24adcaa13f30a3b1ba6a3537df72e2072cef1486b9aaa671b2e1f883806d0305a8dcb526997f6cfe690060bf2cc518fc8680dcb63efe9c4562746a4f9f7c2d1bd85d03d1fecf8e4e08835483085e4684cc85d38aca2d83b890d5ae5c7b6f0e256548db961ae7eff28933e242890a8a4c6c95167c54203c0be7d5f42e4dc81d153523ea97463f283b0d3f184ce663a49d96c3d7d99fe1171ce9e05d677b3baa3c4cd706981de4db94697bad4e71a360ee46f0b2d82b30dc3a8782204ece57bbf4e5136d77db614eea4a4ab0cbd08d9b6087159a9b062ceb44135aa01"
+  },
+  {
+    "id": "BPD4016",
+    "position": {
+      "lat": 12.831,
+      "lng": 77.581
+    },
+    "label": "Assault",
+    "type": "Assault",
+    "caseStatus": "new",
+    "reportedBy": "Linda",
+    "vehicleNo": null,
+    "reportedTime": "2025-08-04T21:15:00.000Z",
+    "severity": "S1",
+    "location": {
+      "locationType": "Park",
+      "locationName": "Bannerghatta National Park",
+      "locationAddress": "Safari Entry Point, Bannerghatta, Bengaluru, Karnataka",
+      "currentCrowdCount": 45,
+      "crowdLimit": 60
+    },
+    "isLive": true,
+    "imageUrl": "",
+    "confidence_score": 15,
+    "camera_url": "https://storage.googleapis.com/kagglesdsdata/datasets/6423073/10369744/Talaimari/Weast.mp4?X-Goog-Algorithm=GOOG4-RSA-SHA256&X-Goog-Credential=databundle-worker-v2%40kaggle-161607.iam.gserviceaccount.com%2F20260506%2Fauto%2Fstorage%2Fgoog4_request&X-Goog-Date=20260506T172219Z&X-Goog-Expires=345600&X-Goog-SignedHeaders=host&X-Goog-Signature=85816f6aad57d58db382a8b47b5af348f7c9e18f2e969ef9819c9977943cb3ee15a63055f24adcaa13f30a3b1ba6a3537df72e2072cef1486b9aaa671b2e1f883806d0305a8dcb526997f6cfe690060bf2cc518fc8680dcb63efe9c4562746a4f9f7c2d1bd85d03d1fecf8e4e08835483085e4684cc85d38aca2d83b890d5ae5c7b6f0e256548db961ae7eff28933e242890a8a4c6c95167c54203c0be7d5f42e4dc81d153523ea97463f283b0d3f184ce663a49d96c3d7d99fe1171ce9e05d677b3baa3c4cd706981de4db94697bad4e71a360ee46f0b2d82b30dc3a8782204ece57bbf4e5136d77db614eea4a4ab0cbd08d9b6087159a9b062ceb44135aa01"
+  },
+  {
+    "id": "BPD4017",
+    "position": {
+      "lat": 12.829,
+      "lng": 77.579
+    },
+    "label": "Theft",
+    "type": "Theft",
+    "caseStatus": "dispatch",
+    "reportedBy": "Daniel",
+    "vehicleNo": null,
+    "reportedTime": "2025-08-04T22:45:00.000Z",
+    "severity": "S2",
+    "location": {
+      "locationType": "Park",
+      "locationName": "Bannerghatta National Park",
+      "locationAddress": "Butterfly Park Area, Bengaluru, Karnataka",
+      "currentCrowdCount": 38,
+      "crowdLimit": 60
+    },
+    "isLive": false,
+    "imageUrl": "",
+    "confidence_score": 14,
+    "camera_url": "https://storage.googleapis.com/kagglesdsdata/datasets/6423073/10369744/Talaimari/east.mp4?X-Goog-Algorithm=GOOG4-RSA-SHA256&X-Goog-Credential=databundle-worker-v2%40kaggle-161607.iam.gserviceaccount.com%2F20260506%2Fauto%2Fstorage%2Fgoog4_request&X-Goog-Date=20260506T171845Z&X-Goog-Expires=345600&X-Goog-SignedHeaders=host&X-Goog-Signature=3c3d16a5e1a717bac0a8840461879559add9a8209228cfc5e4fcdfc3c54f1ec84e48284a99e199cf85499fac5c87304024412cb68643d2a96ccd77f5e71d1ab20df77b48e2237174aa670907e8d7f0bc1edd59d8ad1d65fb8085ced75513f1f23615b33c1636e4856b984911bfa23f9eaa0a8effda6428eb57888295d5c963345ba7b081ff353104260361906b061f17e49928d23c8ad19bf22288dc8afa4b4d26972e2f9d8f9c462362ceae28c65a24173ad150853c426a9e44278d6052d78b5271825c9b0a3d4044a464f0629d885724909d014450743bca9cc7ba7d7e80a99039226a532266ea1e92755dbdeb8096fd2c15ad26eb20b33bf39e5664a11f93"
+  },
+  {
+    "id": "BPD4018",
+    "position": {
+      "lat": 12.832,
+      "lng": 77.582
+    },
+    "label": "Burglary",
+    "type": "Burglary",
+    "caseStatus": "cases",
+    "reportedBy": "Michelle",
+    "vehicleNo": null,
+    "reportedTime": "2025-08-04T23:20:00.000Z",
+    "severity": "S2",
+    "location": {
+      "locationType": "Park",
+      "locationName": "Bannerghatta National Park",
+      "locationAddress": "Zoo Entry, Bannerghatta, Bengaluru, Karnataka",
+      "currentCrowdCount": 52,
+      "crowdLimit": 60
+    },
+    "isLive": true,
+    "imageUrl": "",
+    "confidence_score": 14,
+    "camera_url": "https://storage.googleapis.com/kagglesdsdata/datasets/6423073/10369744/Talaimari/east.mp4?X-Goog-Algorithm=GOOG4-RSA-SHA256&X-Goog-Credential=databundle-worker-v2%40kaggle-161607.iam.gserviceaccount.com%2F20260506%2Fauto%2Fstorage%2Fgoog4_request&X-Goog-Date=20260506T171845Z&X-Goog-Expires=345600&X-Goog-SignedHeaders=host&X-Goog-Signature=3c3d16a5e1a717bac0a8840461879559add9a8209228cfc5e4fcdfc3c54f1ec84e48284a99e199cf85499fac5c87304024412cb68643d2a96ccd77f5e71d1ab20df77b48e2237174aa670907e8d7f0bc1edd59d8ad1d65fb8085ced75513f1f23615b33c1636e4856b984911bfa23f9eaa0a8effda6428eb57888295d5c963345ba7b081ff353104260361906b061f17e49928d23c8ad19bf22288dc8afa4b4d26972e2f9d8f9c462362ceae28c65a24173ad150853c426a9e44278d6052d78b5271825c9b0a3d4044a464f0629d885724909d014450743bca9cc7ba7d7e80a99039226a532266ea1e92755dbdeb8096fd2c15ad26eb20b33bf39e5664a11f93"
+  },
+  {
+    "id": "BPD4019",
+    "position": {
+      "lat": 12.828,
+      "lng": 77.578
+    },
+    "label": "Vehicle Theft",
+    "type": "Vehicle Theft",
+    "caseStatus": "new",
+    "reportedBy": "Jason",
+    "vehicleNo": "KA01 P 4004",
+    "reportedTime": "2025-08-05T00:10:00.000Z",
+    "severity": "S1",
+    "location": {
+      "locationType": "Park",
+      "locationName": "Bannerghatta National Park",
+      "locationAddress": "Staff Housing Area, Bengaluru, Karnataka",
+      "currentCrowdCount": 35,
+      "crowdLimit": 60
+    },
+    "isLive": true,
+    "imageUrl": "",
+    "confidence_score": 70,
+    "camera_url": "https://storage.googleapis.com/kagglesdsdata/datasets/6423073/10369744/Talaimari/Weast.mp4?X-Goog-Algorithm=GOOG4-RSA-SHA256&X-Goog-Credential=databundle-worker-v2%40kaggle-161607.iam.gserviceaccount.com%2F20260506%2Fauto%2Fstorage%2Fgoog4_request&X-Goog-Date=20260506T172219Z&X-Goog-Expires=345600&X-Goog-SignedHeaders=host&X-Goog-Signature=85816f6aad57d58db382a8b47b5af348f7c9e18f2e969ef9819c9977943cb3ee15a63055f24adcaa13f30a3b1ba6a3537df72e2072cef1486b9aaa671b2e1f883806d0305a8dcb526997f6cfe690060bf2cc518fc8680dcb63efe9c4562746a4f9f7c2d1bd85d03d1fecf8e4e08835483085e4684cc85d38aca2d83b890d5ae5c7b6f0e256548db961ae7eff28933e242890a8a4c6c95167c54203c0be7d5f42e4dc81d153523ea97463f283b0d3f184ce663a49d96c3d7d99fe1171ce9e05d677b3baa3c4cd706981de4db94697bad4e71a360ee46f0b2d82b30dc3a8782204ece57bbf4e5136d77db614eea4a4ab0cbd08d9b6087159a9b062ceb44135aa01"
+  },
+  {
+    "id": "BPD4020",
+    "position": {
+      "lat": 12.833,
+      "lng": 77.583
+    },
+    "label": "Criminal Activity",
+    "type": "Criminal Activity",
+    "caseStatus": "dispatch",
+    "reportedBy": "Nancy",
+    "vehicleNo": null,
+    "reportedTime": "2025-08-05T01:30:00.000Z",
+    "severity": "S1",
+    "location": {
+      "locationType": "Park",
+      "locationName": "Bannerghatta National Park",
+      "locationAddress": "Forest Dept Office, Bengaluru, Karnataka",
+      "currentCrowdCount": 48,
+      "crowdLimit": 60
+    },
+    "isLive": false,
+    "imageUrl": "https://filmsupply-files.s3.amazonaws.com/fs/files/production/clip_th/2386649/2-h.484.q1HO7T3ovMTVee0XvSGn66qS2J4yFBuwJ6H6eNVf.jpg",
+    "confidence_score": 15,
+    "camera_url": ""
+  },
+  {
+    "id": "BPD4021",
+    "position": {
+      "lat": 12.827,
+      "lng": 77.577
+    },
+    "label": "Assault",
+    "type": "Assault",
+    "caseStatus": "cases",
+    "reportedBy": "Ryan",
+    "vehicleNo": null,
+    "reportedTime": "2025-08-05T02:15:00.000Z",
+    "severity": "S1",
+    "location": {
+      "locationType": "Park",
+      "locationName": "Bannerghatta National Park",
+      "locationAddress": "Southern Perimeter, Bengaluru, Karnataka",
+      "currentCrowdCount": 41,
+      "crowdLimit": 60
+    },
+    "isLive": true,
+    "imageUrl": "https://static.vecteezy.com/system/resources/thumbnails/034/862/437/small_2x/traffic-on-the-580-freeway-san-francisco-bay-area-free-video.jpg",
+    "confidence_score": 82,
+    "camera_url": ""
+  }
+]

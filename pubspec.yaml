@@ -1,5 +1,5 @@
 name: metro_city_pulse
-description: "A new Flutter project."
+description: "A real-time traffic info updates"
 # The following line prevents the package from being accidentally published to
 # pub.dev using `flutter pub publish`. This is preferred for private packages.
 publish_to: 'none' # Remove this line if you wish to publish to pub.dev
@@ -30,10 +30,47 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+  flutter_localizations:
+    sdk: flutter
+  # For localization support (basic date/time/number formatting if needed)
+  intl: ^0.20.2
 
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
-  cupertino_icons: ^1.0.8
+  cupertino_icons: ^1.0.9
+  # For responsive design, adapting to different screen sizes and orientations
+  responsive_framework: ^1.5.1
+  # To check the network connectivity (Wi-Fi, Mobile, none)
+  connectivity_plus: ^7.1.1
+  # Persist user’s locale choice
+  shared_preferences: ^2.5.5
+  # For navigation and routing
+  go_router: ^17.2.3
+  #google_fonts: ^6.2.1
+  # For state management and dependency injection
+  hooks_riverpod: ^2.6.1
+  flutter_hooks:
+  riverpod_annotation: ^2.6.1
+
+  # For rendering SVG images
+  flutter_svg: ^2.3.0
+
+  # MSAuth WEB
+  msal_js: ^2.14.0
+
+  # MSAuth ANDROID/IOS/MACOS
+  msal_auth: ^3.5.0
+
+  firebase_core: ^4.9.0
+  firebase_auth: ^6.5.1
+  #google_sign_in: ^7.1.1
+  google_maps_flutter: ^2.17.0
+  google_maps_cluster_manager_2: ^3.2.0
+  json_annotation: ^4.9.0
+  video_player: ^2.11.1
+  syncfusion_flutter_datepicker: ^33.2.7
+
+#dependency_overrides:
 
 dev_dependencies:
   flutter_test:
@@ -45,34 +82,32 @@ dev_dependencies:
   # package. See that file for information about deactivating specific lint
   # rules and activating additional ones.
   flutter_lints: ^6.0.0
+  build_runner:
+  custom_lint:
+  riverpod_generator: ^2.6.5
+  riverpod_lint: ^2.6.5
+  json_serializable: ^6.9.5
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
 
 # The following section is specific to Flutter packages.
 flutter:
-
   # The following line ensures that the Material Icons font is
-  # included with your application, so that you can use the icons in
-  # the material Icons class.
   uses-material-design: true
-
   # To add assets to your application, add an assets section, like this:
-  # assets:
-  #   - images/a_dot_burr.jpeg
-  #   - images/a_dot_ham.jpeg
-
-  # An image asset can refer to one or more resolution-specific "variants", see
-  # https://flutter.dev/to/resolution-aware-images
-
-  # For details regarding adding assets from package dependencies, see
-  # https://flutter.dev/to/asset-from-package
-
-  # To add custom fonts to your application, add a fonts section here,
-  # in this "flutter" section. Each entry in this list should have a
-  # "family" key with the font family name, and a "fonts" key with a
-  # list giving the asset and other descriptors for the font. For
-  # example:
+  assets:
+    - assets/images/
+    - assets/images/map-marker-icons/
+    - assets/json/maps_sample_data.json
+    - assets/translations/app_en.arb
+    - assets/translations/app_es.arb
+  fonts:
+    - family: Poppins
+      fonts:
+        - asset: fonts/Poppins-Regular.ttf
+        - asset: fonts/Poppins-Italic.ttf
+          style: italic
   # fonts:
   #   - family: Schyler
   #     fonts:
@@ -87,3 +122,6 @@ flutter:
   #
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/to/font-from-package
+analyzer:
+  plugins:
+    - custom_lint

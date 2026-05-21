@@ -1,0 +1,575 @@
+{
+  "success": true,
+  "data": {
+    "items": [
+      {
+        "id": "91d2900d-2113-412d-aa69-d0d7d35c9a88",
+        "alert_type_id": "07d2fabc-3db6-46e9-b75d-94ad968e8aa1",
+        "alert_type": {
+          "id": "07d2fabc-3db6-46e9-b75d-94ad968e8aa1",
+          "name": "CriminalActivity"
+        },
+        "alert_status_id": "ab1a2ae6-6b13-4bca-a8b9-d1adb1163d88",
+        "device_id": "92988c7b-038f-46fc-a55b-66362d52bea7",
+        "location": "Location-13",
+        "geo_location": {
+          "lat": 90,
+          "long": 100
+        },
+        "confidence_score": 10,
+        "files": [
+          "assets/images/alerts-img-2.png"
+        ],
+        "alert_info": {
+          "crowd_limit": 1,
+          "crowd_count": 2,
+          "time_limit": 3,
+          "dwell_time": 4
+        },
+        "notes": "no notes",
+        "created_at": "2025-08-26T05:50:17.404200",
+        "updated_at": "2025-08-26T05:50:17.404200"
+      },
+      {
+        "id": "e0ebaec3-825b-494b-95ce-aead4aed7e5f",
+        "alert_type_id": "07d2fabc-3db6-46e9-b75d-94ad968e8aa1",
+        "alert_type": {
+          "id": "07d2fabc-3db6-46e9-b75d-94ad968e8aa1",
+          "name": "CriminalActivity"
+        },
+        "alert_status_id": "ab1a2ae6-6b13-4bca-a8b9-d1adb1163d88",
+        "device_id": "92988c7b-038f-46fc-a55b-66362d52bea7",
+        "location": "Location-12",
+        "geo_location": {
+          "lat": 90,
+          "long": 100
+        },
+        "confidence_score": 10,
+        "files": [
+          "assets/images/alerts-img-3.png"
+        ],
+        "alert_info": {
+          "crowd_limit": 1,
+          "crowd_count": 2,
+          "time_limit": 3,
+          "dwell_time": 4
+        },
+        "notes": "no notes",
+        "created_at": "2025-08-26T05:43:56.778459",
+        "updated_at": "2025-08-26T05:43:56.778459"
+      },
+      {
+        "id": "833a4704-b627-4ac2-8fb3-a225af3e7ef4",
+        "alert_type_id": "07d2fabc-3db6-46e9-b75d-94ad968e8aa1",
+        "alert_type": {
+          "id": "07d2fabc-3db6-46e9-b75d-94ad968e8aa1",
+          "name": "CriminalActivity"
+        },
+        "alert_status_id": "ab1a2ae6-6b13-4bca-a8b9-d1adb1163d88",
+        "device_id": "92988c7b-038f-46fc-a55b-66362d52bea7",
+        "location": "Location-11",
+        "geo_location": {
+          "lat": 90,
+          "long": 100
+        },
+        "confidence_score": 10,
+        "files": [
+          "assets/images/alerts-img-4.png"
+        ],
+        "alert_info": {
+          "crowd_limit": 1,
+          "crowd_count": 2,
+          "time_limit": 3,
+          "dwell_time": 4
+        },
+        "notes": "no notes",
+        "created_at": "2025-08-26T05:42:51.338228",
+        "updated_at": "2025-08-26T05:42:51.338228"
+      },
+      {
+        "id": "bca5d7e4-d2fe-47e9-8c09-92adb8530d08",
+        "alert_type_id": "07d2fabc-3db6-46e9-b75d-94ad968e8aa1",
+        "alert_type": {
+          "id": "07d2fabc-3db6-46e9-b75d-94ad968e8aa1",
+          "name": "CriminalActivity"
+        },
+        "alert_status_id": "ab1a2ae6-6b13-4bca-a8b9-d1adb1163d88",
+        "device_id": "92988c7b-038f-46fc-a55b-66362d52bea7",
+        "location": "Location-10",
+        "geo_location": {
+          "lat": 90,
+          "long": 100
+        },
+        "confidence_score": 10,
+        "files": [
+          "assets/images/alerts-img-5.png"
+        ],
+        "alert_info": {
+          "crowd_limit": 1,
+          "crowd_count": 2,
+          "time_limit": 3,
+          "dwell_time": 4
+        },
+        "notes": "no notes",
+        "created_at": "2025-08-26T05:34:29.889039",
+        "updated_at": "2025-08-26T05:34:29.889039"
+      },
+      {
+        "id": "d478689c-130e-46ab-9407-1161aaf4a26c",
+        "alert_type_id": "07d2fabc-3db6-46e9-b75d-94ad968e8aa1",
+        "alert_type": {
+          "id": "07d2fabc-3db6-46e9-b75d-94ad968e8aa1",
+          "name": "CriminalActivity"
+        },
+        "alert_status_id": "ab1a2ae6-6b13-4bca-a8b9-d1adb1163d88",
+        "device_id": "92988c7b-038f-46fc-a55b-66362d52bea7",
+        "location": "Location-8",
+        "geo_location": {
+          "lat": 90,
+          "long": 100
+        },
+        "confidence_score": 10,
+        "files": [
+          "assets/images/alerts-img-1.png"
+        ],
+        "alert_info": {
+          "crowd_limit": 1,
+          "crowd_count": 2,
+          "time_limit": 3,
+          "dwell_time": 4
+        },
+        "notes": "no notes",
+        "created_at": "2025-08-25T12:46:42.844886",
+        "updated_at": "2025-08-25T12:46:42.844886"
+      },
+      {
+        "id": "e83fa17e-5f7a-43e3-9a5a-2e301a8c4f16",
+        "alert_type_id": "07d2fabc-3db6-46e9-b75d-94ad968e8aa1",
+        "alert_type": {
+          "id": "07d2fabc-3db6-46e9-b75d-94ad968e8aa1",
+          "name": "CriminalActivity"
+        },
+        "alert_status_id": "ab1a2ae6-6b13-4bca-a8b9-d1adb1163d88",
+        "device_id": "92988c7b-038f-46fc-a55b-66362d52bea7",
+        "location": "Location-5",
+        "geo_location": {
+          "lat": 90,
+          "long": 100
+        },
+        "confidence_score": 10,
+        "files": [
+          "assets/images/alerts-img-5.png"
+        ],
+        "alert_info": {
+          "crowd_limit": 1,
+          "crowd_count": 2,
+          "time_limit": 3,
+          "dwell_time": 4
+        },
+        "notes": "no notes",
+        "created_at": "2025-08-25T11:50:09.800578",
+        "updated_at": "2025-08-25T11:50:09.800578"
+      },
+      {
+        "id": "396e3bfe-39e4-4a7c-9a21-acb700f8dbbe",
+        "alert_type_id": "07d2fabc-3db6-46e9-b75d-94ad968e8aa1",
+        "alert_type": {
+          "id": "07d2fabc-3db6-46e9-b75d-94ad968e8aa1",
+          "name": "CriminalActivity"
+        },
+        "alert_status_id": "ab1a2ae6-6b13-4bca-a8b9-d1adb1163d88",
+        "device_id": "92988c7b-038f-46fc-a55b-66362d52bea7",
+        "location": "Location-4",
+        "geo_location": {
+          "lat": 90,
+          "long": 100
+        },
+        "confidence_score": 10,
+        "files": [
+          "assets/images/alerts-img-1.png"
+        ],
+        "alert_info": {
+          "crowd_limit": 1,
+          "crowd_count": 2,
+          "time_limit": 3,
+          "dwell_time": 4
+        },
+        "notes": "no notes",
+        "created_at": "2025-08-25T11:49:59.967553",
+        "updated_at": "2025-08-25T11:49:59.967553"
+      },
+      {
+        "id": "fa006dd0-5809-4518-bbe0-198914a56b34",
+        "alert_type_id": "07d2fabc-3db6-46e9-b75d-94ad968e8aa1",
+        "alert_type": {
+          "id": "07d2fabc-3db6-46e9-b75d-94ad968e8aa1",
+          "name": "CriminalActivity"
+        },
+        "alert_status_id": "ab1a2ae6-6b13-4bca-a8b9-d1adb1163d88",
+        "device_id": "92988c7b-038f-46fc-a55b-66362d52bea7",
+        "location": "Location-3",
+        "geo_location": {
+          "lat": 90,
+          "long": 100
+        },
+        "confidence_score": 10,
+        "files": [
+          "assets/images/alerts-img-2.png"
+        ],
+        "alert_info": {
+          "crowd_limit": 1,
+          "crowd_count": 2,
+          "time_limit": 3,
+          "dwell_time": 4
+        },
+        "notes": "no notes",
+        "created_at": "2025-08-25T11:49:43.779544",
+        "updated_at": "2025-08-25T11:49:43.779544"
+      },
+      {
+        "id": "cc328f7b-961f-455e-862f-1dbfe61466e8",
+        "alert_type_id": "07d2fabc-3db6-46e9-b75d-94ad968e8aa1",
+        "alert_type": {
+          "id": "07d2fabc-3db6-46e9-b75d-94ad968e8aa1",
+          "name": "CriminalActivity"
+        },
+        "alert_status_id": "ab1a2ae6-6b13-4bca-a8b9-d1adb1163d88",
+        "device_id": "92988c7b-038f-46fc-a55b-66362d52bea7",
+        "location": "Location-2",
+        "geo_location": {
+          "lat": 90,
+          "long": 100
+        },
+        "confidence_score": 10,
+        "files": [
+          "assets/images/alerts-img-3.png"
+        ],
+        "alert_info": {
+          "crowd_limit": 1,
+          "crowd_count": 2,
+          "time_limit": 3,
+          "dwell_time": 4
+        },
+        "notes": "no notes",
+        "created_at": "2025-08-25T11:49:26.930988",
+        "updated_at": "2025-08-25T11:49:26.930988"
+      },
+      {
+        "id": "750efcc4-07d0-4760-9c3e-18a6328a9a36",
+        "alert_type_id": "07d2fabc-3db6-46e9-b75d-94ad968e8aa1",
+        "alert_type": {
+          "id": "07d2fabc-3db6-46e9-b75d-94ad968e8aa1",
+          "name": "CriminalActivity"
+        },
+        "alert_status_id": "ab1a2ae6-6b13-4bca-a8b9-d1adb1163d88",
+        "device_id": "92988c7b-038f-46fc-a55b-66362d52bea7",
+        "location": "Location-1",
+        "geo_location": {
+          "lat": 90,
+          "long": 100
+        },
+        "confidence_score": 10,
+        "files": [
+          "assets/images/alerts-img-4.png"
+        ],
+        "alert_info": {
+          "crowd_limit": 1,
+          "crowd_count": 2,
+          "time_limit": 3,
+          "dwell_time": 4
+        },
+        "notes": "no notes",
+        "created_at": "2025-08-25T11:49:09.711036",
+        "updated_at": "2025-08-25T11:49:09.711036"
+      },
+      {
+        "id": "d548d692-9cc6-40ad-bcea-f266d58e27ae",
+        "alert_type_id": "07d2fabc-3db6-46e9-b75d-94ad968e8aa1",
+        "alert_type": {
+          "id": "07d2fabc-3db6-46e9-b75d-94ad968e8aa1",
+          "name": "CriminalActivity"
+        },
+        "alert_status_id": "ab1a2ae6-6b13-4bca-a8b9-d1adb1163d88",
+        "device_id": "92988c7b-038f-46fc-a55b-66362d52bea7",
+        "location": "Test-1",
+        "geo_location": {
+          "lat": 90,
+          "long": 100
+        },
+        "confidence_score": 10,
+        "files": [
+          "assets/images/alerts-img-5.png"
+        ],
+        "alert_info": {
+          "crowd_limit": 1,
+          "crowd_count": 2,
+          "time_limit": 3,
+          "dwell_time": 4
+        },
+        "notes": "no notes",
+        "created_at": "2025-08-25T11:48:08.523618",
+        "updated_at": "2025-08-25T11:48:08.523618"
+      },
+      {
+        "id": "f71341e1-d452-43cc-bde3-0dfd4ebeeda2",
+        "alert_type_id": "07d2fabc-3db6-46e9-b75d-94ad968e8aa1",
+        "alert_type": {
+          "id": "07d2fabc-3db6-46e9-b75d-94ad968e8aa1",
+          "name": "CriminalActivity"
+        },
+        "alert_status_id": "ab1a2ae6-6b13-4bca-a8b9-d1adb1163d88",
+        "device_id": "92988c7b-038f-46fc-a55b-66362d52bea7",
+        "location": "Metro Loading Dock-7",
+        "geo_location": {
+          "lat": 90,
+          "long": 100
+        },
+        "confidence_score": 10,
+        "files": [
+          "assets/images/alerts-img-5.png"
+        ],
+        "alert_info": {
+          "crowd_limit": 1,
+          "crowd_count": 2,
+          "time_limit": 3,
+          "dwell_time": 4
+        },
+        "notes": "no notes",
+        "created_at": "2025-08-25T11:30:08.846368",
+        "updated_at": "2025-08-25T11:30:08.846368"
+      },
+      {
+        "id": "9150b5a6-9ab4-47bc-bca3-9478b3e23767",
+        "alert_type_id": "07d2fabc-3db6-46e9-b75d-94ad968e8aa1",
+        "alert_type": {
+          "id": "07d2fabc-3db6-46e9-b75d-94ad968e8aa1",
+          "name": "CriminalActivity"
+        },
+        "alert_status_id": "ab1a2ae6-6b13-4bca-a8b9-d1adb1163d88",
+        "device_id": "92988c7b-038f-46fc-a55b-66362d52bea7",
+        "location": "Metro Loading Dock-6",
+        "geo_location": {
+          "lat": 90,
+          "long": 100
+        },
+        "confidence_score": 10,
+        "files": [
+          "assets/images/alerts-img-5.png"
+        ],
+        "alert_info": {
+          "crowd_limit": 1,
+          "crowd_count": 2,
+          "time_limit": 3,
+          "dwell_time": 4
+        },
+        "notes": "no notes",
+        "created_at": "2025-08-25T11:25:05.966006",
+        "updated_at": "2025-08-25T11:25:05.966006"
+      },
+      {
+        "id": "600a8873-bd5a-4b1c-9ace-69e4cec0c74c",
+        "alert_type_id": "07d2fabc-3db6-46e9-b75d-94ad968e8aa1",
+        "alert_type": {
+          "id": "07d2fabc-3db6-46e9-b75d-94ad968e8aa1",
+          "name": "CriminalActivity"
+        },
+        "alert_status_id": "ab1a2ae6-6b13-4bca-a8b9-d1adb1163d88",
+        "device_id": "92988c7b-038f-46fc-a55b-66362d52bea7",
+        "location": "Metro Loading Dock-5",
+        "geo_location": {
+          "lat": 90,
+          "long": 100
+        },
+        "confidence_score": 10,
+        "files": [
+          "assets/images/alerts-img-5.png"
+        ],
+        "alert_info": {
+          "crowd_limit": 1,
+          "crowd_count": 2,
+          "time_limit": 3,
+          "dwell_time": 4
+        },
+        "notes": "no notes",
+        "created_at": "2025-08-25T11:01:28.867926",
+        "updated_at": "2025-08-25T11:01:28.867926"
+      },
+      {
+        "id": "b95331d1-cf56-416c-ac48-5bc4f99cf771",
+        "alert_type_id": "07d2fabc-3db6-46e9-b75d-94ad968e8aa1",
+        "alert_type": {
+          "id": "07d2fabc-3db6-46e9-b75d-94ad968e8aa1",
+          "name": "CriminalActivity"
+        },
+        "alert_status_id": "ab1a2ae6-6b13-4bca-a8b9-d1adb1163d88",
+        "device_id": "92988c7b-038f-46fc-a55b-66362d52bea7",
+        "location": "Metro Loading Dock-4",
+        "geo_location": {
+          "lat": 90,
+          "long": 100
+        },
+        "confidence_score": 10,
+        "files": [
+          "assets/images/alerts-img-5.png"
+        ],
+        "alert_info": {
+          "crowd_limit": 1,
+          "crowd_count": 2,
+          "time_limit": 3,
+          "dwell_time": 4
+        },
+        "notes": "no notes",
+        "created_at": "2025-08-25T10:47:19.886597",
+        "updated_at": "2025-08-25T10:47:19.886597"
+      },
+      {
+        "id": "275dd0b9-29af-4a82-b5b4-a7cbcc253892",
+        "alert_type_id": "07d2fabc-3db6-46e9-b75d-94ad968e8aa1",
+        "alert_type": {
+          "id": "07d2fabc-3db6-46e9-b75d-94ad968e8aa1",
+          "name": "CriminalActivity"
+        },
+        "alert_status_id": "ab1a2ae6-6b13-4bca-a8b9-d1adb1163d88",
+        "device_id": "92988c7b-038f-46fc-a55b-66362d52bea7",
+        "location": "Metro Loading Dock-3",
+        "geo_location": {
+          "lat": 90,
+          "long": 100
+        },
+        "confidence_score": 10,
+        "files": [
+          "assets/images/alerts-img-5.png"
+        ],
+        "alert_info": {
+          "crowd_limit": 1,
+          "crowd_count": 2,
+          "time_limit": 3,
+          "dwell_time": 4
+        },
+        "notes": "no notes",
+        "created_at": "2025-08-25T10:46:41.215420",
+        "updated_at": "2025-08-25T10:46:41.215420"
+      },
+      {
+        "id": "5a6c2b36-a314-44ba-a762-3156582b2c9e",
+        "alert_type_id": "07d2fabc-3db6-46e9-b75d-94ad968e8aa1",
+        "alert_type": {
+          "id": "07d2fabc-3db6-46e9-b75d-94ad968e8aa1",
+          "name": "CriminalActivity"
+        },
+        "alert_status_id": "ab1a2ae6-6b13-4bca-a8b9-d1adb1163d88",
+        "device_id": "92988c7b-038f-46fc-a55b-66362d52bea7",
+        "location": "Metro Loading Dock-2",
+        "geo_location": {
+          "lat": 90,
+          "long": 100
+        },
+        "confidence_score": 10,
+        "files": [
+          "assets/images/alerts-img-5.png"
+        ],
+        "alert_info": {
+          "crowd_limit": 1,
+          "crowd_count": 2,
+          "time_limit": 3,
+          "dwell_time": 4
+        },
+        "notes": "no notes",
+        "created_at": "2025-08-25T10:45:55.602974",
+        "updated_at": "2025-08-25T10:45:55.602974"
+      },
+      {
+        "id": "94ba4892-aef7-4435-89ee-409f9c91fe6e",
+        "alert_type_id": "07d2fabc-3db6-46e9-b75d-94ad968e8aa1",
+        "alert_type": {
+          "id": "07d2fabc-3db6-46e9-b75d-94ad968e8aa1",
+          "name": "CriminalActivity"
+        },
+        "alert_status_id": "ab1a2ae6-6b13-4bca-a8b9-d1adb1163d88",
+        "device_id": "92988c7b-038f-46fc-a55b-66362d52bea7",
+        "location": "Metro Loading Dock",
+        "geo_location": {
+          "lat": 90,
+          "long": 100
+        },
+        "confidence_score": 10,
+        "files": [
+          "assets/images/alerts-img-5.png"
+        ],
+        "alert_info": {
+          "crowd_limit": 1,
+          "crowd_count": 2,
+          "time_limit": 3,
+          "dwell_time": 4
+        },
+        "notes": "no notes",
+        "created_at": "2025-08-25T10:45:07.276175",
+        "updated_at": "2025-08-25T10:45:07.276175"
+      },
+      {
+        "id": "c46a989e-445e-4692-93b7-f93cc21d0ed0",
+        "alert_type_id": "d0166c47-81ac-4476-a295-9676ae2c5154",
+        "alert_type": {
+          "id": "d0166c47-81ac-4476-a295-9676ae2c5154",
+          "name": "CrowdAlert"
+        },
+        "alert_status_id": "ab1a2ae6-6b13-4bca-a8b9-d1adb1163d88",
+        "device_id": "d0166c47-81ac-4476-a295-9676ae2c5154",
+        "location": "New york",
+        "geo_location": {
+          "lat": -90,
+          "long": -180
+        },
+        "confidence_score": 100,
+        "files": [
+          "string"
+        ],
+        "alert_info": {
+          "crowd_limit": 1,
+          "crowd_count": 0,
+          "time_limit": 0,
+          "dwell_time": 0
+        },
+        "notes": "string",
+        "created_at": "2025-08-22T14:17:32.247537",
+        "updated_at": "2025-08-22T14:17:32.247537"
+      },
+      {
+        "id": "1e817675-4ea7-423e-b525-80d06eee44f2",
+        "alert_type_id": "07d2fabc-3db6-46e9-b75d-94ad968e8aa1",
+        "alert_type": {
+          "id": "07d2fabc-3db6-46e9-b75d-94ad968e8aa1",
+          "name": "CriminalActivity"
+        },
+        "alert_status_id": "ab1a2ae6-6b13-4bca-a8b9-d1adb1163d88",
+        "device_id": "07d2fabc-3db6-46e9-b75d-94ad968e8aa2",
+        "location": "Hyd",
+        "geo_location": {
+          "lat": -90,
+          "long": -180
+        },
+        "confidence_score": 90,
+        "files": [
+          "string"
+        ],
+        "alert_info": {
+          "crowd_limit": 1,
+          "crowd_count": 2,
+          "time_limit": 3,
+          "dwell_time": 4
+        },
+        "notes": "string",
+        "created_at": "2025-08-19T13:17:18.314355",
+        "updated_at": "2025-08-19T13:17:18.314355"
+      }
+    ],
+    "page_info": {
+      "has_next_page": true,
+      "has_previous_page": false,
+      "total_count": 20,
+      "start_cursor": "91d2900d-2113-412d-aa69-d0d7d35c9a88",
+      "end_cursor": "1e817675-4ea7-423e-b525-80d06eee44f2"
+    }
+  },
+  "error": null
+}
