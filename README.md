@@ -13,6 +13,11 @@ A cross-platform Flutter app for real-time smart city monitoring and traffic inc
 - **Theming** — Light and dark mode with persisted user preference.
 - **Connectivity awareness** — Offline detection using `connectivity_plus` with a dedicated no-internet screen.
 
+## Preview
+
+<img width="1000" height="667" alt="metro_city_pulse_preview" src="https://github.com/user-attachments/assets/117bba41-65ff-4613-91f9-5e7e06437e2e" />
+
+
 ## Tech Stack
 
 | Category | Packages |
