@@ -1,5 +1,5 @@
 {
-  "app_title" : "Metro City Pulse",
+  "app_title": "Metro City Pulse",
   "logout": "Logout",
   "change_language": "Change Language",
   "settings": "Settings",
@@ -36,72 +36,72 @@
   "reset": "Reset",
   "cancel": "Cancel",
   "apply": "Apply",
-  "details": "Details"
-  ,"stats": "Stats"
-  ,"notifications": "Notifications"
-  ,"no_new_notifications": "No new notifications"
-  ,"chat_ai": "Chat AI"
-  ,"live": "Live"
-  ,"minutes_short": "Min"
-  ,"logging_out": "Logging out..."
-  ,"create_account": "Create Account"
-  ,"forgot_password": "Forgot Password"
-  ,"invalid_email_format": "Invalid email format"
-  ,"password_min_6": "Password must be at least 6 characters"
-  ,"login_with_account": "Log in with your account"
-  ,"by_logging_in_agree": "By logging in, you agree to our"
-  ,"terms": "Terms"
-  ,"and": "and"
-  ,"privacy_policy": "Privacy Policy"
-  ,"sso_log_in": "SSO Log In"
-  ,"or": "OR"
-  ,"email_address": "Email Address"
-  ,"enter_your_email": "Enter your email"
-  ,"email": "Email"
-  ,"email_required": "Email required"
-  ,"enter_valid_email": "Enter valid email"
-  ,"password": "Password"
-  ,"log_in": "Log In"
-  ,"send_reset_email": "Send Reset Email"
-  ,"invalid_email": "Invalid email"
-  ,"reset_email_sent_successfully": "Reset email sent successfully"
-  ,"reset_failed": "Reset Failed"
-  ,"ok": "OK"
-  ,"enter_password": "Enter password"
-  ,"min_6_characters": "Min 6 characters"
-  ,"sign_up": "Sign Up"
-  ,"account_created": "Account created"
-  ,"sign_up_failed": "Sign Up Failed"
-  ,"map_overview": "Map Overview"
-  ,"tapped_on_item": "Tapped on Item"
-  ,"failed_to_load_markers": "Failed to load markers"
-  ,"pd_screen": "PD Screen"
-  ,"new": "New"
-  ,"dispatch": "Dispatch"
-  ,"cases": "Cases"
-  ,"confidence_score": "Confidence Score"
-  ,"camera": "Camera"
-  ,"location": "Location"
-  ,"create_case": "Create Case"
-  ,"feedback": "Feedback"
-  ,"sos": "SOS"
-  ,"ignore": "Ignore"
-  ,"confidence": "Confidence"
-  ,"select_alert_to_view_details": "Select an alert from the list to view details"
-  ,"department_required": "Department*"
-  ,"police_department": "Police Department"
-  ,"country": "Country"
-  ,"india": "India"
-  ,"city": "City"
-  ,"bengaluru": "Bengaluru"
-  ,"designation": "Designation"
-  ,"inspector": "Inspector"
-  ,"id_required": "ID*"
-  ,"phone_number_required": "Phone Number*"
-  ,"official_email_required": "Official Email*"
-  ,"all": "All"
-  ,"traffic": "Traffic"
-  ,"public_works": "Public Works"
-  ,"airport": "Airport"
-  ,"park": "Park"
+  "details": "Details",
+  "stats": "Stats",
+  "notifications": "Notifications",
+  "no_new_notifications": "No new notifications",
+  "chat_ai": "Chat AI",
+  "live": "Live",
+  "minutes_short": "Min",
+  "logging_out": "Logging out...",
+  "create_account": "Create Account",
+  "forgot_password": "Forgot Password",
+  "invalid_email_format": "Invalid email format",
+  "password_min_6": "Password must be at least 6 characters",
+  "login_with_account": "Log in with your account",
+  "by_logging_in_agree": "By logging in, you agree to our",
+  "terms": "Terms",
+  "and": "and",
+  "privacy_policy": "Privacy Policy",
+  "sso_log_in": "SSO Log In",
+  "or": "OR",
+  "email_address": "Email Address",
+  "enter_your_email": "Enter your email",
+  "email": "Email",
+  "email_required": "Email required",
+  "enter_valid_email": "Enter valid email",
+  "password": "Password",
+  "log_in": "Log In",
+  "send_reset_email": "Send Reset Email",
+  "invalid_email": "Invalid email",
+  "reset_email_sent_successfully": "Reset email sent successfully",
+  "reset_failed": "Reset Failed",
+  "ok": "OK",
+  "enter_password": "Enter password",
+  "min_6_characters": "Min 6 characters",
+  "sign_up": "Sign Up",
+  "account_created": "Account created",
+  "sign_up_failed": "Sign Up Failed",
+  "map_overview": "Map Overview",
+  "tapped_on_item": "Tapped on Item",
+  "failed_to_load_markers": "Failed to load markers",
+  "pd_screen": "PD Screen",
+  "new": "New",
+  "dispatch": "Dispatch",
+  "cases": "Cases",
+  "confidence_score": "Confidence Score",
+  "camera": "Camera",
+  "location": "Location",
+  "create_case": "Create Case",
+  "feedback": "Feedback",
+  "sos": "SOS",
+  "ignore": "Ignore",
+  "confidence": "Confidence",
+  "select_alert_to_view_details": "Select an alert from the list to view details",
+  "department_required": "Department*",
+  "police_department": "Police Department",
+  "country": "Country",
+  "india": "India",
+  "city": "City",
+  "bengaluru": "Bengaluru",
+  "designation": "Designation",
+  "inspector": "Inspector",
+  "id_required": "ID*",
+  "phone_number_required": "Phone Number*",
+  "official_email_required": "Official Email*",
+  "all": "All",
+  "traffic": "Traffic",
+  "public_works": "Public Works",
+  "airport": "Airport",
+  "park": "Park"
 }

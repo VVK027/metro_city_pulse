@@ -106,7 +106,7 @@ class _ResponsiveDateRangeSelectorState
       // Desktop / Tablet -> dialog
       final renderBox = context.findRenderObject() as RenderBox;
       final position = renderBox.localToGlobal(Offset.zero);
-      final screenSize = MediaQuery.of(context).size;
+      final screenSize = MediaQuery.sizeOf(context);
       const popupWidth = 440.0;
       const popupHeight = 560.0;
       const screenPadding = 8.0;
@@ -141,7 +141,7 @@ class _ResponsiveDateRangeSelectorState
           borderRadius: BorderRadius.vertical(top: Radius.circular(16.0)),
         ),
         widget: Padding(
-          padding: MediaQuery.of(context).viewInsets, // avoid keyboard overlap
+          padding: MediaQuery.viewInsetsOf(context), // avoid keyboard overlap
           child: Container(
             padding: const EdgeInsets.all(16),
             decoration: BoxDecoration(

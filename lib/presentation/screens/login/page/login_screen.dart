@@ -8,6 +8,7 @@ import 'package:metro_city_pulse/presentation/widgets/common/app_image_widget.da
 import 'package:metro_city_pulse/presentation/widgets/common/app_rich_text_widget.dart';
 import 'package:metro_city_pulse/presentation/widgets/common/app_text_form_field.dart';
 import 'package:metro_city_pulse/presentation/widgets/common/app_text_widget.dart';
+import 'package:metro_city_pulse/presentation/widgets/common/app_responsive_scope.dart';
 import 'package:metro_city_pulse/presentation/widgets/components/hexagon_clipper_widget.dart';
 import 'package:metro_city_pulse/presentation/widgets/responsive.dart';
 import 'package:flutter/material.dart';
@@ -19,16 +20,16 @@ class LoginScreen extends HookConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    //final formKey = GlobalKey<FormState>();
     final formKey = useMemoized(() => GlobalKey<FormState>());
     final theme = ref.watch(appThemeStateProvider);
-    final screenSize = MediaQuery.sizeOf(context);
-    final mobileHexagonHeight = (screenSize.height * 0.32).clamp(180.0, 250.0);
+    final AppResponsive layout = AppResponsive.fromContext(context);
+    final mobileHexagonHeight =
+        (layout.size.height * 0.32).clamp(180.0, 250.0);
 
     return Scaffold(
       backgroundColor: theme.colors.background,
       body: SafeArea(
-        child: !Responsive.isMobile(context)
+        child: !layout.isMobile
             ? Row(
                 children: [
                   Expanded(flex: 4, child: buildHexagonSection(context, theme)),

@@ -12,7 +12,7 @@ import 'package:metro_city_pulse/presentation/widgets/buttons/app_elevated_icon_
 import 'package:metro_city_pulse/presentation/widgets/common/app_image_widget.dart';
 import 'package:metro_city_pulse/presentation/widgets/common/app_tab_bar_widget.dart';
 import 'package:metro_city_pulse/presentation/widgets/common/app_text_widget.dart';
-import 'package:metro_city_pulse/presentation/widgets/responsive.dart';
+import 'package:metro_city_pulse/presentation/widgets/common/app_responsive_scope.dart';
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
@@ -49,9 +49,9 @@ class DashboardAppBar extends ConsumerWidget implements PreferredSizeWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final bool isMobile =
-        Responsive.isMobile(context) || Responsive.isSmallerTablet(context);
-    final bool isTablet = Responsive.isTablet(context);
+    final AppResponsive layout = AppResponsive.fromContext(context);
+    final bool isMobile = layout.isMobileOrSmallerTablet;
+    final bool isTablet = layout.isTablet;
 
     final tabBarProviderNotifier = ref.read(tabBarProvider.notifier);
     final TabBarType selectedTabItem = ref.watch(tabBarProvider);

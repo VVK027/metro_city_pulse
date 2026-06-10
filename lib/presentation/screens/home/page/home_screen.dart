@@ -1,3 +1,5 @@
+import 'package:flutter/material.dart';
+import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:metro_city_pulse/core/provider/theme/app_theme_provider.dart';
 import 'package:metro_city_pulse/core/themes/app_theme.dart';
 import 'package:metro_city_pulse/presentation/screens/alerts/page/alerts_screen.dart';
@@ -13,69 +15,70 @@ import 'package:metro_city_pulse/presentation/screens/settings/page/settings_scr
 import 'package:metro_city_pulse/presentation/utils/localization_util.dart';
 import 'package:metro_city_pulse/presentation/utils/map_utils.dart';
 import 'package:metro_city_pulse/presentation/utils/navigation_util.dart';
+import 'package:metro_city_pulse/presentation/widgets/common/app_responsive_scope.dart';
 import 'package:metro_city_pulse/presentation/widgets/common/app_text_widget.dart';
-import 'package:metro_city_pulse/presentation/widgets/responsive.dart';
-import 'package:flutter/material.dart';
-import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 class HomeScreen extends ConsumerWidget {
   const HomeScreen({super.key});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final theme = ref.watch(appThemeStateProvider);
-    final themeNotifier = ref.read(appThemeStateProvider.notifier);
-    final isMobile = Responsive.isMobile(context);
+    final AppTheme theme = ref.watch(appThemeStateProvider);
+    final AppResponsive layout = AppResponsive.fromContext(context);
 
-    final currentIndex = ref.watch(bottomNavIndexProvider);
+    final int currentIndex = ref.watch(bottomNavIndexProvider) ?? 0;
     final bottomNavProvider = ref.read(bottomNavIndexProvider.notifier);
 
-    final selectedMenuItem = ref.watch(menuProvider);
+    final MenuItemType selectedMenuItem = ref.watch(menuProvider);
     final menuNotifier = ref.read(menuProvider.notifier);
 
-    syncMarkerIconSize(context, ref);
+    _syncMarkerIconSize(layout.size.width, ref);
 
     return Scaffold(
-      drawer: isMobile
+      drawer: layout.isMobile
           ? _buildDrawer(context, ref, theme, selectedMenuItem)
           : null,
-      bottomNavigationBar: isMobile
-          ? _buildBottomNav(
-              theme,
-              currentIndex ?? 0,
-              menuNotifier,
-              bottomNavProvider,
+      bottomNavigationBar: layout.isMobile
+          ? BottomNavigationWidget(
+              theme: theme,
+              currentIndex: currentIndex,
+              onTap: (index) {
+                bottomNavProvider.state = index;
+                _updateMenuViaIndex(index, menuNotifier);
+              },
             )
           : null,
       body: SafeArea(
         child: Builder(
           builder: (scaffoldContext) => Column(
             children: [
-              if (isMobile)
-                _buildAppBar(scaffoldContext, theme, themeNotifier, ref),
+              if (layout.isMobile)
+                _buildAppBar(scaffoldContext, theme, ref),
               Expanded(
                 child: Row(
                   children: [
-                    if (!isMobile)
-                      SideMenu(
-                        ref: ref,
-                        theme: theme,
-                        selectedItem: selectedMenuItem,
-                        onMenuSelected: (menuType) =>
-                            _onMenuSelectedWithNavUpdate(
-                              context,
-                              ref,
-                              menuType,
-                            ),
-                        onTimeSelected: (int interval) {
-                          ref
-                              .read(remoteMarkersProvider.notifier)
-                              .setPollingInterval(interval);
-                        },
+                    if (!layout.isMobile)
+                      RepaintBoundary(
+                        child: SideMenu(
+                          ref: ref,
+                          theme: theme,
+                          selectedItem: selectedMenuItem,
+                          onMenuSelected: (menuType) =>
+                              _onMenuSelectedWithNavUpdate(
+                                context,
+                                ref,
+                                menuType,
+                              ),
+                          onTimeSelected: (int interval) {
+                            ref
+                                .read(remoteMarkersProvider.notifier)
+                                .setPollingInterval(interval);
+                          },
+                        ),
                       ),
                     Expanded(
                       child: AnimatedSwitcher(
-                        duration: const Duration(milliseconds: 300),
+                        duration: const Duration(milliseconds: 250),
                         child: _buildScreenContent(selectedMenuItem),
                       ),
                     ),
@@ -89,9 +92,6 @@ class HomeScreen extends ConsumerWidget {
     );
   }
 
-  // ------------------------------
-  // Drawer
-  // ------------------------------
   Widget _buildDrawer(
     BuildContext context,
     WidgetRef ref,
@@ -111,59 +111,29 @@ class HomeScreen extends ConsumerWidget {
     );
   }
 
-  // ------------------------------
-  // Bottom Navigation
-  // ------------------------------
-  Widget _buildBottomNav(
-    AppTheme theme,
-    int currentIndex,
-    StateController<MenuItemType> menuNotifier,
-    StateController<int?> bottomNavNotifier,
-  ) {
-    return BottomNavigationWidget(
-      theme: theme,
-      currentIndex: currentIndex,
-      onTap: (index) {
-        bottomNavNotifier.state = index;
-        _updateMenuViaIndex(index, menuNotifier);
-      },
-    );
-  }
-
-  // ------------------------------
-  // App Bar (Only for Mobile)
-  // ------------------------------
   Widget _buildAppBar(
     BuildContext context,
     AppTheme theme,
-    AppThemeState themeNotifier,
     WidgetRef ref,
   ) {
-    final selectedMenu = ref.watch(menuProvider);
-    final showMapControls = selectedMenu == MenuItemType.dashboard;
+    final MenuItemType selectedMenu = ref.watch(menuProvider);
+    final bool showMapControls = selectedMenu == MenuItemType.dashboard;
 
     return DashboardAppBar(
       title: _appBarTitleForMenu(ref, selectedMenu),
       theme: theme,
       onMenuPressed: () => Scaffold.of(context).openDrawer(),
       userName: 'Viivek Kumar',
-      onLogoutPressed: () {
-        _logoutFunction(context, ref);
-      },
+      onLogoutPressed: () => _logoutFunction(context, ref),
       onFilterSelect: showMapControls ? () {} : null,
       onLivePressed: showMapControls
           ? () => resetDashboardToLive(ref)
-          : () {
-              ref.read(remoteMarkersProvider.notifier).refresh();
-            },
+          : () => ref.read(remoteMarkersProvider.notifier).refresh(),
       onClockPressed: () {},
       onDateRangePressed: () {},
     );
   }
 
-  // ------------------------------
-  // Screen Content by Menu
-  // ------------------------------
   Widget _buildScreenContent(MenuItemType selectedMenu) {
     switch (selectedMenu) {
       case MenuItemType.dashboard:
@@ -181,11 +151,8 @@ class HomeScreen extends ConsumerWidget {
     }
   }
 
-  // ------------------------------
-  // Menu Logic
-  // ------------------------------
   void _updateMenuViaIndex(int index, final menuNotifier) {
-    final menuMapping = {
+    const Map<int, MenuItemType> menuMapping = {
       0: MenuItemType.dashboard,
       1: MenuItemType.stats,
       2: MenuItemType.alerts,
@@ -220,19 +187,15 @@ class HomeScreen extends ConsumerWidget {
         bottomNavProvider.state = 3;
         break;
       case MenuItemType.profile:
-        _navFunction(context, ref, '/profile');
+        NavigationUtil.push(context, '/profile');
         break;
       case MenuItemType.settings:
-        _navFunction(context, ref, '/settings');
+        NavigationUtil.push(context, '/settings');
         break;
       case MenuItemType.logout:
         _logoutFunction(context, ref);
         break;
     }
-  }
-
-  void _navFunction(BuildContext context, WidgetRef ref, String route) {
-    NavigationUtil.push(context, route);
   }
 
   String _appBarTitleForMenu(WidgetRef ref, MenuItemType menu) {
@@ -248,24 +211,26 @@ class HomeScreen extends ConsumerWidget {
     }
   }
 
-  // ------------------------------
-  // Logout function
-  // ------------------------------
   void _logoutFunction(BuildContext context, WidgetRef ref) {
     ScaffoldMessenger.of(context).showSnackBar(
-      SnackBar(content: AppText("logging_out".tr(ref).toAllCapitalize())),
+      SnackBar(content: AppText('logging_out'.tr(ref).toAllCapitalize())),
     );
     NavigationUtil.clearDataAndMoveToLogin(context, ref, 'side_menu');
   }
 }
 
-void syncMarkerIconSize(BuildContext context, WidgetRef ref) {
-  final markerSize = MapUtils.markerSizeForScreenWidth(
-    MediaQuery.sizeOf(context).width,
-  );
+/// Updates the marker icon size based on the cached width without listening
+/// to MediaQuery (callers already have it). The post-frame callback prevents
+/// a "modify state during build" warning.
+void _syncMarkerIconSize(double screenWidth, WidgetRef ref) {
+  final double markerSize = MapUtils.markerSizeForScreenWidth(screenWidth);
   if (ref.read(markerIconSizeProvider) != markerSize) {
     WidgetsBinding.instance.addPostFrameCallback((_) {
-      ref.read(markerIconSizeProvider.notifier).state = markerSize;
+      // Guard against the provider being disposed between scheduling and
+      // running the callback.
+      if (ref.read(markerIconSizeProvider) != markerSize) {
+        ref.read(markerIconSizeProvider.notifier).state = markerSize;
+      }
     });
   }
 }

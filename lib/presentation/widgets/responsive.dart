@@ -19,23 +19,24 @@ class Responsive extends StatelessWidget {
 
 // This size work fine on my design, maybe you need some customization depends on your design
 
-  // This isMobile, isTablet, isDesktop help us later
+  // Use MediaQuery.sizeOf so widgets only depend on the size sub-aspect of
+  // MediaQuery, not the entire MediaQueryData. This avoids rebuilds when
+  // unrelated MediaQuery fields (padding, viewInsets, etc.) change.
   static bool isMobile(BuildContext context) =>
-      MediaQuery.of(context).size.width <= mobileWidth;
+      MediaQuery.sizeOf(context).width <= mobileWidth;
 
-  // static bool isTablet(BuildContext context) =>
-  //     MediaQuery.of(context).size.width < desktopWidth &&
-  //     MediaQuery.of(context).size.width >= tabletWidth;
+  static bool isSmallerTablet(BuildContext context) {
+    final double w = MediaQuery.sizeOf(context).width;
+    return w >= mobileWidth && w < tabletWidth;
+  }
 
-
-  static bool isSmallerTablet(BuildContext context) =>
-      MediaQuery.of(context).size.width >= mobileWidth && MediaQuery.of(context).size.width < tabletWidth;
-
-  static bool isTablet(BuildContext context) =>
-      MediaQuery.of(context).size.width >= mobileWidth && MediaQuery.of(context).size.width < desktopWidth;
+  static bool isTablet(BuildContext context) {
+    final double w = MediaQuery.sizeOf(context).width;
+    return w >= mobileWidth && w < desktopWidth;
+  }
 
   static bool isDesktop(BuildContext context) =>
-      MediaQuery.of(context).size.width >= desktopWidth;
+      MediaQuery.sizeOf(context).width >= desktopWidth;
 
 
   @override

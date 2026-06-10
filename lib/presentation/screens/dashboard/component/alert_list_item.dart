@@ -1,9 +1,11 @@
+import 'package:flutter/material.dart';
+import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:metro_city_pulse/core/themes/app_theme.dart';
 import 'package:metro_city_pulse/domain/entities/map_data_entity.dart';
 import 'package:metro_city_pulse/presentation/utils/date_time_util.dart';
 import 'package:metro_city_pulse/presentation/utils/localization_util.dart';
-import 'package:flutter/material.dart';
-import 'package:hooks_riverpod/hooks_riverpod.dart';
+import 'package:metro_city_pulse/presentation/widgets/common/app_network_image.dart';
+import 'package:metro_city_pulse/presentation/widgets/common/app_text_widget.dart';
 
 class AlertListItem extends ConsumerWidget {
   final MapDataEntity alert;
@@ -11,82 +13,62 @@ class AlertListItem extends ConsumerWidget {
 
   const AlertListItem({super.key, required this.alert, required this.theme});
 
-  String _cameraLabel() {
-    if (alert.cameraName?.trim().isNotEmpty == true) {
-      return alert.cameraName!.trim();
+  String _firstNonEmpty(List<String?> values, {String fallback = '--'}) {
+    for (final String? v in values) {
+      final String trimmed = v?.trim() ?? '';
+      if (trimmed.isNotEmpty) return trimmed;
     }
-    if (alert.vehicleNo?.trim().isNotEmpty == true) {
-      return alert.vehicleNo!.trim();
-    }
-    return alert.id ?? '--';
-  }
-
-  String _locationLabel() {
-    if (alert.locationName?.trim().isNotEmpty == true) {
-      return alert.locationName!.trim();
-    }
-    if (alert.locationAddress?.trim().isNotEmpty == true) {
-      return alert.locationAddress!.trim();
-    }
-    return '--';
-  }
-
-  String _caseLabel() {
-    if (alert.status?.trim().isNotEmpty == true) {
-      return alert.status!.trim().toAllCapitalize();
-    }
-    return alert.confidenceScore?.toString() ?? '--';
+    return fallback;
   }
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final title = alert.type?.trim().isNotEmpty == true
-        ? alert.type!.trim()
-        : 'Alert';
-    final imageUrl = alert.imageUrl?.trim();
-    final formattedDate = DateTimeUtil.getFormattedDateTime(
+    final String title = _firstNonEmpty([alert.type], fallback: 'Alert');
+    final String cameraLabel = _firstNonEmpty(
+      [alert.cameraName, alert.vehicleNo, alert.id],
+    );
+    final String locationLabel = _firstNonEmpty(
+      [alert.locationName, alert.locationAddress],
+    );
+    final String caseLabel = alert.status?.trim().isNotEmpty == true
+        ? alert.status!.trim().toAllCapitalize()
+        : (alert.confidenceScore?.toString() ?? '--');
+    final String formattedDate = DateTimeUtil.getFormattedDateTime(
       alert.isoTimestamp,
       format: 'MMM dd yyyy h:mm:ss a',
     );
+    final Color textColor = theme.colors.text;
 
     return Padding(
       padding: const EdgeInsets.all(16),
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          ClipRRect(
+          AppNetworkImage(
+            url: alert.imageUrl,
+            width: 120,
+            height: 90,
             borderRadius: BorderRadius.circular(8),
-            child: imageUrl != null && imageUrl.isNotEmpty
-                ? Image.network(
-                    imageUrl,
-                    width: 120,
-                    height: 90,
-                    fit: BoxFit.cover,
-                    errorBuilder: (_, error, stackTrace) => _placeholderImage(),
-                  )
-                : _placeholderImage(),
           ),
           const SizedBox(width: 16),
           Expanded(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text(
+                AppText(
                   title,
-                  style: TextStyle(
-                    fontSize: 16,
-                    fontWeight: FontWeight.bold,
-                    color: theme.colors.text,
-                  ),
+                  size: 16,
+                  fontWeight: FontWeight.bold,
+                  color: textColor,
                 ),
                 const SizedBox(height: 4),
                 RichText(
                   text: TextSpan(
                     text: '${'camera'.tr(ref).toAllCapitalize()} : ',
-                    style: TextStyle(color: theme.colors.text),
+                    style: TextStyle(color: textColor),
                     children: [
                       TextSpan(
-                        text: _cameraLabel(),
+                        text: cameraLabel,
                         style: TextStyle(
                           color: theme.colors.primaryColor,
                           decoration: TextDecoration.underline,
@@ -96,14 +78,14 @@ class AlertListItem extends ConsumerWidget {
                   ),
                 ),
                 const SizedBox(height: 4),
-                Text(
-                  '${'location'.tr(ref).toAllCapitalize()}: ${_locationLabel()}',
-                  style: TextStyle(color: theme.colors.text),
+                AppText(
+                  '${'location'.tr(ref).toAllCapitalize()}: $locationLabel',
+                  color: textColor,
                 ),
                 const SizedBox(height: 4),
-                Text(
-                  '${'cases'.tr(ref).toAllCapitalize()}: ${_caseLabel()}',
-                  style: TextStyle(color: theme.colors.text),
+                AppText(
+                  '${'cases'.tr(ref).toAllCapitalize()}: $caseLabel',
+                  color: textColor,
                 ),
               ],
             ),
@@ -111,32 +93,22 @@ class AlertListItem extends ConsumerWidget {
           Column(
             crossAxisAlignment: CrossAxisAlignment.end,
             children: [
-              Text(
+              AppText(
                 formattedDate,
-                style: TextStyle(color: Colors.grey.shade600, fontSize: 12),
+                size: 12,
+                color: Colors.grey.shade600,
                 textAlign: TextAlign.right,
               ),
               const SizedBox(height: 12),
-              Text(
+              AppText(
                 '${'id_required'.tr(ref).replaceAll('*', '').trim().toUpperCase()} : ${alert.id ?? '--'}',
-                style: TextStyle(
-                  color: theme.colors.text,
-                  fontWeight: FontWeight.w500,
-                ),
+                color: textColor,
+                fontWeight: FontWeight.w500,
               ),
             ],
           ),
         ],
       ),
-    );
-  }
-
-  Widget _placeholderImage() {
-    return Container(
-      width: 120,
-      height: 90,
-      color: Colors.grey.shade200,
-      child: Icon(Icons.image_not_supported, color: Colors.grey.shade500),
     );
   }
 }

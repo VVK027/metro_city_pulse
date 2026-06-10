@@ -174,7 +174,7 @@ class DialogUtil {
         borderRadius: BorderRadius.circular(0.0),
       ),
       backgroundColor: bgColor,
-      margin: EdgeInsets.only(bottom: MediaQuery.of(context).size.height - 140, left: 0),
+      margin: EdgeInsets.only(bottom: MediaQuery.sizeOf(context).height - 140, left: 0),
       content: Row(
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [

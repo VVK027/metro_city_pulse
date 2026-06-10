@@ -93,9 +93,10 @@ dev_dependencies:
 
 # The following section is specific to Flutter packages.
 flutter:
-  # The following line ensures that the Material Icons font is
   uses-material-design: true
-  # To add assets to your application, add an assets section, like this:
+  # Asset list is intentionally explicit – every entry corresponds to a file
+  # that is actually referenced from Dart code. Adding an entry here without a
+  # corresponding usage costs build size and slows down asset hashing.
   assets:
     - assets/images/
     - assets/images/map-marker-icons/
